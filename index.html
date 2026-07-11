@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>1% Billiard — Luyện tập theo thế bi</title>
+<title>1% Billiard — Position-Based Practice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ================= TOKENS ================= */
+
 :root{
   --bg:#EDF2EE;
   --surface:#FFFFFF;
@@ -16,9 +16,9 @@
   --ink:#15241D;
   --muted:#5E7066;
   --line:#DBE6DF;
-  --felt:#0E7B4F;          /* primary action / felt */
+  --felt:#0E7B4F;          
   --felt-soft:#DBF0E5;
-  --accent:#F0B429;        /* bi số 1 vàng */
+  --accent:#F0B429;        
   --accent-soft:#FBEFCD;
   --warn:#C77A18;
   --warn-soft:#FBEBD3;
@@ -26,13 +26,13 @@
   --danger-soft:#F8E1DE;
   --ok:#0E7B4F;
   --ok-soft:#DBF0E5;
-  --chalk:#2F6DB0;         /* xanh phấn / bi 2 */
+  --chalk:#2F6DB0;         
   --chalk-soft:#DEEAF6;
   --shadow:0 1px 2px rgba(16,40,28,.05),0 12px 30px rgba(16,40,28,.09);
   --radius:16px;
   --font-display:'Be Vietnam Pro',system-ui,sans-serif;
   --font-body:'Inter',system-ui,sans-serif;
-  /* Ball colors (không đổi theo theme) */
+  
   --ball-cue:#F7F3E6; --ball-1:#F0B429; --ball-2:#1E5AA8; --ball-3:#C0392B;
   --ball-4:#6C3FA6; --ball-5:#E8792B; --ball-6:#1E8449; --ball-7:#7B241C;
   --ball-8:#161311; --ball-9:#F0B429;
@@ -59,7 +59,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.4),0 14px 34px rgba(0,0,0,.42);
 }
 
-/* ================= BASE ================= */
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -90,7 +90,7 @@ label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:var(-
 :focus-visible{outline:2px solid var(--felt);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ================= LAYOUT ================= */
+
 .app{display:flex;min-height:100vh}
 .sidebar{
   width:232px;flex-shrink:0;background:var(--surface);
@@ -132,7 +132,7 @@ section[data-view]{display:none}
 section[data-view].active{display:block;animation:fadein .25s ease}
 @keyframes fadein{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 
-/* ================= COMMON ================= */
+
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin-bottom:18px}
 .page-head{margin-bottom:20px}
 .page-head h1{font-size:24px;font-weight:700}
@@ -169,7 +169,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field-full{grid-column:1/-1}
 
-/* ================= HERO (Bàn tập hôm nay) ================= */
+
 .hero{
   background:
     radial-gradient(circle at 82% 22%, rgba(244,196,48,.18), transparent 42%),
@@ -198,14 +198,14 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .hero-quote{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#CFEBDD;font-style:italic;line-height:1.55}
 .hero-quote b{color:#fff;font-style:normal;font-weight:600}
 
-/* ================= STAT CARDS ================= */
+
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 16px;box-shadow:var(--shadow)}
 .stat .num{font-family:var(--font-display);font-weight:800;font-size:24px;color:var(--felt)}
 .stat .num.a{color:var(--accent)} .stat .num.d{color:var(--danger)} .stat .num.c{color:var(--chalk)}
 .stat .lbl{font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
 
-/* ================= SESSION 60' ================= */
+
 .session-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
 .session-timer-big{font-family:var(--font-display);font-weight:800;font-size:34px;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .session-timer-big.run{color:var(--felt)}
@@ -225,7 +225,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .session-progress{height:8px;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:14px}
 .session-progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--felt),var(--accent));border-radius:99px;transition:width .3s}
 
-/* ================= BILLIARD TABLE (SVG) ================= */
+
 .table-tool{margin-top:6px}
 .table-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
 .table-controls select{width:auto;min-width:150px}
@@ -239,7 +239,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .table-hint{font-size:12px;color:var(--muted);margin-top:8px}
 .mini-table{width:100%;max-width:340px;border-radius:10px;overflow:hidden;margin-top:8px}
 
-/* ================= RATING (1-5) ================= */
+
 .rate{display:flex;gap:6px}
 .rate button{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);font-family:var(--font-display);font-weight:700;font-size:15px}
 .rate button.on{background:var(--felt);border-color:var(--felt);color:#fff}
@@ -251,7 +251,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .seg.mental button.on{background:var(--warn);border-color:var(--warn)}
 .seg.found button.on{background:var(--chalk);border-color:var(--chalk)}
 
-/* ================= LISTS / CARDS ================= */
+
 .item-card{border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;background:var(--surface);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
 .item-card:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--felt) 26%,var(--line))}
 .item-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;flex-wrap:wrap}
@@ -269,7 +269,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .result-draw{background:var(--surface-2);color:var(--muted)}
 .result-practice{background:var(--chalk-soft);color:var(--chalk)}
 
-/* ================= BAR CHART ================= */
+
 .bars{display:flex;flex-direction:column;gap:10px}
 .bar-row{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center}
 .bar-label{font-size:12.5px;color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -291,7 +291,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .insight{background:linear-gradient(135deg,var(--felt-soft),transparent);border:1px solid color-mix(in srgb,var(--felt) 26%,var(--line));border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.6;margin-bottom:10px;display:flex;gap:10px}
 .insight .ic{font-size:18px;flex-shrink:0}
 
-/* ================= MODAL ================= */
+
 .modal-overlay{position:fixed;inset:0;background:rgba(6,16,12,.62);display:none;align-items:flex-start;justify-content:center;padding:28px 16px;z-index:60;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .modal-overlay.show{display:flex;animation:fadein .18s ease}
 .modal{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.4);width:100%;max-width:560px;padding:24px;margin:auto}
@@ -300,13 +300,13 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .modal-head .close{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;width:34px;height:34px;color:var(--muted);font-size:17px;flex-shrink:0}
 .modal-foot{display:flex;gap:9px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
 
-/* ================= TOAST ================= */
+
 #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(16px);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:99px;font-size:13.5px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:80;max-width:90vw;text-align:center}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 .theme-fab{display:none;border:none}
 
-/* ================= RESPONSIVE ================= */
+
 @media (max-width:820px){
   .app{flex-direction:column}
   .sidebar{width:100%;height:auto;position:fixed;bottom:0;top:auto;z-index:40;flex-direction:row;padding:5px 3px calc(5px + env(safe-area-inset-bottom));gap:0;border-right:none;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.12)}
@@ -327,7 +327,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 </style>
 
 <style>
-/* ===== Practice trainer additions ===== */
+
 .range{width:100%;accent-color:var(--felt);height:6px;background:var(--surface-2);border-radius:99px;padding:0}
 .tool-btn.on{background:var(--felt);border-color:var(--felt);color:#fff}
 [data-theme="dark"] .tool-btn.on{color:#04140d}
@@ -376,7 +376,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .quick-plans{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .quick-plans button{border:1px solid var(--line);background:var(--surface-2);color:var(--muted);border-radius:99px;padding:6px 11px;font-size:12px;font-weight:700}
 .quick-plans button.on{background:var(--felt-soft);color:var(--felt);border-color:var(--felt)}
-/* ===== Stroke speed & recurring-error patterns ===== */
+
 .stroke-panel{margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(135deg,var(--surface-2),color-mix(in srgb,var(--chalk-soft) 45%,var(--surface)))}
 .stroke-target{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
 .stroke-target strong{font-family:var(--font-display);font-size:16px;color:var(--chalk)}
@@ -390,7 +390,7 @@ section[data-view].active{display:block;animation:fadein .25s ease}
 .stroke-summary{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .rhythm-seg button{padding:7px 10px;font-size:12px}
 
-/* ===== Điểm đầu cơ tiếp xúc bi cái (cue ball tip / contact point) ===== */
+
 .tip-picker{display:grid;grid-template-columns:minmax(0,196px) minmax(0,1fr);gap:16px;align-items:center}
 .tip-picker.compact{grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:12px}
 .tip-ball-wrap{width:100%;max-width:196px;margin:0 auto}
@@ -438,7 +438,7 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
 .pattern-insight{display:flex;gap:10px;padding:12px 14px;border-radius:12px;background:var(--chalk-soft);border:1px solid color-mix(in srgb,var(--chalk) 22%,var(--line));font-size:13px;line-height:1.6;margin-top:12px}
 .pattern-method{font-size:11.5px;color:var(--muted);line-height:1.55;margin-top:12px}
 
-/* ===== THI ĐẤU (Play Match) ===== */
+
 .match-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center}
 .match-score{font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--ink);white-space:nowrap;text-align:right;line-height:1.1}
 .match-score .vs{color:var(--muted);font-size:16px;margin:0 4px}
@@ -463,7 +463,7 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
 .kind-btn.on .ki{border-color:color-mix(in srgb,var(--danger) 30%,var(--line));background:color-mix(in srgb,var(--danger-soft) 70%,var(--surface))}
 .kind-btn.on .kn{color:var(--danger)}
 
-/* ===== Tái hiện lỗi thực chiến: Ý định → Kết quả ===== */
+
 .replay-shell{border:1px solid color-mix(in srgb,var(--chalk) 24%,var(--line));background:linear-gradient(145deg,color-mix(in srgb,var(--chalk-soft) 46%,var(--surface)),var(--surface));border-radius:15px;padding:14px;margin-top:10px}
 .replay-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .replay-head-copy{min-width:0;flex:1}
@@ -491,6 +491,33 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
 .replay-log-bar .btn{min-height:48px}
 .rail-pin-legend{display:inline-flex;align-items:center;gap:6px}
 .rail-pin-legend::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 3px color-mix(in srgb,var(--warn) 22%,transparent)}
+
+
+.modal.error-viewer-modal{max-width:720px;padding:0;overflow:hidden}
+.error-viewer-modal .modal-head{padding:20px 20px 12px;margin:0;border-bottom:1px solid var(--line)}
+.error-viewer-modal .modal-foot{padding:12px 20px calc(14px + env(safe-area-inset-bottom));margin:0;border-top:1px solid var(--line);background:var(--surface)}
+.error-view-meta{display:flex;gap:6px;flex-wrap:wrap;padding:0 20px 14px;background:var(--surface)}
+.error-view-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px 20px;background:var(--surface-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}
+.error-view-tab{min-height:46px;border:1px solid var(--line);border-radius:11px;background:var(--surface);color:var(--muted);font-size:13px;font-weight:800;padding:8px 10px;display:flex;align-items:center;justify-content:center;gap:7px}
+.error-view-tab.on{background:var(--felt);border-color:var(--felt);color:#fff;box-shadow:0 5px 16px color-mix(in srgb,var(--felt) 20%,transparent)}
+[data-theme="dark"] .error-view-tab.on{color:#04140d}
+.error-view-body{padding:16px 20px 20px;max-height:min(72vh,760px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--surface)}
+.error-view-pane{display:none;animation:fadein .18s ease}
+.error-view-pane.on{display:block}
+.error-view-pane-head{margin-bottom:12px}
+.error-view-pane-title{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--ink)}
+.error-view-pane-desc{font-size:12px;line-height:1.55;color:var(--muted);margin-top:3px}
+.error-view-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:13px}
+.error-view-summary-item{border:1px solid var(--line);border-radius:11px;background:var(--surface-2);padding:9px 10px;min-width:0}
+.error-view-summary-item b{display:block;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);line-height:1.35}
+.error-view-summary-item span{display:block;font-size:12.5px;font-weight:750;color:var(--ink);line-height:1.4;margin-top:3px;overflow-wrap:anywhere}
+.error-view-table{width:100%;max-width:400px;margin:0 auto;border-radius:14px;overflow:hidden}
+.error-view-legend{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:11px}
+.error-view-legend span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);border-radius:99px;padding:4px 9px;font-size:10.8px;font-weight:650;color:var(--muted)}
+.error-view-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0}
+.error-view-empty{border:1.5px dashed var(--line);border-radius:14px;padding:28px 16px;text-align:center;color:var(--muted);font-size:12.5px}
+.error-view-note{margin-top:12px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 10px 10px 0;padding:9px 11px;font-size:12px;line-height:1.55;color:var(--muted)}
+.error-view-note b{color:var(--ink)}
 .err-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line)}
 .err-item:last-child{border-bottom:none}
 .err-ico{width:34px;height:34px;border-radius:10px;background:var(--danger-soft);color:var(--danger);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
@@ -530,6 +557,16 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
   .err-ico{width:38px;height:38px}
   .err-actions{grid-column:1/-1;flex-direction:row;justify-content:flex-end;align-items:center;flex-wrap:wrap;margin-left:47px}
   .err-mini{width:100%;max-width:150px}
+  .modal.error-viewer-modal{position:fixed;inset:0;width:100%;height:100dvh;max-width:none;min-height:0;border-radius:0;margin:0;padding:0;display:flex;flex-direction:column}
+  .error-viewer-modal .modal-head{padding:16px 15px 10px;flex-shrink:0}
+  .error-view-meta{padding:0 15px 11px}
+  .error-view-tabs{padding:8px 15px;top:0}
+  .error-view-tab{min-height:44px;font-size:12px}
+  .error-view-body{padding:13px 15px 18px;max-height:none;flex:1;min-height:0;overflow-y:auto}
+  .error-view-summary{grid-template-columns:1fr 1fr}
+  .error-view-summary-item:last-child:nth-child(odd){grid-column:1/-1}
+  .error-viewer-modal .modal-foot{position:sticky;bottom:0;padding:10px 15px calc(10px + env(safe-area-inset-bottom))}
+  .error-viewer-modal .modal-foot .btn{width:100%;min-height:46px}
 }
 @media(max-width:820px){.pattern-grid{grid-template-columns:1fr}.pattern-hero-main{grid-template-columns:1fr}.pattern-hero .ph-count{text-align:left}.pos-card{grid-template-columns:118px 1fr;gap:14px}.pos-mini{max-width:118px}.table-wrap{max-width:360px}.session-plan-main{grid-template-columns:1fr}.session-plan-count{text-align:left}.today-plan{padding:14px}.pos-stats{gap:12px}.pos-stats .ps b{font-size:18px}}
 @media(max-width:430px){.speed-scale{gap:4px}.speed-scale button{font-size:9.5px;padding:4px 1px}.speed-scale button b{font-size:14px}.pos-card{grid-template-columns:1fr}.pos-mini{max-width:150px;margin:0 auto}.card{padding:17px}.session-plan-card{padding:15px}}
@@ -543,13 +580,13 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
       <div class="ball9"></div>
       <div class="txt"><span class="pct">1% Billiard</span><span class="os">Practice · Trainer</span></div>
     </div>
-    <button class="nav-btn active" data-nav="practice"><span class="ico">🎯</span><span class="lbl-l">Luyện tập</span><span class="lbl-s">Luyện tập</span></button>
-    <button class="nav-btn" data-nav="match"><span class="ico">🏆</span><span class="lbl-l">Thi đấu</span><span class="lbl-s">Thi đấu</span></button>
-    <button class="nav-btn" data-nav="progress"><span class="ico">📈</span><span class="lbl-l">Tiến bộ</span><span class="lbl-s">Tiến bộ</span></button>
-    <button class="nav-btn" data-nav="patterns"><span class="ico">🔎</span><span class="lbl-l">Pattern lỗi</span><span class="lbl-s">Pattern</span></button>
-    <button class="nav-btn" data-nav="data"><span class="ico">💾</span><span class="lbl-l">Dữ liệu</span><span class="lbl-s">Dữ liệu</span></button>
+    <button class="nav-btn active" data-nav="practice"><span class="ico">🎯</span><span class="lbl-l">Practice</span><span class="lbl-s">Practice</span></button>
+    <button class="nav-btn" data-nav="match"><span class="ico">🏆</span><span class="lbl-l">Matches</span><span class="lbl-s">Matches</span></button>
+    <button class="nav-btn" data-nav="progress"><span class="ico">📈</span><span class="lbl-l">Progress</span><span class="lbl-s">Progress</span></button>
+    <button class="nav-btn" data-nav="patterns"><span class="ico">🔎</span><span class="lbl-l">Error Patterns</span><span class="lbl-s">Patterns</span></button>
+    <button class="nav-btn" data-nav="data"><span class="ico">💾</span><span class="lbl-l">Data</span><span class="lbl-s">Data</span></button>
     <div class="sidebar-foot">
-      <button class="theme-toggle" id="themeToggle"><span id="themeIcon">🌙</span><span id="themeLabel">Chế độ tối</span></button>
+      <button class="theme-toggle" id="themeToggle"><span id="themeIcon">🌙</span><span id="themeLabel">Dark mode</span></button>
     </div>
   </aside>
   <button class="theme-fab" id="themeFab">🌙</button>
@@ -560,10 +597,10 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
     <section data-view="progress"></section>
     <section data-view="patterns"></section>
     <section data-view="data">
-      <div class="page-head"><h1>Dữ liệu</h1><p class="sub">Toàn bộ dữ liệu lưu trên trình duyệt của bạn (localStorage). Không máy chủ, không tài khoản.</p></div>
+      <div class="page-head"><h1>Data</h1><p class="sub">All data is stored in your browser (localStorage). No server and no account required.</p></div>
       <div class="card">
-        <div class="section-title">Sao lưu &amp; phục hồi</div>
-        <p class="hint" style="margin-bottom:14px">Export định kỳ để giữ dữ liệu an toàn trước khi dọn cache hoặc đổi thiết bị.</p>
+        <div class="section-title">Backup &amp; restore</div>
+        <p class="hint" style="margin-bottom:14px">Export regularly to keep your data safe before clearing the cache or switching devices.</p>
         <div class="row">
           <button class="btn btn-primary" id="exportBtn">⬇ Export JSON</button>
           <button class="btn btn-ghost" id="importBtn">⬆ Import JSON</button>
@@ -571,14 +608,14 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
         </div>
       </div>
       <div class="card">
-        <div class="section-title">Dọn dữ liệu</div>
-        <p class="hint" style="margin-bottom:14px">Xoá toàn bộ thế bi và phiên tập hiện có khi bắt đầu dùng thật.</p>
-        <button class="btn btn-ghost" id="clearDemoBtn">🧹 Xoá toàn bộ thế bi</button>
+        <div class="section-title">Clear data</div>
+        <p class="hint" style="margin-bottom:14px">Delete all current positions, practice sessions, and matches before starting with real data.</p>
+        <button class="btn btn-ghost" id="clearDemoBtn">🧹 Clear positions & matches</button>
       </div>
       <div class="card">
-        <div class="section-title" style="color:var(--danger)">Vùng nguy hiểm</div>
-        <p class="hint" style="margin-bottom:14px">Xoá toàn bộ thế bi, phiên tập và cú đánh. Không thể hoàn tác.</p>
-        <button class="btn btn-danger" id="resetBtn">🗑 Reset toàn bộ dữ liệu</button>
+        <div class="section-title" style="color:var(--danger)">Danger zone</div>
+        <p class="hint" style="margin-bottom:14px">Delete every position, practice session, and recorded shot. This cannot be undone.</p>
+        <button class="btn btn-danger" id="resetBtn">🗑 Reset all data</button>
       </div>
       <div id="dataSummary"></div>
     </section>
@@ -588,23 +625,19 @@ svg.tip-ball.mini{width:48px;height:48px;filter:none;flex-shrink:0}
 <div id="toast"></div>
 
 <script>
-/* ============================================================
-   1% BILLIARD — Practice Trainer (theo thế bi)
-   Luồng: Thiết lập thế bi → bắn cú → nhập kết quả → tự chấm điểm.
-   Data: localStorage only. No backend.
-   ============================================================ */
+
 'use strict';
 const LS_KEY = 'one_percent_billiard_trainer_v1';
 const THEME_KEY = 'opb_theme';
 
-/* ---------- Utils ---------- */
+
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function addDays(s,n){ const d=new Date(s+'T00:00:00'); d.setDate(d.getDate()+n); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function daysBetween(a,b){ return Math.round((new Date(b+'T00:00:00')-new Date(a+'T00:00:00'))/86400000); }
-const VN_DOW=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
-const VN_MON=['Th1','Th2','Th3','Th4','Th5','Th6','Th7','Th8','Th9','Th10','Th11','Th12'];
-function fmtDateFull(s){ const d=new Date(s+'T00:00:00'); return VN_DOW[d.getDay()]+', '+d.getDate()+' '+VN_MON[d.getMonth()]+' '+d.getFullYear(); }
+const EN_DOW=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const EN_MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function fmtDateFull(s){ const d=new Date(s+'T00:00:00'); return EN_DOW[d.getDay()]+', '+d.getDate()+' '+EN_MON[d.getMonth()]+' '+d.getFullYear(); }
 function fmtDate(s){ const d=new Date(s+'T00:00:00'); return d.getDate()+'/'+(d.getMonth()+1); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 function pct(n){ return Math.max(0,Math.min(100,Math.round(n))); }
@@ -612,20 +645,16 @@ function fmtScore(n){ return (Math.round(n*100)/100).toString().replace(/\.0+$/,
 function pointValid(p){ return !!p&&Number.isFinite(Number(p.x))&&Number.isFinite(Number(p.y)); }
 function pointSafe(p,fallback){ return pointValid(p)?{x:Math.max(0,Math.min(1,Number(p.x))),y:Math.max(0,Math.min(1,Number(p.y)))}:(fallback?{...fallback}:null); }
 
-/* ---------- Table geometry — bàn 9-ball pool 9ft theo tỉ lệ WPA ----------
-   Vùng chơi 100 x 50 inch, hiển thị dọc để thao tác tốt trên điện thoại.
-   Bi 2.25 inch tương đương 4.5% bề ngang vùng chơi. Miệng lỗ dùng kiểu
-   pool cut có jaw nhọn, khác kiểu bo tròn của Chinese pool / heyball. */
-const PLAY_W=440, PLAY_H=880;             // 50 x 100 inch — đúng tỉ lệ 1:2 khi đặt dọc
-const RAIL=58;                            // tương đương khoảng 6.6 inch trên bề ngang 50 inch
+
+const PLAY_W=440, PLAY_H=880;
+const RAIL=58;
 const CUSH=30;
 const TB={ w:PLAY_W+2*RAIL, h:PLAY_H+2*RAIL, m:RAIL, r:10 };
 TB.px0=RAIL; TB.py0=RAIL; TB.px1=RAIL+PLAY_W; TB.py1=RAIL+PLAY_H;
-const BALL_D=2*TB.r;                      // 20 / 440 = 4.55%, sát bi pool 2.25 inch
-const GRAB=29;                            // vùng chạm lớn hơn hình bi để kéo dễ trên mobile
+const BALL_D=2*TB.r;
+const GRAB=29;
 const MID_Y=(TB.py0+TB.py1)/2;
 const RAIL_MID=(8+(RAIL-CUSH))/2;
-// jaw góc ~4.5 inch và jaw giữa ~5 inch theo tỉ lệ vùng chơi 50 inch
 const CUT={ cNose:30, cBack:17, sNose:23, sBack:14 };
 function fx(x){ return TB.px0 + x*PLAY_W; }
 function fy(y){ return TB.py0 + y*PLAY_H; }
@@ -637,8 +666,8 @@ const POCKETS=[
   {id:'lm',vx:TB.px0-PK_OFF-1,vy:MID_Y,r:PK_RS},{id:'rm',vx:TB.px1+PK_OFF+1,vy:MID_Y,r:PK_RS},
 ];
 function pocketById(id){ return POCKETS.find(p=>p.id===id)||null; }
+function pocketLabel(id){ return ({tl:'Top-left corner',tr:'Top-right corner',bl:'Bottom-left corner',br:'Bottom-right corner',lm:'Left side pocket',rm:'Right side pocket'})[id]||'Not recorded'; }
 function nearestPocket(p){ let best=null,bd=1e9; POCKETS.forEach(pk=>{ const d=Math.hypot(fx(p.x)-pk.vx,fy(p.y)-pk.vy); if(d<bd){bd=d;best=pk;} }); return bd<=44?best:null; }
-// tìm bi/đích gần con trỏ nhất trong vùng chạm → bắt để kéo (không cần trúng chính giữa bi)
 function nearestDraggable(list,p){ let best=null,bd=1e9; list.forEach(b=>{ const d=distPx(p,b); if(d<bd){bd=d;best=b;} }); return (best&&bd<=GRAB)?best:null; }
 
 const BALL_INFO={
@@ -651,47 +680,42 @@ const BALL_INFO={
 };
 const BALL_ORDER=['cue','1','2','3','4','5','6','7','8','9'];
 const SPEED_LEVELS={
-  1:{label:'Rất nhẹ',short:'Rất nhẹ',tip:'Stroke ngắn, đưa cơ mượt và vẫn đi xuyên qua bi cái.'},
-  2:{label:'Nhẹ',short:'Nhẹ',tip:'Stroke ngắn–vừa, ưu tiên độ chính xác và nhịp đều.'},
-  3:{label:'Vừa',short:'Vừa',tip:'Stroke vừa, tăng tốc mượt tới thời điểm chạm bi.'},
-  4:{label:'Mạnh',short:'Mạnh',tip:'Stroke dài hơn, không giật tay và không siết cán cơ.'},
-  5:{label:'Power',short:'Power',tip:'Stroke đầy đủ cho cú cần lực; không dùng cho cú kiểm soát thông thường.'}
+  1:{label:'Very soft',short:'Very soft',tip:'Use a short stroke, keep it smooth, and follow through the cue ball.'},
+  2:{label:'Soft',short:'Soft',tip:'Use a short-to-medium stroke and prioritize accuracy and consistent rhythm.'},
+  3:{label:'Medium',short:'Medium',tip:'Use a medium stroke and accelerate smoothly into contact.'},
+  4:{label:'Firm',short:'Firm',tip:'Use a longer stroke without jerking or squeezing the cue.'},
+  5:{label:'Power',short:'Power',tip:'Use a full stroke for power shots; avoid this level for routine control shots.'}
 };
-const RHYTHM_LABELS={smooth:'Mượt',rushed:'Gấp',decelerated:'Giảm tốc',jerky:'Giật'};
-function speedLabel(v){ return SPEED_LEVELS[parseInt(v,10)]?SPEED_LEVELS[parseInt(v,10)].label:'Chưa ghi'; }
+const RHYTHM_LABELS={smooth:'Smooth',rushed:'Rushed',decelerated:'Decelerated',jerky:'Jerky'};
+function speedLabel(v){ return SPEED_LEVELS[parseInt(v,10)]?SPEED_LEVELS[parseInt(v,10)].label:'Not recorded'; }
 function speedTip(v){ return SPEED_LEVELS[parseInt(v,10)]?SPEED_LEVELS[parseInt(v,10)].tip:''; }
-function rhythmLabel(v){ return RHYTHM_LABELS[v]||'Chưa ghi'; }
+function rhythmLabel(v){ return RHYTHM_LABELS[v]||'Not recorded'; }
 function rhythmSafe(v){ return v==='smooth'||v==='rushed'||v==='decelerated'||v==='jerky'; }
 function speedButtons(selected,target){ return Object.keys(SPEED_LEVELS).map(k=>{ const n=parseInt(k,10),x=SPEED_LEVELS[n]; return `<button type="button" data-speed="${n}" class="${selected===n?'on ':''}${target===n?'target':''}"><b>${n}</b>${x.short}</button>`; }).join(''); }
 
-/* ---------- ĐIỂM ĐẦU CƠ TIẾP XÚC BI CÁI (cue ball tip / contact point) ----------
-   Mô phỏng quả bi tập có chấm: lưới điểm chạm theo đơn vị "chấm" (tip).
-   x: -2 (trái) → +2 (phải) · y: -2 (thấp) → +2 (cao)
-   2 chấm = 1/2 bán kính bi cái = giới hạn trượt đầu cơ (miscue limit).
-   Bỏ 4 điểm góc (±2,±2) vì nằm quá xa tâm, thực tế không đánh được. */
-const TIP_MAX=2, TIP_U=24, TIP_C=120;          // TIP_U: px cho 1 chấm trong viewBox 240
+
+const TIP_MAX=2, TIP_U=24, TIP_C=120;
 const TIP_GRID=(()=>{ const g=[]; for(let y=TIP_MAX;y>=-TIP_MAX;y--) for(let x=-TIP_MAX;x<=TIP_MAX;x++){ if(Math.abs(x)===TIP_MAX&&Math.abs(y)===TIP_MAX) continue; g.push({x,y}); } return g; })();
 function tipValid(t){ if(!t||typeof t!=='object') return false; const x=parseInt(t.x,10),y=parseInt(t.y,10); return TIP_GRID.some(p=>p.x===x&&p.y===y); }
 function tipSafe(t){ return tipValid(t)?{x:parseInt(t.x,10),y:parseInt(t.y,10)}:{x:0,y:0}; }
 function tipOrNull(t){ return tipValid(t)?{x:parseInt(t.x,10),y:parseInt(t.y,10)}:null; }
 function tipEqual(a,b){ const p=tipOrNull(a),q=tipOrNull(b); if(!p||!q) return false; return p.x===q.x&&p.y===q.y; }
-function tipLabel(t){ const s=tipSafe(t); if(!s.x&&!s.y) return 'Tâm bi';
-  const v=s.y>0?('Cao '+s.y):s.y<0?('Thấp '+(-s.y)):'';
-  const h=s.x>0?('Phải '+s.x):s.x<0?('Trái '+(-s.x)):'';
+function tipLabel(t){ const s=tipSafe(t); if(!s.x&&!s.y) return 'Center ball';
+  const v=s.y>0?('High '+s.y):s.y<0?('Low '+(-s.y)):'';
+  const h=s.x>0?('Right '+s.x):s.x<0?('Left '+(-s.x)):'';
   return [v,h].filter(Boolean).join(' · '); }
 function tipEffect(t){ const s=tipSafe(t);
-  const v=s.y>=2?'Bi cái ăn theo mạnh sau va chạm (follow).'
-        :s.y===1?'Bi cái đi tới nhẹ sau va chạm (follow nhẹ).'
-        :s.y===0?'Bi cái đứng tại điểm chạm hoặc trượt theo đường tiếp tuyến (stun).'
-        :s.y===-1?'Bi cái lùi nhẹ sau va chạm (draw nhẹ).'
-        :'Bi cái lùi mạnh về sau (draw).';
-  const h=s.x===0?'':' Thêm xoáy '+(s.x>0?'phải':'trái')+': bi cái đổi góc sau khi chạm băng, cần bù ngắm vì squirt/throw.';
+  const v=s.y>=2?'Strong follow after contact.'
+        :s.y===1?'Light follow after contact.'
+        :s.y===0?'The cue ball stops at contact or follows the tangent line with stun.'
+        :s.y===-1?'Light draw after contact.'
+        :'Strong draw back after contact.';
+  const h=s.x===0?'':' Add '+(s.x>0?'right':'left')+' English: the cue ball changes angle off the rail, so compensate for squirt and throw.';
   return v+h; }
 function tipRisk(t){ const s=tipSafe(t); return Math.hypot(s.x,s.y)>TIP_MAX+0.05; }
-function tipWarn(t){ return tipRisk(t)?'Điểm này nằm ngoài vòng ½ bán kính — rất dễ trượt đầu cơ (miscue). Lơ kỹ, ra ngọn thẳng và không cần lực lớn.':''; }
-const TIP_PRESETS=[{name:'Tâm bi',x:0,y:0},{name:'Cao (follow)',x:0,y:2},{name:'Thấp (draw)',x:0,y:-2},{name:'Trái',x:-2,y:0},{name:'Phải',x:2,y:0}];
+function tipWarn(t){ return tipRisk(t)?'This contact point is outside the half-radius circle and has a high miscue risk. Chalk carefully, deliver the cue straight, and avoid unnecessary power.':''; }
+const TIP_PRESETS=[{name:'Center',x:0,y:0},{name:'High (follow)',x:0,y:2},{name:'Low (draw)',x:0,y:-2},{name:'Left',x:-2,y:0},{name:'Right',x:2,y:0}];
 
-// Vẽ bi cái mô phỏng kiểu bi tập: viền đỏ + mặt kem + lưới chấm điểm chạm
 function tipBallSVG(t,opt){
   opt=opt||{};
   const sel=tipOrNull(t), tgt=tipOrNull(opt.target), inter=!!opt.interactive, mini=!!opt.mini;
@@ -714,11 +738,11 @@ function tipBallSVG(t,opt){
       +`</g>`;
   });
   const labels=mini?'':`
-    <text x="${C}" y="${C-RB+12}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4">CAO</text>
-    <text x="${C}" y="${C+RB-12}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4">THẤP</text>
-    <text x="${C-RB+12}" y="${C}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4" transform="rotate(-90 ${C-RB+12} ${C})">TRÁI</text>
-    <text x="${C+RB-12}" y="${C}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4" transform="rotate(90 ${C+RB-12} ${C})">PHẢI</text>`;
-  return `<svg class="tip-ball${inter?' interactive':''}${mini?' mini':''}" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Điểm đầu cơ: ${esc(sel?tipLabel(sel):'chưa chọn')}">
+    <text x="${C}" y="${C-RB+12}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4">HIGH</text>
+    <text x="${C}" y="${C+RB-12}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4">LOW</text>
+    <text x="${C-RB+12}" y="${C}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4" transform="rotate(-90 ${C-RB+12} ${C})">LEFT</text>
+    <text x="${C+RB-12}" y="${C}" text-anchor="middle" dominant-baseline="middle" fill="#FCE9E6" font-size="11" font-weight="800" letter-spacing="1.4" transform="rotate(90 ${C+RB-12} ${C})">RIGHT</text>`;
+  return `<svg class="tip-ball${inter?' interactive':''}${mini?' mini':''}" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cue-tip contact: ${esc(sel?tipLabel(sel):'not selected')}">
     <defs>
       <radialGradient id="${gid}-g" cx="34%" cy="28%" r="78%"><stop offset="0%" stop-color="#fff" stop-opacity=".55"/><stop offset="58%" stop-color="#fff" stop-opacity="0"/></radialGradient>
       <radialGradient id="${gid}-f" cx="36%" cy="30%" r="82%"><stop offset="0%" stop-color="#FBF5E4"/><stop offset="100%" stop-color="#E4D6B4"/></radialGradient>
@@ -730,7 +754,6 @@ function tipBallSVG(t,opt){
     <circle cx="${C}" cy="${C}" r="${RB-0.8}" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.6" pointer-events="none"/>
   </svg>`;
 }
-// Bộ chọn tương tác. opt: {nullable, target, compact}
 function makeTipPicker(container,tip,onChange,opt){
   opt=opt||{};
   let cur=opt.nullable?tipOrNull(tip):tipSafe(tip);
@@ -739,14 +762,14 @@ function makeTipPicker(container,tip,onChange,opt){
   function draw(){
     const warn=cur?tipWarn(cur):'';
     const presets=TIP_PRESETS.map(p=>`<button type="button" data-preset="${p.x},${p.y}" class="${tipEqual(p,cur)?'on':''}">${p.name}</button>`).join('')
-      + (opt.target?`<button type="button" data-preset="${tipSafe(opt.target).x},${tipSafe(opt.target).y}" class="${tipEqual(opt.target,cur)?'on':''}">＝ Mục tiêu</button>`:'');
+      + (opt.target?`<button type="button" data-preset="${tipSafe(opt.target).x},${tipSafe(opt.target).y}" class="${tipEqual(opt.target,cur)?'on':''}">＝ Target</button>`:'');
     container.innerHTML=`
       <div class="tip-ball-wrap">${tipBallSVG(cur,{interactive:true,target:opt.target})}</div>
       <div class="tip-side">
         <div class="tip-presets">${presets}</div>
         <div class="tip-readout">
-          <div class="tr-name${cur?'':' none'}">${cur?esc(tipLabel(cur)):'Chưa ghi điểm chạm'}</div>
-          <div class="tr-eff">${cur?esc(tipEffect(cur)):'Chạm vào một chấm trên bi cái để ghi điểm đầu cơ đã dùng ở lượt này.'}</div>
+          <div class="tr-name${cur?'':' none'}">${cur?esc(tipLabel(cur)):'Contact point not recorded'}</div>
+          <div class="tr-eff">${cur?esc(tipEffect(cur)):'Tap a dot on the cue ball to record the cue-tip contact used for this shot.'}</div>
           ${warn?`<div class="tr-warn">⚠ ${esc(warn)}</div>`:''}
         </div>
       </div>`;
@@ -767,8 +790,7 @@ function makeTipPicker(container,tip,onChange,opt){
 }
 
 
-/* ---------- SVG compose ---------- */
-// vẽ 1 viên bi tại gốc toạ độ (0,0) — dùng cho group có transform translate
+
 let _gid=0;
 function ballGlyph0(type,opt){
   opt=opt||{}; const info=BALL_INFO[type]||BALL_INFO.cue, r=TB.r; const cid='c'+(_gid++);
@@ -791,9 +813,7 @@ function draggableGroup(id,x,y,type,opt){
   return `<g data-drag="${id}" transform="translate(${fx(x)},${fy(y)})" style="cursor:grab;touch-action:none">`+
          `<circle r="${GRAB}" fill="transparent"/>`+ballGlyph0(type,opt)+tag+`</g>`;
 }
-/* Đệm (cushion) có mặt vát chéo tại miệng lỗ — đặc trưng bàn pool Mỹ.
-   Mỗi đệm là 1 tứ giác: cạnh trong (nose) thụt vào nhiều hơn cạnh ngoài (back)
-   → tạo miệng lỗ hình phễu, rộng hơn hẳn bàn Chinese 8-ball. */
+
 function cushions(gradId){
   const X0=TB.px0,X1=TB.px1,Y0=TB.py0,Y1=TB.py1,D=CUSH,M=MID_Y;
   const c=CUT;
@@ -811,7 +831,7 @@ function cushions(gradId){
     nose(X0+c.cNose,Y0,X1-c.cNose,Y0), nose(X0+c.cNose,Y1,X1-c.cNose,Y1),
   ].join('');
 }
-/* Kim cương trên rail + lưới vạch chỉ + vạch bếp (ở NỬA DƯỚI) + các spot */
+
 function tableDecor(){
   const longY=[0.125,0.25,0.375,0.625,0.75,0.875];
   const shortX=[0.25,0.5,0.75];
@@ -820,14 +840,12 @@ function tableDecor(){
   const dia=[];
   longY.forEach(f=>{ dia.push(d(lx,fy(f))); dia.push(d(rx,fy(f))); });
   shortX.forEach(f=>{ dia.push(d(fx(f),ty)); dia.push(d(fx(f),by)); });
-  // Head string là đường hướng dẫn mô phỏng; trên bàn thật đây là đường tưởng tượng.
   const hs=fy(0.75);
   const kitchen=`<line x1="${TB.px0}" y1="${hs}" x2="${TB.px1}" y2="${hs}" stroke="rgba(255,255,255,.28)" stroke-width="1.4" stroke-dasharray="6 6"/>`+
-    `<text x="${TB.px0+8}" y="${hs+17}" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.34)" letter-spacing="1">BẾP</text>`;
+    `<text x="${TB.px0+8}" y="${hs+17}" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="rgba(255,255,255,.34)" letter-spacing="1">KITCHEN</text>`;
   const spots=[[0.5,0.25],[0.5,0.5],[0.5,0.75]].map(([sx,sy])=>`<circle cx="${fx(sx)}" cy="${fy(sy)}" r="2.8" fill="rgba(255,255,255,.34)"/>`).join('');
   return kitchen+spots+dia.join('');
 }
-// điểm đầu tiên mà một tia chạm mép trong thành băng.
 function rayToRail(x,y,dx,dy){
   const hits=[];
   if(dx>0) hits.push((TB.px1-x)/dx); else if(dx<0) hits.push((TB.px0-x)/dx);
@@ -835,7 +853,6 @@ function rayToRail(x,y,dx,dy){
   const valid=hits.filter(v=>Number.isFinite(v)&&v>0),t=valid.length?Math.min(...valid):0;
   return t?{x:x+dx*t,y:y+dy*t}:{x,y};
 }
-// nội dung bên trong <svg> (tách riêng để cập nhật mượt khi kéo, không thay cả thẻ svg)
 function composeInner(o){
   o=o||{};
   const balls=o.balls||[], ghosts=o.ghosts||[], markers=o.markers||[], overlay=o.overlay||[], railContacts=o.railContacts||[], paths=o.paths||[];
@@ -863,14 +880,13 @@ function composeInner(o){
   if(o.cueGoal){ const gx=fx(o.cueGoal.x),gy=fy(o.cueGoal.y),tr=(o.cueTol||1.5)*BALL_D;
     goalRing=`<circle cx="${gx}" cy="${gy}" r="${tr}" fill="rgba(24,184,119,.10)" stroke="#18B877" stroke-width="2" stroke-dasharray="6 5"/>`+
              `<circle cx="${gx}" cy="${gy}" r="4" fill="#18B877"/>`+
-             `<text x="${gx}" y="${gy-tr-6}" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" fill="#18B877" font-weight="700">đích bi cái</text>`; }
+             `<text x="${gx}" y="${gy-tr-6}" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" fill="#18B877" font-weight="700">cue-ball target</text>`; }
   const pathM=paths.map(d=>{ const a=d.from||{},b=d.to||{},c=d.color||'#E8A33D'; return pointValid(a)&&pointValid(b)?`<line x1="${fx(a.x)}" y1="${fy(a.y)}" x2="${fx(b.x)}" y2="${fy(b.y)}" stroke="${c}" stroke-width="${d.width||2.4}" stroke-dasharray="${d.dash||'7 6'}" opacity="${d.op||.82}" stroke-linecap="round"/>`:''; }).join('');
   const overlayM=overlay.map(d=>`<circle cx="${fx(d.x)}" cy="${fy(d.y)}" r="${d.r||7}" fill="${d.color}" opacity="${d.op||0.75}"/>`).join('');
-  const railM=railContacts.map(d=>{ const x=fx(d.x),y=fy(d.y),c=d.color||'#E8A33D',tag=Object.prototype.hasOwnProperty.call(d,'tag')?d.tag:'chạm băng đầu tiên'; return `<g data-rail="${esc(d.id||'rail')}"><circle cx="${x}" cy="${y}" r="17" fill="transparent"/><circle cx="${x}" cy="${y}" r="9" fill="${c}" opacity=".95"/><circle cx="${x}" cy="${y}" r="14" fill="none" stroke="${c}" stroke-width="2.2" opacity=".55"/><path d="M${x-4} ${y}H${x+4}M${x} ${y-4}V${y+4}" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>${tag?`<text x="${x}" y="${y-17}" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="${c}">${esc(tag)}</text>`:''}</g>`; }).join('');
+  const railM=railContacts.map(d=>{ const x=fx(d.x),y=fy(d.y),c=d.color||'#E8A33D',tag=Object.prototype.hasOwnProperty.call(d,'tag')?d.tag:'first rail contact'; return `<g data-rail="${esc(d.id||'rail')}"><circle cx="${x}" cy="${y}" r="17" fill="transparent"/><circle cx="${x}" cy="${y}" r="9" fill="${c}" opacity=".95"/><circle cx="${x}" cy="${y}" r="14" fill="none" stroke="${c}" stroke-width="2.2" opacity=".55"/><path d="M${x-4} ${y}H${x+4}M${x} ${y-4}V${y+4}" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>${tag?`<text x="${x}" y="${y-17}" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="${c}">${esc(tag)}</text>`:''}</g>`; }).join('');
   const ghostM=ghosts.map(b=>`<g opacity=".32" transform="translate(${fx(b.x)},${fy(b.y)})">${ballGlyph0(b.type,{})}</g>`).join('');
   const ballM=balls.map(b=>draggableGroup(b.id,b.x,b.y,b.type,{})).join('');
   const markerM=markers.map(m=>draggableGroup(m.id,m.x,m.y,m.type,{dashed:true,strokeColor:m.strokeColor||'#18B877',tag:m.tag,tagColor:m.tagColor})).join('');
-  // Matte-black tournament frame + electric-blue worsted cloth + pointed pool jaws.
   const feltX=TB.px0-CUSH, feltY=TB.py0-CUSH, feltW=PLAY_W+2*CUSH, feltH=PLAY_H+2*CUSH;
   return `<defs>
     <linearGradient id="${sid}-frame" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#333B43"/><stop offset=".45" stop-color="#11161B"/><stop offset="1" stop-color="#272E35"/></linearGradient>
@@ -895,15 +911,57 @@ function svgFrac(svg,clientX,clientY){
   return {x:Math.max(0,Math.min(1,x)), y:Math.max(0,Math.min(1,y))};
 }
 
-/* ---------- State ---------- */
+
 let state=null;
 function defaultState(){ return { positions:[], sessions:[], matches:[], seeded:false, createdAt:todayStr() }; }
+function translateLegacyGeneratedText(value){
+  if(typeof value!=='string') return value;
+  const exact={
+    '\u0053\u0074\u006f\u0070\u0020\u0073\u0068\u006f\u0074\u0020\u2014\u0020\u0062\u0069\u0020\u0031\u0020\u006c\u1ed7\u0020\u0067\u00f3\u0063':'Stop shot — 1-ball to corner pocket',
+    '\u0110\u00e1\u006e\u0068\u0020\u0074\u00e2\u006d\u0020\u0062\u0069\u002c\u0020\u006c\u1ef1\u0063\u0020\u0076\u1eeb\u0061\u002c\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u0020\u0070\u0068\u1ea3\u0069\u0020\u0111\u1ee9\u006e\u0067\u0020\u006e\u0067\u0061\u0079\u0020\u0111\u0069\u1ec3\u006d\u0020\u0063\u0068\u1ea1\u006d\u002e':'Hit center ball at medium speed; the cue ball should stop at the contact point.',
+    '\u006c\u1ef1\u0063\u0020\u0068\u01a1\u0069\u0020\u006d\u1ea1\u006e\u0068\u002c\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u0020\u0074\u0072\u00f4\u0069\u0020\u006c\u00ea\u006e':'slightly too firm; the cue ball rolled forward',
+    '\u006c\u1ec7\u0063\u0068\u0020\u0070\u0068\u1ea3\u0069\u002c\u0020\u0063\u0068\u1ea1\u006d\u0020\u0062\u0103\u006e\u0067':'missed right and contacted the rail',
+    '\u0110\u00e1\u006e\u0068\u0020\u0074\u00e2\u006d\u0020\u0062\u0069\u002c\u0020\u006c\u1ef1\u0063\u0020\u0076\u1eeb\u0061\u002e\u0020\u0042\u0069\u0020\u0063\u00e1\u0069\u0020\u0070\u0068\u1ea3\u0069\u0020\u0111\u1ee9\u006e\u0067\u0020\u006e\u0067\u0061\u0079\u0020\u0111\u0069\u1ec3\u006d\u0020\u0063\u0068\u1ea1\u006d\u0020\u0076\u00e0\u0020\u006b\u0068\u00f4\u006e\u0067\u0020\u006c\u1ec7\u0063\u0068\u0020\u006e\u0067\u0061\u006e\u0067\u002e':'Hit center ball at medium speed. The cue ball must stop at contact without drifting sideways.',
+    '\u0110\u00e1\u006e\u0068\u0020\u0063\u0061\u006f\u0020\u0028\u0066\u006f\u006c\u006c\u006f\u0077\u0029\u0020\u0111\u1ec3\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u0020\u0111\u0069\u0020\u0074\u1edb\u0069\u0020\u0076\u00f9\u006e\u0067\u0020\u0111\u00ed\u0063\u0068\u002e\u0020\u0110\u1ed5\u0069\u0020\u006c\u1ef1\u0063\u0020\u0062\u1eb1\u006e\u0067\u0020\u0111\u1ed9\u0020\u0064\u00e0\u0069\u0020\u0073\u0074\u0072\u006f\u006b\u0065\u002c\u0020\u0067\u0069\u1eef\u0020\u006e\u0067\u0075\u0079\u00ea\u006e\u0020\u0111\u0069\u1ec3\u006d\u0020\u0111\u1ea7\u0075\u0020\u0063\u01a1\u002e':'Use high follow to send the cue ball into the target zone. Adjust speed with stroke length while keeping the same contact point.',
+    '\u0110\u1ea7\u0075\u0020\u0063\u01a1\u0020\u0074\u0068\u1ea5\u0070\u002c\u0020\u0063\u1ea7\u0075\u0020\u0074\u0061\u0079\u0020\u0074\u0068\u1ea5\u0070\u002c\u0020\u0072\u0061\u0020\u006e\u0067\u1ecd\u006e\u0020\u0078\u0075\u0079\u00ea\u006e\u0020\u0071\u0075\u0061\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u002e\u0020\u004b\u0068\u00f4\u006e\u0067\u0020\u0063\u1ea7\u006e\u0020\u006c\u1ef1\u0063\u0020\u006c\u1edb\u006e\u002c\u0020\u0063\u1ea7\u006e\u0020\u0073\u0074\u0072\u006f\u006b\u0065\u0020\u006d\u01b0\u1ee3\u0074\u002e':'Use a low tip and low bridge, then follow through. Smooth delivery matters more than raw power.',
+    '\u0043\u0068\u1ec9\u0020\u0111\u00e1\u006e\u0068\u0020\u0074\u00e2\u006d\u0020\u0062\u0069\u002e\u0020\u004b\u0069\u1ec3\u006d\u0020\u0074\u0072\u0061\u0020\u0111\u0069\u1ec3\u006d\u0020\u0111\u1ea7\u0075\u0020\u0063\u01a1\u0020\u0062\u1eb1\u006e\u0067\u0020\u0076\u00e0\u0069\u0020\u0073\u0074\u0072\u006f\u006b\u0065\u0020\u0074\u0068\u1eed\u0020\u0074\u0072\u01b0\u1edb\u0063\u0020\u006d\u1ed7\u0069\u0020\u0063\u00fa\u002e':'Use center ball only. Verify tip placement with several warm-up strokes before every shot.',
+    '\u0043\u0068\u1ea1\u006d\u0020\u0062\u0069\u0020\u006d\u1ee5\u0063\u0020\u0074\u0069\u00ea\u0075\u0020\u0072\u1ea5\u0074\u0020\u006d\u1ecf\u006e\u0067\u002c\u0020\u0111\u01b0\u0061\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u0020\u0076\u1ec1\u0020\u0073\u00e1\u0074\u0020\u0062\u0103\u006e\u0067\u0020\u0063\u0075\u1ed1\u0069\u002e\u0020\u01af\u0075\u0020\u0074\u0069\u00ea\u006e\u0020\u006c\u1ef1\u0063\u0020\u006e\u0068\u1eb9\u0020\u0076\u00e0\u0020\u0111\u1ed9\u0020\u0063\u0068\u00ed\u006e\u0068\u0020\u0078\u00e1\u0063\u0020\u0063\u1ee7\u0061\u0020\u0111\u0069\u1ec3\u006d\u0020\u0063\u0068\u1ea1\u006d\u002e':'Hit the object ball very thin and send the cue ball near the end rail. Prioritize soft speed and precise contact.',
+    '\u004b\u0069\u0063\u006b\u0020\u0031\u0020\u0062\u0103\u006e\u0067\u002e\u0020\u0047\u0069\u1eef\u0020\u006e\u0067\u0075\u0079\u00ea\u006e\u0020\u006d\u1ed9\u0074\u0020\u006d\u1ee9\u0063\u0020\u006c\u1ef1\u0063\u0020\u0074\u0072\u006f\u006e\u0067\u0020\u0063\u1ea3\u0020\u006c\u006f\u1ea1\u0074\u0020\u0111\u1ec3\u0020\u0068\u0069\u1ec7\u0075\u0020\u0063\u0068\u1ec9\u006e\u0068\u0020\u0068\u1ec7\u0020\u0074\u0068\u1ed1\u006e\u0067\u0020\u0111\u0069\u1ec3\u006d\u0020\u0062\u0103\u006e\u0067\u002e':'One-rail kick. Keep the same speed throughout the set while calibrating the diamond system.'
+  };
+  if(Object.prototype.hasOwnProperty.call(exact,value)) return exact[value];
+  const replacements=[
+    ['\u0110\u1ed1\u0069\u0020\u0074\u0068\u1ee7','Opponent'],
+    ['\u006b\u0068\u00f4\u006e\u0067\u0020\u0074\u00ea\u006e','untitled'],
+    ['\u0054\u0068\u1ebf\u0020\u0062\u0069\u0020\u006b\u0068\u00f4\u006e\u0067\u0020\u0074\u00ea\u006e','Untitled position'],
+    ['\u0042\u0069\u0020\u0074\u0068\u1eb3\u006e\u0067\u0020\u002b\u0020\u0067\u0061\u0074\u0065\u0020\u0064\u0072\u0069\u006c\u006c','Straight-in + gate drill'],
+    ['\u004b\u0069\u1ec3\u006d\u0020\u0073\u006f\u00e1\u0074\u0020\u0062\u0069\u0020\u0063\u00e1\u0069\u0020\u0033\u0020\u0076\u00f9\u006e\u0067','Three-zone cue-ball control'],
+    ['\u004c\u00f9\u0069\u0020\u0062\u0069\u0020\u0063\u00f3\u0020\u006b\u0069\u1ec3\u006d\u0020\u0073\u006f\u00e1\u0074','Controlled draw'],
+    ['\u0054\u00e2\u006d\u0020\u0062\u0069\u0020\u0074\u0075\u0079\u1ec7\u0074\u0020\u0111\u1ed1\u0069','Pure center-ball drill'],
+    ['\u0053\u0061\u0066\u0065\u0074\u0079\u0020\u0026\u0020\u006b\u0069\u1ec3\u006d\u0020\u0073\u006f\u00e1\u0074\u0020\u006c\u1ef1\u0063','Safety and speed control'],
+    ['\u0042\u0103\u006e\u0067\u0020\u0031\u0020\u006e\u0068\u1ecb\u0070\u0020\u0028\u006b\u0069\u0063\u006b\u002f\u0062\u0061\u006e\u006b\u0029','One-rail kick / bank'],
+    ['\u0043\u0068\u0075\u1ed7\u0069\u0020\u0063\u00f3\u0020\u00e1\u0070\u0020\u006c\u1ef1\u0063','Pressure streak'],
+    ['\u0047\u0068\u006f\u0073\u0074\u0020\u0067\u0061\u006d\u0065\u0020\u0026\u0020\u0111\u1ecd\u0063\u0020\u0062\u00e0\u006e','Ghost game and table reading'],
+    ['\u0054\u0072\u01b0\u1ee3\u0074\u0020\u0062\u0069\u0020\u006d\u1ee5\u0063\u0020\u0074\u0069\u00ea\u0075','Missed object ball'],
+    ['\u0053\u0061\u0069\u0020\u0076\u1ecb\u0020\u0074\u0072\u00ed\u0020\u0062\u0069\u0020\u0063\u00e1\u0069','Cue-ball position error'],
+    ['\u0050\u0068\u1ea1\u006d\u0020\u006c\u1ed7\u0069\u0020\u0028\u0066\u006f\u0075\u006c\u0029','Foul'],
+    ['\u0053\u0061\u0066\u0065\u0074\u0079\u0020\u0068\u1ecf\u006e\u0067','Failed safety'],
+    ['\u0054\u0072\u01b0\u1ee3\u0074\u0020\u0062\u0103\u006e\u0067\u0020\u002f\u0020\u006b\u0069\u0063\u006b','Missed bank / kick'],
+    ['\u0050\u0068\u00e1\u0020\u0062\u0069\u0020\u0068\u1ecf\u006e\u0067','Poor break'],
+    ['\u0043\u0068\u1ecd\u006e\u0020\u0073\u0061\u0069\u0020\u0070\u0068\u01b0\u01a1\u006e\u0067\u0020\u00e1\u006e','Wrong shot choice'],
+    ['\u00c1\u0070\u0020\u006c\u1ef1\u0063\u0020\u002f\u0020\u006d\u1ea5\u0074\u0020\u0074\u1ead\u0070\u0020\u0074\u0072\u0075\u006e\u0067','Pressure / loss of focus'],
+    ['\u0020\u2014\u0020\u0074\u0072\u1ead\u006e\u0020',' — match '],
+    ['\u0020\u2014\u0020\u0073\u1eed\u0061\u0020\u201c',' — fix “'],
+    ['\u0054\u00e1\u0069\u0020\u0068\u0069\u1ec7\u006e\u0020\u0074\u1eeb\u0020\u0074\u0072\u1ead\u006e\u0020\u006e\u0067\u00e0\u0079\u0020','Recreated from match on ']
+  ];
+  return replacements.reduce((text,pair)=>text.split(pair[0]).join(pair[1]),value);
+}
 function normalizeState(){
   if(!state||typeof state!=='object') state=defaultState();
   if(!Array.isArray(state.positions)) state.positions=[];
   if(!Array.isArray(state.sessions)) state.sessions=[];
   if(!Array.isArray(state.matches)) state.matches=[];
   state.matches.forEach(m=>{
+    m.opponent=translateLegacyGeneratedText(m.opponent);
     if(!Array.isArray(m.errors)) m.errors=[];
     m.myScore=Math.max(0,parseInt(m.myScore,10)||0); m.oppScore=Math.max(0,parseInt(m.oppScore,10)||0);
     if(m.status!=='completed') m.status='active';
@@ -926,14 +984,17 @@ function normalizeState(){
     });
   });
   state.positions.forEach(p=>{
+    p.name=translateLegacyGeneratedText(p.name);
+    p.note=translateLegacyGeneratedText(p.note);
     if(!Array.isArray(p.attempts)) p.attempts=[];
     const ts=parseInt(p.targetStrokeSpeed,10); p.targetStrokeSpeed=(ts>=1&&ts<=5)?ts:3;
-    p.tip=tipSafe(p.tip);                       // thế bi cũ → mặc định tâm bi
+    p.tip=tipSafe(p.tip);
     p.attempts.forEach(a=>{
+      a.note=translateLegacyGeneratedText(a.note);
       const ss=parseInt(a.strokeSpeed,10); a.strokeSpeed=(ss>=1&&ss<=5)?ss:null;
       if(!rhythmSafe(a.strokeRhythm)) a.strokeRhythm=null;
       if(a.strokeSpeed!=null && typeof a.speedOk!=='boolean') a.speedOk=a.strokeSpeed===p.targetStrokeSpeed;
-      a.tip=tipOrNull(a.tip);                   // lượt cũ → chưa ghi điểm chạm
+      a.tip=tipOrNull(a.tip);
       a.tipOk=a.tip?tipEqual(a.tip,p.tip):null;
     });
   });
@@ -942,23 +1003,23 @@ function load(){
   try{ const raw=localStorage.getItem(LS_KEY); state=raw?Object.assign(defaultState(),JSON.parse(raw)):defaultState(); }
   catch(e){ state=defaultState(); }
   normalizeState();
-  if(!state.seeded){ seedDemo(); state.seeded=true; save(); }
+  if(!state.seeded){ seedDemo(); state.seeded=true; }
+  save();
 }
 function save(){ try{ localStorage.setItem(LS_KEY,JSON.stringify(state)); }catch(e){} }
 
 function seedDemo(){
-  // Thế bi mẫu: stop shot — bi cái đánh bi 1 vào lỗ góc, bi cái đứng tại điểm chạm.
   const cue={id:uid(),type:'cue',x:0.5,y:0.82}, obj={id:uid(),type:'1',x:0.5,y:0.50};
   const p={
-    id:uid(), name:'Stop shot — bi 1 lỗ góc', createdAt:todayStr(),
+    id:uid(), name:'Stop shot — 1-ball to corner pocket', createdAt:todayStr(),
     setup:{ balls:[cue,obj], aim:true },
     targetBallType:'1', goalPocket:'tr', cueGoal:{x:0.5,y:0.50}, scoreMode:'both', cueTolerance:1.5, targetStrokeSpeed:3,
     tip:{x:0,y:0},
-    note:'Đánh tâm bi, lực vừa, bi cái phải đứng ngay điểm chạm.',
+    note:'Hit center ball at medium speed; the cue ball should stop at the contact point.',
     attempts:[
       {id:uid(),at:addDays(todayStr(),-1)+'T10:00',potted:true,cueFinal:{x:0.51,y:0.50},targetFinal:null,cueOk:true,potOk:true,score:1,strokeSpeed:3,strokeRhythm:'smooth',speedOk:true,tip:{x:0,y:0},tipOk:true,note:''},
-      {id:uid(),at:addDays(todayStr(),-1)+'T10:02',potted:true,cueFinal:{x:0.55,y:0.38},targetFinal:null,cueOk:false,potOk:true,score:0.5,strokeSpeed:4,strokeRhythm:'rushed',speedOk:false,tip:{x:0,y:1},tipOk:false,note:'lực hơi mạnh, bi cái trôi lên'},
-      {id:uid(),at:addDays(todayStr(),-1)+'T10:04',potted:false,cueFinal:{x:0.5,y:0.50},targetFinal:{x:0.86,y:0.18},cueOk:true,potOk:false,score:0.5,strokeSpeed:3,strokeRhythm:'smooth',speedOk:true,tip:{x:0,y:0},tipOk:true,note:'lệch phải, chạm băng'},
+      {id:uid(),at:addDays(todayStr(),-1)+'T10:02',potted:true,cueFinal:{x:0.55,y:0.38},targetFinal:null,cueOk:false,potOk:true,score:0.5,strokeSpeed:4,strokeRhythm:'rushed',speedOk:false,tip:{x:0,y:1},tipOk:false,note:'slightly too firm; the cue ball rolled forward'},
+      {id:uid(),at:addDays(todayStr(),-1)+'T10:04',potted:false,cueFinal:{x:0.5,y:0.50},targetFinal:{x:0.86,y:0.18},cueOk:true,potOk:false,score:0.5,strokeSpeed:3,strokeRhythm:'smooth',speedOk:true,tip:{x:0,y:0},tipOk:true,note:'missed right and contacted the rail'},
     ]
   };
   const demoSessionId=uid();
@@ -967,7 +1028,7 @@ function seedDemo(){
   state.sessions.push({id:demoSessionId,positionId:p.id,date:addDays(todayStr(),-1),plannedAttempts:3,startedAt:addDays(todayStr(),-1)+'T10:00',completedAt:addDays(todayStr(),-1)+'T10:05',status:'completed'});
 }
 
-/* ---------- Scoring ---------- */
+
 function scoreAttempt(pos,att){
   const mode=pos.scoreMode||'both';
   const potOk=!!att.potted;
@@ -999,17 +1060,14 @@ function latestSessionForPosition(posId,date){ return (state.sessions||[]).filte
 function activeTodaySession(posId){ return (state.sessions||[]).filter(s=>s.positionId===posId&&s.date===todayStr()&&s.status==='active').sort((a,b)=>String(b.startedAt||'').localeCompare(String(a.startedAt||'')))[0]||null; }
 function targetOf(pos){ return pos.targetBallType || (pos.setup.balls.find(b=>b.type!=='cue')||{}).type || '1'; }
 
-/* ============================================================
-   SETUP TABLE — thiết lập thế bi (đặt bi, chọn lỗ đích, đặt đích bi cái)
-   ============================================================ */
+
 function makeSetupTable(container, pos, opt){
   opt=opt||{};
   const data={ balls:JSON.parse(JSON.stringify(pos.setup.balls||[])), aim:pos.setup.aim!==false,
                goalPocket:pos.goalPocket||null, cueGoal:pos.cueGoal?{...pos.cueGoal}:null, cueTol:pos.cueTolerance||1.5 };
   let selType='cue', tool='ball';
-  let svg=null, dragId=null;   // dragId: ball id, hoặc '__cuegoal'
+  let svg=null, dragId=null;
   function snapshot(){ return { balls:JSON.parse(JSON.stringify(data.balls)), aim:data.aim, goalPocket:data.goalPocket, cueGoal:data.cueGoal?{...data.cueGoal}:null, cueTol:data.cueTol }; }
-  // vẽ lại toàn bộ (khi thêm/xoá bi, đổi tool, đổi pocket...) — gắn lại listener 1 lần
   function draw(){
     const wrap=container.querySelector('.table-wrap');
     wrap.innerHTML=composeTable({ balls:data.balls, aim:data.aim, goalPocket:data.goalPocket,
@@ -1019,17 +1077,14 @@ function makeSetupTable(container, pos, opt){
     const at=container.querySelector('.aim-toggle'); if(at) at.classList.toggle('on',data.aim);
     if(typeof opt.onChange==='function') opt.onChange(snapshot());
   }
-  // chỉ dịch chuyển 1 phần tử đang kéo (mượt, không dựng lại cả bàn)
   function moveEl(id,x,y){ const g=svg&&svg.querySelector('[data-drag="'+id+'"]'); if(g) g.setAttribute('transform','translate('+fx(x)+','+fy(y)+')'); }
   function attach(){
     if(!svg) return;
     svg.onpointerdown=e=>{
       const p=svgFrac(svg,e.clientX,e.clientY);
       if(tool==='pocket'){ const pk=nearestPocket(p); if(pk){ data.goalPocket=(data.goalPocket===pk.id?null:pk.id); draw(); } return; }
-      // ưu tiên: bắt bi gần con trỏ để kéo
       const hit=nearestDraggable(data.balls,p);
       if(hit){ dragId=hit.id; svg.setPointerCapture(e.pointerId); e.preventDefault(); return; }
-      // bắt đích bi cái nếu ở gần
       if(data.cueGoal && distPx(p,data.cueGoal)<=GRAB){ dragId='__cuegoal'; svg.setPointerCapture(e.pointerId); e.preventDefault(); return; }
       if(tool==='cuegoal'){ data.cueGoal=p; draw(); return; }
       if(tool==='ball'){ data.balls=data.balls.filter(b=>b.type!==selType); data.balls.push({id:uid(),type:selType,x:p.x,y:p.y}); draw(); }
@@ -1045,20 +1100,20 @@ function makeSetupTable(container, pos, opt){
   container.innerHTML=`
     <div class="ball-palette"></div>
     <div class="table-controls">
-      <button type="button" class="btn btn-ghost btn-sm tool-btn on" data-tool="ball">🎱 Đặt bi</button>
-      <button type="button" class="btn btn-ghost btn-sm tool-btn" data-tool="pocket">🕳️ Chọn lỗ đích</button>
-      <button type="button" class="btn btn-ghost btn-sm tool-btn" data-tool="cuegoal">🎯 Đặt đích bi cái</button>
-      <button type="button" class="btn btn-ghost btn-sm aim-toggle">📐 Đường ngắm</button>
-      <button type="button" class="btn btn-ghost btn-sm clear-all">Xoá thế bi</button>
+      <button type="button" class="btn btn-ghost btn-sm tool-btn on" data-tool="ball">🎱 Place balls</button>
+      <button type="button" class="btn btn-ghost btn-sm tool-btn" data-tool="pocket">🕳️ Select target pocket</button>
+      <button type="button" class="btn btn-ghost btn-sm tool-btn" data-tool="cuegoal">🎯 Set cue-ball target</button>
+      <button type="button" class="btn btn-ghost btn-sm aim-toggle">📐 Aim lines</button>
+      <button type="button" class="btn btn-ghost btn-sm clear-all">Clear position</button>
     </div>
     <div class="table-wrap"></div>
-    <div class="table-spec"><span>9ft · 100 × 50 in</span><span>Nỉ electric blue</span><span>Lỗ pool cut</span></div>
+    <div class="table-spec"><span>9ft · 100 × 50 in</span><span>Electric-blue cloth</span><span>Pool-cut pockets</span></div>
     <p class="table-hint" id="setupHint"></p>`;
   const palette=container.querySelector('.ball-palette');
   BALL_ORDER.forEach(type=>{
     const info=BALL_INFO[type];
     const b=document.createElement('button'); b.type='button'; b.className='pball'+(type===selType?' sel':''); b.dataset.type=type;
-    b.title=type==='cue'?'Bi cái':'Bi số '+type;
+    b.title=type==='cue'?'Cue ball':'Ball '+type;
     if(info.stripe){ b.style.background=`linear-gradient(#F7F3E6 0 28%, ${info.color} 28% 72%, #F7F3E6 72% 100%)`;
       b.innerHTML=`<span style="background:#F7F3E6;border-radius:50%;width:60%;height:60%;display:flex;align-items:center;justify-content:center;color:${info.text}">${info.label}</span>`;
     } else { b.style.background=info.color; b.style.color=info.text; b.textContent=info.label; }
@@ -1067,9 +1122,9 @@ function makeSetupTable(container, pos, opt){
   });
   function updateHint(){
     const h=container.querySelector('#setupHint'); if(!h) return;
-    h.textContent = tool==='pocket' ? 'Chạm vào một lỗ để đặt làm lỗ đích của bi mục tiêu.'
-      : tool==='cuegoal' ? 'Chạm lên bàn để đặt vị trí bi cái cần đứng (đích). Vòng tròn = vùng chấp nhận theo dung sai.'
-      : 'Chọn bi ở trên rồi chạm lên bàn để đặt. Chạm gần viên bi và kéo để chỉnh vị trí (vùng chạm rộng, không cần trúng chính giữa).';
+    h.textContent = tool==='pocket' ? 'Tap a pocket to set the object ball’s target pocket.'
+      : tool==='cuegoal' ? 'Tap the table to set the desired cue-ball position. The circle shows the accepted tolerance area.'
+      : 'Select a ball above, then tap the table to place it. Touch near a ball and drag to adjust its position.';
   }
   container.querySelectorAll('.tool-btn').forEach(b=>b.addEventListener('click',()=>{ tool=b.dataset.tool; updateHint(); draw(); }));
   container.querySelector('.aim-toggle').addEventListener('click',()=>{ data.aim=!data.aim; draw(); });
@@ -1079,17 +1134,15 @@ function makeSetupTable(container, pos, opt){
            setTol:(t)=>{ data.cueTol=t; draw(); } };
 }
 
-/* ============================================================
-   SESSION TABLE — ghi cú đánh (kéo bi cái & bi mục tiêu tới vị trí dừng)
-   ============================================================ */
+
 function makeSessionTable(container, pos, onChange){
   const tType=targetOf(pos);
   const cueStart=pos.setup.balls.find(b=>b.type==='cue')||{x:0.3,y:0.5};
   const tStart=pos.setup.balls.find(b=>b.type===tType)||{x:0.6,y:0.5};
   const live={ potted:true, cueFinal:{x:cueStart.x,y:cueStart.y}, targetFinal:{x:tStart.x,y:tStart.y} };
   function markers(){
-    const arr=[{id:'m-cue',type:'cue',x:live.cueFinal.x,y:live.cueFinal.y,tag:'bi cái dừng',strokeColor:'#5FA0E6',tagColor:'#5FA0E6'}];
-    if(!live.potted) arr.push({id:'m-tgt',type:tType,x:live.targetFinal.x,y:live.targetFinal.y,tag:'bi mục tiêu dừng',strokeColor:'#E8A33D',tagColor:'#E8A33D'});
+    const arr=[{id:'m-cue',type:'cue',x:live.cueFinal.x,y:live.cueFinal.y,tag:'cue ball stopped',strokeColor:'#5FA0E6',tagColor:'#5FA0E6'}];
+    if(!live.potted) arr.push({id:'m-tgt',type:tType,x:live.targetFinal.x,y:live.targetFinal.y,tag:'object ball stopped',strokeColor:'#E8A33D',tagColor:'#E8A33D'});
     return arr;
   }
   let svg=null, dragId=null;
@@ -1114,7 +1167,7 @@ function makeSessionTable(container, pos, onChange){
     };
     const end=()=>{dragId=null;}; svg.onpointerup=end; svg.onpointercancel=end;
   }
-  container.innerHTML=`<div class="table-wrap"></div><div class="table-spec"><span>9ft · 100 × 50 in</span><span>Nỉ electric blue</span><span>Lỗ pool cut</span></div>`;
+  container.innerHTML=`<div class="table-wrap"></div><div class="table-spec"><span>9ft · 100 × 50 in</span><span>Electric-blue cloth</span><span>Pool-cut pockets</span></div>`;
   draw();
   return { get:()=>JSON.parse(JSON.stringify(live)),
            setPotted:(v)=>{ live.potted=v; if(!v){ live.targetFinal={x:tStart.x,y:tStart.y}; } draw(); },
@@ -1122,12 +1175,7 @@ function makeSessionTable(container, pos, onChange){
 }
 
 
-/* ============================================================
-   MATCH OUTCOME TABLE — kết quả thực tế của lỗi trong trận
-   - Kéo bi cái tới vị trí dừng thực tế.
-   - Nếu trượt lỗ mục tiêu, chạm trực tiếp lên thành băng tại điểm
-     bi mục tiêu chạm đầu tiên. Điểm này được ép sát vào mép băng.
-   ============================================================ */
+
 function snapToNearestRail(p){
   const candidates=[
     {x:0,y:p.y,d:Math.abs(fx(p.x)-TB.px0)},
@@ -1151,7 +1199,7 @@ function makeMatchOutcomeTable(container, setup, onChange){
   let sig=setupSignature(current), svg=null, dragId=null;
   function cueStart(){ return (current.balls||[]).find(b=>b.type==='cue')||{x:.5,y:.78}; }
   let live={potted:true,cueFinal:pointSafe(cueStart(),{x:.5,y:.78}),targetRailContact:null};
-  function markers(){ return [{id:'match-cue-final',type:'cue',x:live.cueFinal.x,y:live.cueFinal.y,tag:'bi cái thực tế',strokeColor:'#5FA0E6',tagColor:'#5FA0E6'}]; }
+  function markers(){ return [{id:'match-cue-final',type:'cue',x:live.cueFinal.x,y:live.cueFinal.y,tag:'actual cue ball',strokeColor:'#5FA0E6',tagColor:'#5FA0E6'}]; }
   function emit(){ if(typeof onChange==='function') onChange(JSON.parse(JSON.stringify(live))); }
   function draw(){
     const wrap=container.querySelector('.table-wrap');
@@ -1161,7 +1209,7 @@ function makeMatchOutcomeTable(container, setup, onChange){
       ghosts:current.balls||[],goalPocket:current.goalPocket||null,cueGoal:current.cueGoal||null,cueTol:current.cueTol||1.5,
       markers:markers(),
       paths:(!live.potted&&live.targetRailContact&&target)?[{from:target,to:live.targetRailContact,color:'#E8A33D'}]:[],
-      railContacts:(!live.potted&&live.targetRailContact)?[{id:'match-rail',...live.targetRailContact,color:'#E8A33D',tag:'chạm băng đầu tiên'}]:[]
+      railContacts:(!live.potted&&live.targetRailContact)?[{id:'match-rail',...live.targetRailContact,color:'#E8A33D',tag:'first rail contact'}]:[]
     });
     svg=wrap.querySelector('.table-svg'); attach(); emit();
   }
@@ -1182,7 +1230,7 @@ function makeMatchOutcomeTable(container, setup, onChange){
     const end=()=>{ dragId=null; };
     svg.onpointerup=end; svg.onpointercancel=end;
   }
-  container.innerHTML=`<div class="table-wrap"></div><div class="table-spec"><span>Kéo bi cái tới vị trí thực tế</span><span class="rail-pin-legend">Điểm chạm băng đầu tiên</span></div>`;
+  container.innerHTML=`<div class="table-wrap"></div><div class="table-spec"><span>Drag the cue ball to its actual final position</span><span class="rail-pin-legend">First rail contact</span></div>`;
   draw();
   return {
     get:()=>JSON.parse(JSON.stringify(live)),
@@ -1197,15 +1245,13 @@ function makeMatchOutcomeTable(container, setup, onChange){
   };
 }
 
-/* ============================================================
-   UI shell: theme / toast / modal / nav
-   ============================================================ */
+
 function applyTheme(t){ document.documentElement.setAttribute('data-theme',t); const d=t==='dark';
   const ti=document.getElementById('themeIcon'),tl=document.getElementById('themeLabel'),tf=document.getElementById('themeFab');
-  if(ti) ti.textContent=d?'☀️':'🌙'; if(tl) tl.textContent=d?'Chế độ sáng':'Chế độ tối'; if(tf) tf.textContent=d?'☀️':'🌙'; }
+  if(ti) ti.textContent=d?'☀️':'🌙'; if(tl) tl.textContent=d?'Light mode':'Dark mode'; if(tf) tf.textContent=d?'☀️':'🌙'; }
 function toggleTheme(){ const c=document.documentElement.getAttribute('data-theme'),n=c==='dark'?'light':'dark'; localStorage.setItem(THEME_KEY,n); applyTheme(n); renderView(currentView); }
 let toastTimer; function toast(m){ const el=document.getElementById('toast'); el.textContent=m; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2400); }
-function openModal(html){ const b=document.getElementById('modalBox'); b.innerHTML=html; document.getElementById('modalOverlay').classList.add('show'); b.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',closeModal)); }
+function openModal(html){ const b=document.getElementById('modalBox'); b.className='modal'; b.innerHTML=html; document.getElementById('modalOverlay').classList.add('show'); b.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',closeModal)); }
 function closeModal(){ document.getElementById('modalOverlay').classList.remove('show'); }
 
 let currentView='practice';
@@ -1213,12 +1259,10 @@ function go(v){ currentView=v; document.querySelectorAll('section[data-view]').f
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.nav===v)); renderView(v); window.scrollTo({top:0}); }
 function renderView(v){ if(v==='practice') renderPractice(); else if(v==='match') renderMatch(); else if(v==='progress') renderProgress(); else if(v==='patterns') renderPatterns(); else if(v==='data') renderDataView(); }
 
-/* ============================================================
-   PRACTICE (list / setup / session)
-   ============================================================ */
+
 let practiceView='list';   // 'list' | 'setup' | 'session'
 let activeId=null;         // position being setup/practiced
-let activeSessionId=null;  // phiên tập đang mở
+let activeSessionId=null;
 let setupTable=null, sessionTable=null;
 
 function renderPractice(){
@@ -1236,19 +1280,19 @@ function renderPositionList(sec){
   const complete=todaySessions.filter(s=>s.status==='completed').length;
   sec.innerHTML=`
     <div class="page-head spread">
-      <div><h1>Luyện tập theo thế bi</h1><p class="sub">Lên mục tiêu số lượt cho từng phiên → bắn → nhập kết quả → theo dõi pattern.</p></div>
-      <button class="btn btn-primary" id="newPos">＋ Tạo thế bi</button>
+      <div><h1>Position-Based Practice</h1><p class="sub">Set a shot target for each session → shoot → record results → track patterns.</p></div>
+      <button class="btn btn-primary" id="newPos">＋ Create position</button>
     </div>
     <div class="card today-plan">
-      <div class="spread"><div><div class="eyebrow">Phiên tập hôm nay</div><div class="section-title" style="margin-top:3px">${todaySessions.length?todaySessions.length+' phiên đã lên kế hoạch':'Chưa có phiên nào'}</div></div>
-        <div class="tp-num">${done}<span style="font-size:14px;color:var(--muted)">/${planned||0} lượt</span></div></div>
+      <div class="spread"><div><div class="eyebrow">Today’s practice sessions</div><div class="section-title" style="margin-top:3px">${todaySessions.length?todaySessions.length+' planned sessions':'No sessions yet'}</div></div>
+        <div class="tp-num">${done}<span style="font-size:14px;color:var(--muted)">/${planned||0} shots</span></div></div>
       <div class="session-plan-track"><i style="width:${planned?pct(done/planned*100):0}%"></i></div>
-      <p class="hint" style="margin-top:7px">${todaySessions.length?complete+' phiên đã hoàn thành · '+Math.max(0,planned-done)+' lượt còn lại':'Chọn “Lên phiên hôm nay” ở một thế bi để đặt mục tiêu số lượt.'}</p>
+      <p class="hint" style="margin-top:7px">${todaySessions.length?complete+' sessions completed · '+Math.max(0,planned-done)+' shots remaining':'Choose “Plan today’s session” on a position to set a shot target.'}</p>
     </div>
     <div id="posList"></div>`;
   sec.querySelector('#newPos').addEventListener('click',()=>startSetup(null));
   const wrap=sec.querySelector('#posList');
-  if(!list.length){ wrap.innerHTML=`<div class="empty"><div class="big">🎱</div>Chưa có thế bi nào. Tạo một thế bi để bắt đầu lên phiên tập.</div>`; return; }
+  if(!list.length){ wrap.innerHTML=`<div class="empty"><div class="big">🎱</div>No positions yet. Create one to plan your first practice session.</div>`; return; }
   wrap.innerHTML=list.map(p=>{
     const st=positionStats(p), active=activeTodaySession(p.id), latest=latestSessionForPosition(p.id,todayStr());
     const sp=latest?sessionProgress(p,latest):null;
@@ -1256,19 +1300,19 @@ function renderPositionList(sec){
       <div class="pos-mini">${composeTable({balls:p.setup.balls,aim:p.setup.aim,goalPocket:p.goalPocket,cueGoal:p.cueGoal,cueTol:p.cueTolerance})}</div>
       <div class="pos-body">
         <div class="item-head"><div class="item-title">${esc(p.name)}</div>
-          <div class="row"><span class="chip">${p.scoreMode==='pot'?'Chỉ vào lỗ':p.scoreMode==='position'?'Chỉ vị trí':'Vào lỗ + vị trí'}</span><span class="chip chip-found">Ra ngọn: ${speedLabel(p.targetStrokeSpeed)}</span></div></div>
-        <div class="tip-inline">${tipBallSVG(p.tip,{mini:true})}<div><div class="ti-name">Đầu cơ: ${esc(tipLabel(p.tip))}</div><div class="ti-eff">${esc(tipEffect(p.tip))}</div></div></div>
+          <div class="row"><span class="chip">${p.scoreMode==='pot'?'Potting only':p.scoreMode==='position'?'Position only':'Potting + position'}</span><span class="chip chip-found">Stroke speed: ${speedLabel(p.targetStrokeSpeed)}</span></div></div>
+        <div class="tip-inline">${tipBallSVG(p.tip,{mini:true})}<div><div class="ti-name">Cue tip: ${esc(tipLabel(p.tip))}</div><div class="ti-eff">${esc(tipEffect(p.tip))}</div></div></div>
         <div class="pos-stats">
-          <div class="ps"><b>${fmtScore(st.total)}</b><span>/${st.N} điểm</span></div>
-          <div class="ps"><b>${st.N?fmtScore(st.avg):'—'}</b><span>đ/cú</span></div>
-          <div class="ps"><b>${Math.round(st.potRate)}%</b><span>vào lỗ</span></div>
-          <div class="ps"><b>${Math.round(st.posRate)}%</b><span>kiểm soát bi</span></div>
+          <div class="ps"><b>${fmtScore(st.total)}</b><span>/${st.N} points</span></div>
+          <div class="ps"><b>${st.N?fmtScore(st.avg):'—'}</b><span>pts/shot</span></div>
+          <div class="ps"><b>${Math.round(st.potRate)}%</b><span>potted</span></div>
+          <div class="ps"><b>${Math.round(st.posRate)}%</b><span>cue control</span></div>
         </div>
-        ${latest?`<div class="session-strip"><div class="ss-top"><span>${latest.status==='completed'?'✓ Phiên gần nhất hôm nay':'● Phiên đang tập'}</span><span>${sp.done}/${sp.plan} lượt</span></div><div class="ss-track"><i style="width:${sp.percent}%"></i></div></div>`:''}
+        ${latest?`<div class="session-strip"><div class="ss-top"><span>${latest.status==='completed'?'✓ Latest session today':'● Active session'}</span><span>${sp.done}/${sp.plan} shots</span></div><div class="ss-track"><i style="width:${sp.percent}%"></i></div></div>`:''}
         <div class="card-actions">
-          ${active?`<button class="btn btn-primary btn-sm" data-continue="${active.id}" data-pos="${p.id}">▶ Tiếp tục phiên</button>`:`<button class="btn btn-primary btn-sm" data-practice="${p.id}">＋ Lên phiên hôm nay</button>`}
-          <button class="btn btn-ghost btn-sm" data-edit="${p.id}">Sửa thế bi</button>
-          <button class="btn btn-danger btn-sm" data-del="${p.id}">Xoá</button>
+          ${active?`<button class="btn btn-primary btn-sm" data-continue="${active.id}" data-pos="${p.id}">▶ Continue session</button>`:`<button class="btn btn-primary btn-sm" data-practice="${p.id}">＋ Plan today’s session</button>`}
+          <button class="btn btn-ghost btn-sm" data-edit="${p.id}">Edit position</button>
+          <button class="btn btn-danger btn-sm" data-del="${p.id}">Delete</button>
         </div>
       </div>
     </div>`;
@@ -1277,7 +1321,7 @@ function renderPositionList(sec){
   wrap.querySelectorAll('[data-continue]').forEach(b=>b.addEventListener('click',()=>startSession(b.dataset.pos,b.dataset.continue)));
   wrap.querySelectorAll('[data-edit]').forEach(b=>b.addEventListener('click',()=>startSetup(b.dataset.edit)));
   wrap.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{ const p=state.positions.find(x=>x.id===b.dataset.del);
-    if(p&&confirm(`Xoá thế bi “${p.name}”, toàn bộ phiên tập và cú đánh đã ghi?`)){ state.positions=state.positions.filter(x=>x.id!==b.dataset.del); state.sessions=state.sessions.filter(x=>x.positionId!==b.dataset.del); save(); renderPractice(); toast('Đã xoá thế bi.'); } }));
+    if(p&&confirm(`Delete position “${p.name}” and all recorded sessions and shots?`)){ state.positions=state.positions.filter(x=>x.id!==b.dataset.del); state.sessions=state.sessions.filter(x=>x.positionId!==b.dataset.del); save(); renderPractice(); toast('Position deleted.'); } }));
 }
 
 function openSessionPlanner(posId){
@@ -1285,18 +1329,18 @@ function openSessionPlanner(posId){
   const existing=activeTodaySession(posId);
   if(existing){
     const pr=sessionProgress(pos,existing);
-    openModal(`<div class="modal-head"><div><div class="eyebrow">Phiên tập hôm nay</div><h2>${esc(pos.name)}</h2></div><button class="close" data-close>✕</button></div>
-      <div class="session-plan-card card" style="margin-bottom:0"><div class="session-plan-main"><div><div class="section-title">Phiên đang thực hiện</div><p class="hint">Bạn đã ghi ${pr.done}/${pr.plan} lượt.</p></div><div class="session-plan-count">${pr.done}<small> / ${pr.plan} lượt</small></div></div><div class="session-plan-track"><i style="width:${pr.percent}%"></i></div></div>
-      <div class="modal-foot"><button class="btn btn-ghost" data-close>Để sau</button><button class="btn btn-primary" id="continueSession">▶ Tiếp tục phiên</button></div>`);
+    openModal(`<div class="modal-head"><div><div class="eyebrow">Today’s practice sessions</div><h2>${esc(pos.name)}</h2></div><button class="close" data-close>✕</button></div>
+      <div class="session-plan-card card" style="margin-bottom:0"><div class="session-plan-main"><div><div class="section-title">Session in progress</div><p class="hint">You have recorded ${pr.done}/${pr.plan} shots.</p></div><div class="session-plan-count">${pr.done}<small> / ${pr.plan} shots</small></div></div><div class="session-plan-track"><i style="width:${pr.percent}%"></i></div></div>
+      <div class="modal-foot"><button class="btn btn-ghost" data-close>Later</button><button class="btn btn-primary" id="continueSession">▶ Continue session</button></div>`);
     document.getElementById('continueSession').addEventListener('click',()=>{ closeModal(); startSession(posId,existing.id); });
     return;
   }
-  openModal(`<div class="modal-head"><div><div class="eyebrow">Lên kế hoạch phiên tập</div><h2>${esc(pos.name)}</h2></div><button class="close" data-close>✕</button></div>
-    <label>Mục tiêu số lượt bắn trong phiên hôm nay</label>
+  openModal(`<div class="modal-head"><div><div class="eyebrow">Plan practice session</div><h2>${esc(pos.name)}</h2></div><button class="close" data-close>✕</button></div>
+    <label>Target number of shots for today’s session</label>
     <div class="plan-picker"><button type="button" id="planMinus">−</button><input id="planShots" type="number" min="1" max="200" step="1" value="10" inputmode="numeric"><button type="button" id="planPlus">＋</button></div>
-    <div class="quick-plans">${[5,10,15,20,30].map(n=>`<button type="button" data-plan="${n}" class="${n===10?'on':''}">${n} lượt</button>`).join('')}</div>
-    <p class="hint" style="margin-top:12px">Mỗi lần ghi kết quả một cú đánh, tiến độ phiên sẽ tự tăng 1 lượt.</p>
-    <div class="modal-foot"><button class="btn btn-ghost" data-close>Huỷ</button><button class="btn btn-primary" id="createSession">Bắt đầu phiên</button></div>`);
+    <div class="quick-plans">${[5,10,15,20,30].map(n=>`<button type="button" data-plan="${n}" class="${n===10?'on':''}">${n} shots</button>`).join('')}</div>
+    <p class="hint" style="margin-top:12px">Each recorded shot automatically advances the session progress by one.</p>
+    <div class="modal-foot"><button class="btn btn-ghost" data-close>Cancel</button><button class="btn btn-primary" id="createSession">Start session</button></div>`);
   const input=document.getElementById('planShots');
   const syncQuick=()=>document.querySelectorAll('[data-plan]').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.plan,10)===parseInt(input.value,10)));
   document.getElementById('planMinus').addEventListener('click',()=>{ input.value=Math.max(1,(parseInt(input.value,10)||10)-1); syncQuick(); });
@@ -1307,7 +1351,7 @@ function openSessionPlanner(posId){
     const plan=Math.max(1,Math.min(200,parseInt(input.value,10)||10));
     state.sessions.filter(s=>s.positionId===posId&&s.status==='active').forEach(s=>{ s.status='completed'; s.completedAt=new Date().toISOString(); s.completedEarly=true; });
     const sess={id:uid(),positionId:posId,date:todayStr(),plannedAttempts:plan,startedAt:new Date().toISOString(),completedAt:null,status:'active'};
-    state.sessions.push(sess); save(); closeModal(); startSession(posId,sess.id); toast('Đã tạo phiên '+plan+' lượt.');
+    state.sessions.push(sess); save(); closeModal(); startSession(posId,sess.id); toast('Created a '+plan+'-shot session.');
   });
 }
 
@@ -1323,43 +1367,43 @@ function renderSetup(sec){
   };
   sec.innerHTML=`
     <div class="page-head spread">
-      <div><h1>${editing?'Sửa thế bi':'Tạo thế bi'}</h1><p class="sub">Đặt bi cái + bi mục tiêu, chọn lỗ đích và vị trí bi cái cần đứng.</p></div>
-      <button class="btn btn-ghost" id="backBtn">← Quay lại</button>
+      <div><h1>${editing?'Edit position':'Create position'}</h1><p class="sub">Place the cue ball and object ball, select the target pocket, and set the desired cue-ball position.</p></div>
+      <button class="btn btn-ghost" id="backBtn">← Back</button>
     </div>
     <div class="card">
-      <label>Tên thế bi</label><input id="posName" value="${esc(draft.name)}" placeholder="VD: Stop shot bi 1 lỗ góc">
+      <label>Position name</label><input id="posName" value="${esc(draft.name)}" placeholder="Example: Stop shot, 1-ball to corner pocket">
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:10px">Bàn bi</div>
+      <div class="section-title" style="margin-bottom:10px">Pool table</div>
       <div class="table-tool" id="setupTable"></div>
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:4px">Điểm đầu cơ tiếp xúc bi cái</div>
-      <p class="hint" style="margin-bottom:12px">Chạm vào một chấm trên bi cái mô phỏng để chọn điểm đầu cơ sẽ tiếp xúc. Tâm = stun · cao = ăn theo (follow) · thấp = lùi (draw) · lệch ngang = xoáy ngang (English). Vòng đứt nét là giới hạn ½ bán kính — chấm nằm ngoài vòng rất dễ trượt đầu cơ.</p>
+      <div class="section-title" style="margin-bottom:4px">Cue-tip Contact Point</div>
+      <p class="hint" style="margin-bottom:12px">Tap a dot on the practice cue ball to select the cue-tip contact point. Center = stun · high = follow · low = draw · horizontal offset = English. The dashed circle marks the half-radius limit; points outside it carry a high miscue risk.</p>
       <div id="tipPicker"></div>
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:12px">Cách chấm điểm</div>
+      <div class="section-title" style="margin-bottom:12px">Scoring method</div>
       <div class="seg" id="scoreMode">
-        <button type="button" data-v="both" class="${draft.scoreMode==='both'?'on':''}">Vào lỗ + vị trí bi cái</button>
-        <button type="button" data-v="pot" class="${draft.scoreMode==='pot'?'on':''}">Chỉ vào lỗ</button>
-        <button type="button" data-v="position" class="${draft.scoreMode==='position'?'on':''}">Chỉ vị trí bi cái</button>
+        <button type="button" data-v="both" class="${draft.scoreMode==='both'?'on':''}">Potting + cue-ball position</button>
+        <button type="button" data-v="pot" class="${draft.scoreMode==='pot'?'on':''}">Potting only</button>
+        <button type="button" data-v="position" class="${draft.scoreMode==='position'?'on':''}">Cue-ball position only</button>
       </div>
       <div id="tolWrap" style="margin-top:16px;${draft.scoreMode==='pot'?'display:none':''}">
-        <label>Dung sai vị trí bi cái: <b id="tolVal">${draft.cueTolerance}</b> đường kính bi</label>
+        <label>Cue-ball position tolerance: <b id="tolVal">${draft.cueTolerance}</b> ball diameters</label>
         <input type="range" id="tolRange" min="0.5" max="4" step="0.5" value="${draft.cueTolerance}" class="range">
-        <p class="hint">Bi cái dừng trong vòng tròn xanh quanh “đích bi cái” thì được tính đạt vị trí.</p>
+        <p class="hint">The cue ball counts as successful when it stops inside the green target circle.</p>
       </div>
       <div class="divider"></div>
-      <label>Tốc độ ra ngọn mục tiêu</label>
+      <label>Target stroke speed</label>
       <div class="speed-scale" id="targetStrokeSpeed">${speedButtons(parseInt(draft.targetStrokeSpeed,10)||3,parseInt(draft.targetStrokeSpeed,10)||3)}</div>
-      <p class="hint" id="targetSpeedTip">${esc(speedTip(parseInt(draft.targetStrokeSpeed,10)||3))} Tốc độ được tạo chủ yếu bằng độ dài stroke; không giảm tốc trước khi chạm bi.</p>
-      <label style="margin-top:14px">Ghi chú kỹ thuật (tuỳ chọn)</label>
-      <textarea id="posNote" placeholder="VD: đánh tâm bi, stroke vừa, tăng tốc mượt...">${esc(draft.note||'')}</textarea>
+      <p class="hint" id="targetSpeedTip">${esc(speedTip(parseInt(draft.targetStrokeSpeed,10)||3))} Control speed mainly through stroke length; do not decelerate before contact.</p>
+      <label style="margin-top:14px">Technical notes (optional)</label>
+      <textarea id="posNote" placeholder="Example: center ball, medium stroke, smooth acceleration...">${esc(draft.note||'')}</textarea>
     </div>
     <div class="row" style="margin-bottom:40px">
-      <button class="btn btn-primary" id="savePos">💾 Lưu thế bi</button>
-      ${editing?'<button class="btn btn-soft" id="saveGo">💾 Lưu & luyện tập</button>':''}
+      <button class="btn btn-primary" id="savePos">💾 Save position</button>
+      ${editing?'<button class="btn btn-soft" id="saveGo">💾 Save & practice</button>':''}
     </div>`;
   sec.querySelector('#backBtn').addEventListener('click',backToList);
   setupTable=makeSetupTable(sec.querySelector('#setupTable'),draft);
@@ -1373,16 +1417,16 @@ function renderSetup(sec){
   range.addEventListener('input',()=>{ tol=parseFloat(range.value); sec.querySelector('#tolVal').textContent=tol; setupTable.setTol(tol); });
   sec.querySelectorAll('#targetStrokeSpeed button').forEach(b=>b.addEventListener('click',()=>{
     targetStrokeSpeed=parseInt(b.dataset.speed,10); sec.querySelectorAll('#targetStrokeSpeed button').forEach(x=>x.classList.toggle('on',parseInt(x.dataset.speed,10)===targetStrokeSpeed));
-    sec.querySelector('#targetSpeedTip').textContent=speedTip(targetStrokeSpeed)+' Tốc độ được tạo chủ yếu bằng độ dài stroke; không giảm tốc trước khi chạm bi.';
+    sec.querySelector('#targetSpeedTip').textContent=speedTip(targetStrokeSpeed)+' Control speed mainly through stroke length; do not decelerate before contact.';
   }));
   function collect(){
     const t=setupTable.get();
-    const name=sec.querySelector('#posName').value.trim()||'Thế bi không tên';
+    const name=sec.querySelector('#posName').value.trim()||'Untitled position';
     const cue=t.balls.find(b=>b.type==='cue'); const tgt=t.balls.find(b=>b.type!=='cue');
-    if(!cue){ toast('Cần đặt bi cái trên bàn.'); return null; }
-    if(!tgt){ toast('Cần đặt ít nhất 1 bi mục tiêu.'); return null; }
-    if(scoreMode!=='pot' && !t.cueGoal){ toast('Chọn công cụ “Đặt đích bi cái” và chạm lên bàn để đặt vị trí đích.'); return null; }
-    if(scoreMode!=='position' && !t.goalPocket){ toast('Chọn công cụ “Chọn lỗ đích” và chạm vào một lỗ.'); return null; }
+    if(!cue){ toast('Place the cue ball on the table.'); return null; }
+    if(!tgt){ toast('Place at least one object ball.'); return null; }
+    if(scoreMode!=='pot' && !t.cueGoal){ toast('Select “Set cue-ball target” and tap the table to place the target position.'); return null; }
+    if(scoreMode!=='position' && !t.goalPocket){ toast('Select “Select target pocket” and tap a pocket.'); return null; }
     return Object.assign(draft,{ name, setup:{balls:t.balls,aim:t.aim}, targetBallType:tgt.type,
       goalPocket:t.goalPocket, cueGoal:t.cueGoal, cueTolerance:tol, targetStrokeSpeed, scoreMode,
       tip:tipSafe(tipPicker.get()), note:sec.querySelector('#posNote').value.trim() });
@@ -1392,41 +1436,41 @@ function renderSetup(sec){
     const idx=state.positions.findIndex(x=>x.id===p.id);
     if(idx>=0) state.positions[idx]=p; else state.positions.push(p);
     save(); return true; }
-  sec.querySelector('#savePos').addEventListener('click',()=>{ if(persist()){ toast('Đã lưu thế bi.'); backToList(); } });
+  sec.querySelector('#savePos').addEventListener('click',()=>{ if(persist()){ toast('Position saved.'); backToList(); } });
   if(sec.querySelector('#saveGo')) sec.querySelector('#saveGo').addEventListener('click',()=>{ if(persist()) openSessionPlanner(draft.id); });
 }
 
-/* ---------- SESSION: vòng lặp luyện tập ---------- */
+
 function renderSession(sec){
   const pos=state.positions.find(p=>p.id===activeId), sess=getSession(activeSessionId);
   if(!pos||!sess||sess.positionId!==pos.id){ backToList(); return; }
-  const modeTxt=pos.scoreMode==='pot'?'Chỉ tính vào lỗ (1đ)':pos.scoreMode==='position'?'Chỉ tính vị trí bi cái (1đ)':'Vào lỗ 0.5đ + kiểm soát bi cái đúng vị trí 0.5đ';
+  const modeTxt=pos.scoreMode==='pot'?'Potting only (1 pt)':pos.scoreMode==='position'?'Cue-ball position only (1 pt)':'Potting 0.5 pt + correct cue-ball position 0.5 pt';
   sec.innerHTML=`
     <div class="page-head spread">
-      <div><h1>${esc(pos.name)}</h1><p class="sub">${modeTxt}${pos.cueTolerance&&pos.scoreMode!=='pot'?' · dung sai '+pos.cueTolerance+' bi':''}</p></div>
-      <div class="row"><button class="btn btn-ghost btn-sm" id="editPos">Sửa thế bi</button><button class="btn btn-ghost btn-sm" id="backBtn">← Danh sách</button></div>
+      <div><h1>${esc(pos.name)}</h1><p class="sub">${modeTxt}${pos.cueTolerance&&pos.scoreMode!=='pot'?' · tolerance '+pos.cueTolerance+' ball diameters':''}</p></div>
+      <div class="row"><button class="btn btn-ghost btn-sm" id="editPos">Edit position</button><button class="btn btn-ghost btn-sm" id="backBtn">← List</button></div>
     </div>
     <div id="sessionPlan"></div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:6px">Nhập kết quả lượt tiếp theo</div>
-      <p class="hint" style="margin-bottom:10px">Bắn cú thật xong, kéo <b style="color:var(--chalk)">bi cái</b> tới vị trí dừng thực tế. Nếu trượt, chọn “Trượt” rồi kéo <b style="color:var(--warn)">bi mục tiêu</b> tới điểm dừng hoặc điểm chạm băng đầu tiên.</p>
-      <div class="seg" id="pottedSeg" style="margin-bottom:12px"><button type="button" data-v="in" class="on">🎯 Bi vào lỗ</button><button type="button" data-v="miss">❌ Trượt</button></div>
+      <div class="section-title" style="margin-bottom:6px">Record the next shot</div>
+      <p class="hint" style="margin-bottom:10px">After taking the real shot, drag the <b style="color:var(--chalk)">cue ball</b> to its actual final position. If you missed, select “Miss” and drag the <b style="color:var(--warn)">object ball</b> to its final position or first rail-contact point.</p>
+      <div class="seg" id="pottedSeg" style="margin-bottom:12px"><button type="button" data-v="in" class="on">🎯 Ball potted</button><button type="button" data-v="miss">❌ Miss</button></div>
       <div class="table-tool" id="sessTable"></div>
       <div class="stroke-panel">
-        <div class="stroke-target"><div><span class="eyebrow">Tốc độ mục tiêu</span><br><strong>${speedLabel(pos.targetStrokeSpeed)}</strong></div><div class="stroke-tip">${esc(speedTip(pos.targetStrokeSpeed))} Hãy đưa cơ về sau chậm, chuyển hướng mượt và không giảm tốc trước lúc chạm bi.</div></div>
-        <label>Tốc độ ra ngọn thực tế của lượt này</label>
+        <div class="stroke-target"><div><span class="eyebrow">Target speed</span><br><strong>${speedLabel(pos.targetStrokeSpeed)}</strong></div><div class="stroke-tip">${esc(speedTip(pos.targetStrokeSpeed))} Take the cue back slowly, transition smoothly, and do not decelerate before contact.</div></div>
+        <label>Actual stroke speed for this shot</label>
         <div class="speed-scale" id="actualStrokeSpeed">${speedButtons(null,pos.targetStrokeSpeed)}</div>
-        <label style="margin-top:12px">Nhịp ra ngọn</label>
-        <div class="seg rhythm-seg" id="strokeRhythm"><button type="button" data-v="smooth" class="on">Mượt</button><button type="button" data-v="rushed">Gấp</button><button type="button" data-v="decelerated">Giảm tốc</button><button type="button" data-v="jerky">Giật</button></div>
+        <label style="margin-top:12px">Stroke rhythm</label>
+        <div class="seg rhythm-seg" id="strokeRhythm"><button type="button" data-v="smooth" class="on">Smooth</button><button type="button" data-v="rushed">Rushed</button><button type="button" data-v="decelerated">Decelerated</button><button type="button" data-v="jerky">Jerky</button></div>
         <div class="divider" style="margin:14px 0 12px"></div>
-        <div class="stroke-target"><div><span class="eyebrow">Điểm đầu cơ mục tiêu</span><br><strong>${esc(tipLabel(pos.tip))}</strong></div><div class="stroke-tip">${esc(tipEffect(pos.tip))}${tipWarn(pos.tip)?' ⚠ '+esc(tipWarn(pos.tip)):''}</div></div>
-        <label>Điểm đầu cơ thực tế của lượt này <span style="color:var(--muted);font-weight:400">(tuỳ chọn — vòng cam là điểm mục tiêu)</span></label>
+        <div class="stroke-target"><div><span class="eyebrow">Target cue-tip contact</span><br><strong>${esc(tipLabel(pos.tip))}</strong></div><div class="stroke-tip">${esc(tipEffect(pos.tip))}${tipWarn(pos.tip)?' ⚠ '+esc(tipWarn(pos.tip)):''}</div></div>
+        <label>Actual cue-tip contact for this shot <span style="color:var(--muted);font-weight:400">(optional — the orange ring marks the target)</span></label>
         <div id="actualTip" style="margin-top:8px"></div>
       </div>
       <div id="scorePreview" class="score-preview"></div>
-      <label style="margin-top:12px">Ghi chú cú đánh (tuỳ chọn)</label>
-      <input id="attemptNote" placeholder="VD: lực hơi mạnh, lệch phải...">
-      <div class="row" style="margin-top:14px"><button class="btn btn-primary" id="logShot">＋ Ghi lượt này</button><button class="btn btn-ghost" id="resetShot">↩ Về thế bi</button></div>
+      <label style="margin-top:12px">Shot notes (optional)</label>
+      <input id="attemptNote" placeholder="Example: slightly too firm, missed right...">
+      <div class="row" style="margin-top:14px"><button class="btn btn-primary" id="logShot">＋ Record this shot</button><button class="btn btn-ghost" id="resetShot">↩ Reset to starting position</button></div>
     </div>
     <div class="card" id="sessStats"></div>
     <div class="card" id="sessLog"></div>`;
@@ -1444,7 +1488,7 @@ function renderSession(sec){
     sec.querySelectorAll('#pottedSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); sessionTable.setPotted(b.dataset.v==='in');
   }));
   sec.querySelector('#logShot').addEventListener('click',()=>{
-    if(selectedSpeed==null){ toast('Chọn tốc độ ra ngọn thực tế trước khi ghi lượt.'); return; }
+    if(selectedSpeed==null){ toast('Select the actual stroke speed before recording the shot.'); return; }
     const live=sessionTable.get(), r=scoreAttempt(pos,live), tip=tipPicker.get();
     pos.attempts.push({id:uid(),sessionId:sess.id,at:todayStr()+'T'+new Date().toTimeString().slice(0,5),potted:live.potted,cueFinal:live.cueFinal,targetFinal:live.potted?null:live.targetFinal,cueOk:r.cueOk,potOk:r.potOk,score:r.score,strokeSpeed:selectedSpeed,strokeRhythm:selectedRhythm,speedOk:selectedSpeed===pos.targetStrokeSpeed,tip:tip,tipOk:tip?tipEqual(tip,pos.tip):null,note:sec.querySelector('#attemptNote').value.trim()});
     const pr=sessionProgress(pos,sess), justFinished=sess.status==='active'&&pr.done>=pr.plan;
@@ -1453,7 +1497,7 @@ function renderSession(sec){
     sec.querySelectorAll('#pottedSeg button').forEach(x=>x.classList.toggle('on',x.dataset.v==='in'));
     sec.querySelectorAll('#actualStrokeSpeed button').forEach(x=>x.classList.remove('on'));
     sec.querySelectorAll('#strokeRhythm button').forEach(x=>x.classList.toggle('on',x.dataset.v==='smooth'));
-    toast(justFinished?'🎉 Hoàn thành mục tiêu phiên!':'Đã ghi lượt: +'+fmtScore(r.score)+'đ');
+    toast(justFinished?'🎉 Session target completed!':'Shot recorded: +'+fmtScore(r.score)+' pts');
     renderSessionPlan(pos,sess); renderSessionStats(pos,sess); renderSessionLog(pos,sess);
   });
   sec.querySelector('#resetShot').addEventListener('click',()=>{ sessionTable.reset(); selectedSpeed=null; selectedRhythm='smooth'; tipPicker.set(null); sec.querySelectorAll('#pottedSeg button').forEach(x=>x.classList.toggle('on',x.dataset.v==='in')); sec.querySelectorAll('#actualStrokeSpeed button').forEach(x=>x.classList.remove('on')); sec.querySelectorAll('#strokeRhythm button').forEach(x=>x.classList.toggle('on',x.dataset.v==='smooth')); updatePreview(pos,sessionTable.get(),selectedSpeed,null); });
@@ -1462,33 +1506,33 @@ function renderSession(sec){
 function renderSessionPlan(pos,sess){
   const el=document.getElementById('sessionPlan'); if(!el) return;
   const pr=sessionProgress(pos,sess), done=sess.status==='completed';
-  el.innerHTML=`<div class="card session-plan-card"><div class="session-plan-main"><div><div class="session-plan-kicker">Phiên tập · ${fmtDateFull(sess.date)}</div><div class="session-plan-title">${done?'Đã hoàn thành mục tiêu':'Đang thực hiện phiên'}</div><div class="session-plan-meta"><span class="chip ${done?'chip-ok':'chip-found'}">${done?'✓ Hoàn thành':'● Đang tập'}</span><span class="chip">${pr.remaining} lượt còn lại</span></div></div><div class="session-plan-count">${pr.done}<small> / ${pr.plan} lượt</small></div></div><div class="session-plan-track" style="margin-top:14px"><i style="width:${pr.percent}%"></i></div><div class="card-actions" style="margin-top:13px">${done?'<button class="btn btn-soft btn-sm" id="extendSession">＋ Thêm 5 lượt</button>':'<button class="btn btn-ghost btn-sm" id="editSessionPlan">Sửa mục tiêu</button><button class="btn btn-ghost btn-sm" id="finishSession">Kết thúc sớm</button>'}<button class="btn btn-ghost btn-sm" id="closeSession">Về danh sách</button></div></div>`;
-  const edit=document.getElementById('editSessionPlan'); if(edit) edit.addEventListener('click',()=>{ const v=prompt('Mục tiêu số lượt của phiên:',String(pr.plan)); if(v===null) return; const n=Math.max(pr.done||1,Math.min(200,parseInt(v,10)||pr.plan)); sess.plannedAttempts=n; save(); renderSessionPlan(pos,sess); });
-  const finish=document.getElementById('finishSession'); if(finish) finish.addEventListener('click',()=>{ if(confirm('Kết thúc phiên tại '+pr.done+'/'+pr.plan+' lượt?')){ sess.status='completed'; sess.completedAt=new Date().toISOString(); sess.completedEarly=pr.done<pr.plan; save(); renderSessionPlan(pos,sess); toast('Đã kết thúc phiên.'); } });
-  const extend=document.getElementById('extendSession'); if(extend) extend.addEventListener('click',()=>{ sess.plannedAttempts=pr.plan+5; sess.status='active'; sess.completedAt=null; sess.completedEarly=false; save(); renderSessionPlan(pos,sess); toast('Đã thêm 5 lượt.'); });
+  el.innerHTML=`<div class="card session-plan-card"><div class="session-plan-main"><div><div class="session-plan-kicker">Practice session · ${fmtDateFull(sess.date)}</div><div class="session-plan-title">${done?'Target completed':'Session in progress'}</div><div class="session-plan-meta"><span class="chip ${done?'chip-ok':'chip-found'}">${done?'✓ Completed':'● Practicing'}</span><span class="chip">${pr.remaining} shots remaining</span></div></div><div class="session-plan-count">${pr.done}<small> / ${pr.plan} shots</small></div></div><div class="session-plan-track" style="margin-top:14px"><i style="width:${pr.percent}%"></i></div><div class="card-actions" style="margin-top:13px">${done?'<button class="btn btn-soft btn-sm" id="extendSession">＋ Add 5 shots</button>':'<button class="btn btn-ghost btn-sm" id="editSessionPlan">Edit target</button><button class="btn btn-ghost btn-sm" id="finishSession">Finish early</button>'}<button class="btn btn-ghost btn-sm" id="closeSession">Back to list</button></div></div>`;
+  const edit=document.getElementById('editSessionPlan'); if(edit) edit.addEventListener('click',()=>{ const v=prompt('Session shot target:',String(pr.plan)); if(v===null) return; const n=Math.max(pr.done||1,Math.min(200,parseInt(v,10)||pr.plan)); sess.plannedAttempts=n; save(); renderSessionPlan(pos,sess); });
+  const finish=document.getElementById('finishSession'); if(finish) finish.addEventListener('click',()=>{ if(confirm('Finish the session at '+pr.done+'/'+pr.plan+' shots?')){ sess.status='completed'; sess.completedAt=new Date().toISOString(); sess.completedEarly=pr.done<pr.plan; save(); renderSessionPlan(pos,sess); toast('Session finished.'); } });
+  const extend=document.getElementById('extendSession'); if(extend) extend.addEventListener('click',()=>{ sess.plannedAttempts=pr.plan+5; sess.status='active'; sess.completedAt=null; sess.completedEarly=false; save(); renderSessionPlan(pos,sess); toast('Added 5 shots.'); });
   document.getElementById('closeSession').addEventListener('click',backToList);
 }
 function updatePreview(pos,live,strokeSpeed,tip){
   const el=document.getElementById('scorePreview'); if(!el) return;
   const r=scoreAttempt(pos,live), bits=[];
-  if(pos.scoreMode!=='position') bits.push(`<span class="crit ${r.potOk?'ok':'no'}">${r.potOk?'✓':'✗'} Vào lỗ</span>`);
+  if(pos.scoreMode!=='position') bits.push(`<span class="crit ${r.potOk?'ok':'no'}">${r.potOk?'✓':'✗'} Potted</span>`);
   if(pos.scoreMode!=='pot'){
-    let d=''; if(pos.cueGoal&&live.cueFinal){ const dist=distPx(live.cueFinal,pos.cueGoal)/BALL_D; d=` (lệch ${fmtScore(dist)} bi)`; }
-    bits.push(`<span class="crit ${r.cueOk?'ok':'no'}">${r.cueOk?'✓':'✗'} Vị trí bi cái${d}</span>`);
+    let d=''; if(pos.cueGoal&&live.cueFinal){ const dist=distPx(live.cueFinal,pos.cueGoal)/BALL_D; d=` (off by ${fmtScore(dist)} balls)`; }
+    bits.push(`<span class="crit ${r.cueOk?'ok':'no'}">${r.cueOk?'✓':'✗'} Cue-ball position${d}</span>`);
   }
-  if(strokeSpeed!=null) bits.push(`<span class="crit ${strokeSpeed===pos.targetStrokeSpeed?'ok':'no'}">Tốc độ ${speedLabel(strokeSpeed)}${strokeSpeed===pos.targetStrokeSpeed?' ✓':strokeSpeed>pos.targetStrokeSpeed?' · nhanh hơn mục tiêu':' · chậm hơn mục tiêu'}</span>`);
-  if(tipValid(tip)){ const ok=tipEqual(tip,pos.tip); bits.push(`<span class="crit ${ok?'ok':'no'}">Đầu cơ ${esc(tipLabel(tip))}${ok?' ✓':' · lệch mục tiêu ('+esc(tipLabel(pos.tip))+')'}</span>`); }
-  el.innerHTML=`<div class="sp-score">Cú này: <b>${fmtScore(r.score)}đ</b></div><div class="sp-crit">${bits.join('')}</div>`;
+  if(strokeSpeed!=null) bits.push(`<span class="crit ${strokeSpeed===pos.targetStrokeSpeed?'ok':'no'}">Speed ${speedLabel(strokeSpeed)}${strokeSpeed===pos.targetStrokeSpeed?' ✓':strokeSpeed>pos.targetStrokeSpeed?' · faster than target':' · slower than target'}</span>`);
+  if(tipValid(tip)){ const ok=tipEqual(tip,pos.tip); bits.push(`<span class="crit ${ok?'ok':'no'}">Cue tip ${esc(tipLabel(tip))}${ok?' ✓':' · off target ('+esc(tipLabel(pos.tip))+')'}</span>`); }
+  el.innerHTML=`<div class="sp-score">This shot: <b>${fmtScore(r.score)} pts</b></div><div class="sp-crit">${bits.join('')}</div>`;
 }
 function renderSessionStats(pos,sess){
   const el=document.getElementById('sessStats'); if(!el) return;
   const A=sessionAttempts(pos,sess), st=attemptsStats(A), all=positionStats(pos);
-  el.innerHTML=`<div class="spread" style="margin-bottom:12px"><div><div class="section-title">Kết quả phiên này</div><p class="hint">Chỉ tính các lượt thuộc phiên đang mở.</p></div><div class="big-total">${fmtScore(st.total)}<span>/${st.N} điểm</span></div></div>
-    <div class="stats" style="margin-bottom:0"><div class="stat"><div class="num">${st.N?fmtScore(st.avg):'—'}</div><div class="lbl">Điểm/cú</div></div><div class="stat"><div class="num c">${Math.round(st.potRate)}%</div><div class="lbl">Tỉ lệ vào lỗ</div></div><div class="stat"><div class="num a">${Math.round(st.posRate)}%</div><div class="lbl">Kiểm soát bi cái</div></div><div class="stat"><div class="num">${st.curStreak}<span style="font-size:13px;color:var(--muted)"> (best ${st.bestStreak})</span></div><div class="lbl">Chuỗi hoàn hảo</div></div></div>
-    ${st.speedKnown?`<div class="stroke-summary"><span class="chip chip-found">Mục tiêu: ${speedLabel(pos.targetStrokeSpeed)}</span><span class="chip ${st.speedRate>=70?'chip-ok':''}">Đúng tốc độ ${Math.round(st.speedRate)}%</span><span class="chip">TB thực tế ${fmtScore(st.avgSpeed)}/5</span></div>`:''}
-    ${st.tipKnown?`<div class="stroke-summary"><span class="chip chip-mental">Đầu cơ mục tiêu: ${esc(tipLabel(pos.tip))}</span><span class="chip ${st.tipRate>=70?'chip-ok':''}">Đúng điểm chạm ${Math.round(st.tipRate)}%</span><span class="chip">${st.tipMatch}/${st.tipKnown} lượt có ghi</span></div>`:''}
-    ${st.N?`<div class="divider"></div><div class="section-title" style="margin-bottom:4px">Pattern trong phiên</div><p class="hint" style="margin-bottom:8px">Xanh = bi cái đúng · đỏ = lệch vị trí · cam = bi mục tiêu khi trượt.</p><div class="overlay-table">${composeTable({ghosts:pos.setup.balls,goalPocket:pos.goalPocket,cueGoal:pos.cueGoal,cueTol:pos.cueTolerance,overlay:overlayDots(A)})}</div>`:''}
-    <p class="hint" style="margin-top:12px">Toàn bộ lịch sử thế bi: ${all.N} cú · ${all.N?fmtScore(all.avg):'—'} điểm/cú.</p>`;
+  el.innerHTML=`<div class="spread" style="margin-bottom:12px"><div><div class="section-title">This session’s results</div><p class="hint">Only shots from the current session are included.</p></div><div class="big-total">${fmtScore(st.total)}<span>/${st.N} points</span></div></div>
+    <div class="stats" style="margin-bottom:0"><div class="stat"><div class="num">${st.N?fmtScore(st.avg):'—'}</div><div class="lbl">Points/shot</div></div><div class="stat"><div class="num c">${Math.round(st.potRate)}%</div><div class="lbl">Pot rate</div></div><div class="stat"><div class="num a">${Math.round(st.posRate)}%</div><div class="lbl">Cue-ball control</div></div><div class="stat"><div class="num">${st.curStreak}<span style="font-size:13px;color:var(--muted)"> (best ${st.bestStreak})</span></div><div class="lbl">Perfect streak</div></div></div>
+    ${st.speedKnown?`<div class="stroke-summary"><span class="chip chip-found">Target: ${speedLabel(pos.targetStrokeSpeed)}</span><span class="chip ${st.speedRate>=70?'chip-ok':''}">Target speed matched ${Math.round(st.speedRate)}%</span><span class="chip">Actual avg ${fmtScore(st.avgSpeed)}/5</span></div>`:''}
+    ${st.tipKnown?`<div class="stroke-summary"><span class="chip chip-mental">Target cue tip: ${esc(tipLabel(pos.tip))}</span><span class="chip ${st.tipRate>=70?'chip-ok':''}">Contact matched ${Math.round(st.tipRate)}%</span><span class="chip">${st.tipMatch}/${st.tipKnown} recorded shots</span></div>`:''}
+    ${st.N?`<div class="divider"></div><div class="section-title" style="margin-bottom:4px">Session pattern</div><p class="hint" style="margin-bottom:8px">Green = correct cue-ball position · red = position error · orange = object ball after a miss.</p><div class="overlay-table">${composeTable({ghosts:pos.setup.balls,goalPocket:pos.goalPocket,cueGoal:pos.cueGoal,cueTol:pos.cueTolerance,overlay:overlayDots(A)})}</div>`:''}
+    <p class="hint" style="margin-top:12px">Full position history: ${all.N} shots · ${all.N?fmtScore(all.avg):'—'} points/shot.</p>`;
 }
 function overlayDots(A){
   const dots=[]; (A||[]).forEach(a=>{ if(a.cueFinal) dots.push({x:a.cueFinal.x,y:a.cueFinal.y,color:a.cueOk?'#18B877':'#F0776A',r:6,op:.72}); if(!a.potted&&a.targetFinal) dots.push({x:a.targetFinal.x,y:a.targetFinal.y,color:'#E8A33D',r:5.5,op:.68}); }); return dots;
@@ -1496,19 +1540,17 @@ function overlayDots(A){
 function renderSessionLog(pos,sess){
   const el=document.getElementById('sessLog'); if(!el) return;
   const A=[...sessionAttempts(pos,sess)].reverse();
-  if(!A.length){ el.innerHTML=`<div class="section-title" style="margin-bottom:6px">Nhật ký phiên</div><div class="empty">Chưa có lượt nào trong phiên này.</div>`; return; }
-  el.innerHTML=`<div class="section-title" style="margin-bottom:10px">Nhật ký phiên (${A.length} lượt)</div>`+A.map((a,i)=>{ const n=A.length-i,s=a.score===1?'ok':a.score>0?'half':'no',crit=[]; if(pos.scoreMode!=='position') crit.push(a.potOk?'vào lỗ ✓':'trượt ✗'); if(pos.scoreMode!=='pot') crit.push(a.cueOk?'vị trí ✓':'vị trí ✗'); if(Number.isFinite(a.strokeSpeed)) crit.push('tốc độ '+speedLabel(a.strokeSpeed)+(a.speedOk?' ✓':' ✗')); if(tipValid(a.tip)) crit.push('đầu cơ '+tipLabel(a.tip)+(a.tipOk?' ✓':' ✗')); if(a.strokeRhythm) crit.push('nhịp '+rhythmLabel(a.strokeRhythm)); return `<div class="attempt-item"><div class="att-badge ${s}">${fmtScore(a.score)}</div><div class="att-body"><div class="att-line">#${n} · ${crit.join(' · ')}</div>${a.note?`<div class="att-note">${esc(a.note)}</div>`:''}</div><button class="btn btn-danger btn-sm" data-delatt="${a.id}">✕</button></div>`; }).join('');
-  el.querySelectorAll('[data-delatt]').forEach(b=>b.addEventListener('click',()=>{ pos.attempts=pos.attempts.filter(x=>x.id!==b.dataset.delatt); save(); renderSessionPlan(pos,sess); renderSessionStats(pos,sess); renderSessionLog(pos,sess); toast('Đã xoá lượt.'); }));
+  if(!A.length){ el.innerHTML=`<div class="section-title" style="margin-bottom:6px">Session log</div><div class="empty">No shots recorded in this session.</div>`; return; }
+  el.innerHTML=`<div class="section-title" style="margin-bottom:10px">Session log (${A.length} shots)</div>`+A.map((a,i)=>{ const n=A.length-i,s=a.score===1?'ok':a.score>0?'half':'no',crit=[]; if(pos.scoreMode!=='position') crit.push(a.potOk?'potted ✓':'missed ✗'); if(pos.scoreMode!=='pot') crit.push(a.cueOk?'position ✓':'position ✗'); if(Number.isFinite(a.strokeSpeed)) crit.push('speed '+speedLabel(a.strokeSpeed)+(a.speedOk?' ✓':' ✗')); if(tipValid(a.tip)) crit.push('cue tip '+tipLabel(a.tip)+(a.tipOk?' ✓':' ✗')); if(a.strokeRhythm) crit.push('rhythm '+rhythmLabel(a.strokeRhythm)); return `<div class="attempt-item"><div class="att-badge ${s}">${fmtScore(a.score)}</div><div class="att-body"><div class="att-line">#${n} · ${crit.join(' · ')}</div>${a.note?`<div class="att-note">${esc(a.note)}</div>`:''}</div><button class="btn btn-danger btn-sm" data-delatt="${a.id}">✕</button></div>`; }).join('');
+  el.querySelectorAll('[data-delatt]').forEach(b=>b.addEventListener('click',()=>{ pos.attempts=pos.attempts.filter(x=>x.id!==b.dataset.delatt); save(); renderSessionPlan(pos,sess); renderSessionStats(pos,sess); renderSessionLog(pos,sess); toast('Shot deleted.'); }));
 }
 
-/* ============================================================
-   THI ĐẤU — ghi trận, ghi lỗi thực chiến, tái hiện thế bi
-   ============================================================ */
+
 let matchView='list', activeMatchId=null, matchTable=null, matchOutcome=null, matchTip=null, matchSetupOn=false;
 function getMatch(id){ return (state.matches||[]).find(m=>m.id===id)||null; }
 function matchResult(m){ if(m.status!=='completed') return null; return m.myScore>m.oppScore?'win':m.myScore<m.oppScore?'lose':'draw'; }
 function matchErrWeight(m){ return (m.errors||[]).reduce((s,e)=>s+(SEVERITY[e.severity]?SEVERITY[e.severity].w:2),0); }
-function matchTitle(m){ return 'vs '+(m.opponent||'Đối thủ')+(m.gameType?' · '+(GAME_TYPES[m.gameType]||m.gameType):''); }
+function matchTitle(m){ return 'vs '+(m.opponent||'Opponent')+(m.gameType?' · '+(GAME_TYPES[m.gameType]||m.gameType):''); }
 
 function renderMatch(){
   const sec=document.querySelector('section[data-view="match"]');
@@ -1523,22 +1565,22 @@ function renderMatchList(sec){
   const topKind=Object.entries(kindCount).sort((a,b)=>b[1]-a[1])[0];
   sec.innerHTML=`
     <div class="page-head spread">
-      <div><h1>Thi đấu</h1><p class="sub">Ghi lại lỗi khi bắn với bạn hoặc đấu giải. Dữ liệu thực chiến sẽ được đưa vào tab Pattern lỗi và dùng để đề xuất bài luyện tập.</p></div>
-      <button class="btn btn-primary" id="newMatch">＋ Trận mới</button>
+      <div><h1>Matches</h1><p class="sub">Record mistakes from friendly games or tournaments. Match data feeds the Error Patterns tab and practice recommendations.</p></div>
+      <button class="btn btn-primary" id="newMatch">＋ New match</button>
     </div>
     <div class="card">
       <div class="stats" style="margin-bottom:0">
-        <div class="stat"><div class="num">${ms.length}</div><div class="lbl">Trận đã ghi</div></div>
-        <div class="stat"><div class="num c">${done.length?Math.round(wins/done.length*100):0}%</div><div class="lbl">Tỉ lệ thắng (${wins}/${done.length})</div></div>
-        <div class="stat"><div class="num a">${errN}</div><div class="lbl">Lỗi đã ghi</div></div>
-        <div class="stat"><div class="num">${ms.length?fmtScore(errN/ms.length):'—'}</div><div class="lbl">Lỗi / trận</div></div>
+        <div class="stat"><div class="num">${ms.length}</div><div class="lbl">Matches recorded</div></div>
+        <div class="stat"><div class="num c">${done.length?Math.round(wins/done.length*100):0}%</div><div class="lbl">Win rate (${wins}/${done.length})</div></div>
+        <div class="stat"><div class="num a">${errN}</div><div class="lbl">Errors recorded</div></div>
+        <div class="stat"><div class="num">${ms.length?fmtScore(errN/ms.length):'—'}</div><div class="lbl">Errors / match</div></div>
       </div>
-      ${topKind?`<div class="stroke-summary"><span class="chip chip-danger">${kindIcon(topKind[0])} Lỗi thực chiến nhiều nhất: ${kindLabel(topKind[0])} (${topKind[1]})</span><span class="chip">Xem gợi ý sửa ở tab Pattern lỗi</span></div>`:''}
+      ${topKind?`<div class="stroke-summary"><span class="chip chip-danger">${kindIcon(topKind[0])} Most common match error: ${kindLabel(topKind[0])} (${topKind[1]})</span><span class="chip">See correction guidance in Error Patterns</span></div>`:''}
     </div>
     <div id="matchList"></div>`;
   sec.querySelector('#newMatch').addEventListener('click',openMatchCreator);
   const wrap=sec.querySelector('#matchList');
-  if(!ms.length){ wrap.innerHTML=`<div class="empty"><div class="big">🏆</div>Chưa có trận nào. Tạo một trận để bắt đầu ghi lỗi thực chiến — mỗi lỗi có thể tái hiện thành thế bi luyện tập.</div>`; return; }
+  if(!ms.length){ wrap.innerHTML=`<div class="empty"><div class="big">🏆</div>No matches yet. Create one to start recording match errors; each error can be recreated as a practice position.</div>`; return; }
   wrap.innerHTML=ms.map(m=>{
     const r=matchResult(m), E=(m.errors||[]).length;
     const kc={}; (m.errors||[]).forEach(e=>kc[e.kind]=(kc[e.kind]||0)+1);
@@ -1546,40 +1588,40 @@ function renderMatchList(sec){
     return `<div class="item-card match-card">
       <div>
         <div class="item-head"><div class="item-title">${esc(matchTitle(m))}</div>
-          <div class="row">${r?`<span class="result-badge ${r==='win'?'result-win':r==='lose'?'result-lose':'result-draw'}">${r==='win'?'Thắng':r==='lose'?'Thua':'Hoà'}</span>`:'<span class="chip chip-found">● Đang diễn ra</span>'}</div></div>
+          <div class="row">${r?`<span class="result-badge ${r==='win'?'result-win':r==='lose'?'result-lose':'result-draw'}">${r==='win'?'Win':r==='lose'?'Loss':'Draw'}</span>`:'<span class="chip chip-found">● In progress</span>'}</div></div>
         <div class="item-date">${fmtDateFull(m.date)}${m.venue?' · '+esc(m.venue):''}${m.raceTo?' · Race to '+m.raceTo:''}</div>
-        <div class="err-meta" style="margin-top:8px">${E?chips:'<span class="chip">Chưa ghi lỗi nào</span>'}</div>
+        <div class="err-meta" style="margin-top:8px">${E?chips:'<span class="chip">No errors recorded</span>'}</div>
         <div class="card-actions">
-          <button class="btn btn-primary btn-sm" data-open="${m.id}">${m.status==='completed'?'Xem & ghi thêm':'▶ Tiếp tục ghi'}</button>
-          <button class="btn btn-danger btn-sm" data-delm="${m.id}">Xoá</button>
+          <button class="btn btn-primary btn-sm" data-open="${m.id}">${m.status==='completed'?'View & add more':'▶ Continue recording'}</button>
+          <button class="btn btn-danger btn-sm" data-delm="${m.id}">Delete</button>
         </div>
       </div>
-      <div class="match-score"><span class="me">${m.myScore}</span><span class="vs">–</span><span class="op">${m.oppScore}</span><small>${E} lỗi đã ghi</small></div>
+      <div class="match-score"><span class="me">${m.myScore}</span><span class="vs">–</span><span class="op">${m.oppScore}</span><small>${E} errors recorded</small></div>
     </div>`;
   }).join('');
   wrap.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{ activeMatchId=b.dataset.open; matchView='game'; matchSetupOn=false; renderMatch(); window.scrollTo({top:0}); }));
   wrap.querySelectorAll('[data-delm]').forEach(b=>b.addEventListener('click',()=>{ const m=getMatch(b.dataset.delm);
-    if(m&&confirm('Xoá trận “'+matchTitle(m)+'” và toàn bộ lỗi đã ghi?')){ state.matches=state.matches.filter(x=>x.id!==b.dataset.delm); save(); renderMatch(); toast('Đã xoá trận.'); } }));
+    if(m&&confirm('Delete match “'+matchTitle(m)+'” and all recorded errors?')){ state.matches=state.matches.filter(x=>x.id!==b.dataset.delm); save(); renderMatch(); toast('Match deleted.'); } }));
 }
 function openMatchCreator(){
-  openModal(`<div class="modal-head"><div><div class="eyebrow">Trận mới</div><h2>Ghi một trận thi đấu</h2></div><button class="close" data-close>✕</button></div>
-    <label>Đối thủ</label><input id="mOpp" placeholder="VD: Anh Tuấn / Giải CLB vòng 1">
-    <label style="margin-top:12px">Thể loại</label>
+  openModal(`<div class="modal-head"><div><div class="eyebrow">New match</div><h2>Record a match</h2></div><button class="close" data-close>✕</button></div>
+    <label>Opponent</label><input id="mOpp" placeholder="Example: Alex / Club Tournament Round 1">
+    <label style="margin-top:12px">Game type</label>
     <div class="seg" id="mType">${Object.entries(GAME_TYPES).map(([k,v],i)=>`<button type="button" data-v="${k}" class="${i===0?'on':''}">${v}</button>`).join('')}</div>
     <div class="row" style="gap:12px;margin-top:12px">
       <div style="flex:1;min-width:120px"><label>Race to</label><input id="mRace" type="number" min="1" max="99" value="5" inputmode="numeric"></div>
-      <div style="flex:2;min-width:140px"><label>Địa điểm (tuỳ chọn)</label><input id="mVenue" placeholder="VD: CLB Bi-a Cầu Giấy"></div>
+      <div style="flex:2;min-width:140px"><label>Venue (optional)</label><input id="mVenue" placeholder="Example: Downtown Pool Club"></div>
     </div>
-    <label style="margin-top:12px">Ngày</label><input id="mDate" type="date" value="${todayStr()}">
-    <div class="modal-foot"><button class="btn btn-ghost" data-close>Huỷ</button><button class="btn btn-primary" id="createMatch">Bắt đầu trận</button></div>`);
+    <label style="margin-top:12px">Date</label><input id="mDate" type="date" value="${todayStr()}">
+    <div class="modal-foot"><button class="btn btn-ghost" data-close>Cancel</button><button class="btn btn-primary" id="createMatch">Start match</button></div>`);
   let type='9ball';
   document.querySelectorAll('#mType button').forEach(b=>b.addEventListener('click',()=>{ type=b.dataset.v; document.querySelectorAll('#mType button').forEach(x=>x.classList.toggle('on',x.dataset.v===type)); }));
   document.getElementById('createMatch').addEventListener('click',()=>{
-    const m={ id:uid(), date:document.getElementById('mDate').value||todayStr(), opponent:document.getElementById('mOpp').value.trim()||'Đối thủ',
+    const m={ id:uid(), date:document.getElementById('mDate').value||todayStr(), opponent:document.getElementById('mOpp').value.trim()||'Opponent',
       gameType:type, raceTo:Math.max(1,Math.min(99,parseInt(document.getElementById('mRace').value,10)||5)),
       venue:document.getElementById('mVenue').value.trim(), myScore:0, oppScore:0, status:'active',
       startedAt:new Date().toISOString(), completedAt:null, errors:[] };
-    state.matches.push(m); save(); closeModal(); activeMatchId=m.id; matchView='game'; matchSetupOn=false; renderMatch(); toast('Đã tạo trận. Ghi lỗi ngay khi vừa bắn hỏng để nhớ chính xác.');
+    state.matches.push(m); save(); closeModal(); activeMatchId=m.id; matchView='game'; matchSetupOn=false; renderMatch(); toast('Match created. Record an error immediately after it happens while the details are fresh.');
   });
 }
 function renderMatchGame(sec){
@@ -1589,54 +1631,54 @@ function renderMatchGame(sec){
   sec.innerHTML=`
     <div class="page-head spread">
       <div><h1>${esc(matchTitle(m))}</h1><p class="sub">${fmtDateFull(m.date)}${m.venue?' · '+esc(m.venue):''}${m.raceTo?' · Race to '+m.raceTo:''}</p></div>
-      <button class="btn btn-ghost" id="backM">← Danh sách trận</button>
+      <button class="btn btn-ghost" id="backM">← Match list</button>
     </div>
     <div class="card">
-      <div class="spread" style="margin-bottom:4px"><div class="section-title">Tỉ số</div>
-        ${done?`<span class="result-badge ${r==='win'?'result-win':r==='lose'?'result-lose':'result-draw'}">${r==='win'?'Thắng':r==='lose'?'Thua':'Hoà'}</span>`:'<span class="chip chip-found">● Đang diễn ra</span>'}</div>
+      <div class="spread" style="margin-bottom:4px"><div class="section-title">Score</div>
+        ${done?`<span class="result-badge ${r==='win'?'result-win':r==='lose'?'result-lose':'result-draw'}">${r==='win'?'Win':r==='lose'?'Loss':'Draw'}</span>`:'<span class="chip chip-found">● In progress</span>'}</div>
       <div class="score-board">
-        <div class="score-side me"><div class="sl">Tôi</div><div class="sn">${m.myScore}</div><div class="srow"><button data-sc="me-">−</button><button data-sc="me+">＋</button></div></div>
+        <div class="score-side me"><div class="sl">Me</div><div class="sn">${m.myScore}</div><div class="srow"><button data-sc="me-">−</button><button data-sc="me+">＋</button></div></div>
         <div class="score-vs">VS</div>
-        <div class="score-side"><div class="sl">${esc(m.opponent||'Đối thủ')}</div><div class="sn">${m.oppScore}</div><div class="srow"><button data-sc="op-">−</button><button data-sc="op+">＋</button></div></div>
+        <div class="score-side"><div class="sl">${esc(m.opponent||'Opponent')}</div><div class="sn">${m.oppScore}</div><div class="srow"><button data-sc="op-">−</button><button data-sc="op+">＋</button></div></div>
       </div>
-      <div class="card-actions">${done?'<button class="btn btn-soft btn-sm" id="reopenM">↩ Mở lại trận</button>':'<button class="btn btn-soft btn-sm" id="finishM">✓ Kết thúc trận</button>'}</div>
+      <div class="card-actions">${done?'<button class="btn btn-soft btn-sm" id="reopenM">↩ Reopen match</button>':'<button class="btn btn-soft btn-sm" id="finishM">✓ Finish match</button>'}</div>
     </div>
 
     <div class="card">
-      <div class="section-title" style="margin-bottom:4px">Ghi một lỗi vừa mắc</div>
-      <p class="hint" style="margin-bottom:12px">Chọn nhanh loại lỗi, sau đó tái hiện lại cú đánh nếu bạn còn nhớ tình huống trên bàn.</p>
+      <div class="section-title" style="margin-bottom:4px">Record a recent error</div>
+      <p class="hint" style="margin-bottom:12px">Select the error type, then recreate the shot while you still remember the table situation.</p>
       <div class="kind-grid" id="kindGrid">${MATCH_KINDS.map((k,i)=>`<button type="button" class="kind-btn${i===0?' on':''}" data-kind="${k.key}"><span class="ki">${k.icon}</span><span><span class="kn">${k.label}</span><span class="kh">${k.hint}</span></span></button>`).join('')}</div>
-      <label style="margin-top:14px">Mức độ</label>
+      <label style="margin-top:14px">Severity</label>
       <div class="seg" id="sevSeg">${Object.entries(SEVERITY).map(([k,v])=>`<button type="button" data-v="${k}" class="${k==='turn'?'on':''}">${v.label}</button>`).join('')}</div>
-      <label style="margin-top:12px">Bối cảnh</label>
-      <div class="seg mental" id="keySeg"><button type="button" data-v="0" class="on">Bình thường</button><button type="button" data-v="1">🔥 Cú then chốt / áp lực cao</button></div>
-      <label style="margin-top:12px">Ghi chú (tuỳ chọn)</label>
-      <input id="errNote" placeholder="VD: bi 7 lỗ góc, cắt mỏng, vội nên ra ngọn gấp">
+      <label style="margin-top:12px">Context</label>
+      <div class="seg mental" id="keySeg"><button type="button" data-v="0" class="on">Normal</button><button type="button" data-v="1">🔥 Key shot / high pressure</button></div>
+      <label style="margin-top:12px">Notes (optional)</label>
+      <input id="errNote" placeholder="Example: thin cut on the 7-ball to the corner; rushed the stroke">
 
       <div class="replay-shell">
         <div class="replay-head">
-          <div class="replay-head-copy"><div class="section-title" style="font-size:14.5px">Tái hiện thế bi</div><p class="hint">Ghi lại cả <b>ý định ban đầu</b> và <b>kết quả thực tế</b> để app phân tích đúng nguyên nhân lỗi.</p></div>
-          <div class="row"><span class="replay-badge">2 bước</span><button class="btn btn-ghost btn-sm" id="toggleSetup">${matchSetupOn?'Ẩn bàn':'＋ Mở tái hiện'}</button></div>
+          <div class="replay-head-copy"><div class="section-title" style="font-size:14.5px">Recreate the position</div><p class="hint">Record both the <b>original intention</b> and the <b>actual outcome</b> so the app can analyze the cause accurately.</p></div>
+          <div class="row"><span class="replay-badge">2 steps</span><button class="btn btn-ghost btn-sm" id="toggleSetup">${matchSetupOn?'Hide table':'＋ Open replay'}</button></div>
         </div>
         <div id="errSetupWrap" style="${matchSetupOn?'':'display:none'}">
           <div class="replay-flow">
             <div class="replay-step">
-              <div class="replay-step-head"><div class="replay-step-num">1</div><div><div class="replay-step-title">Ý định ban đầu</div><div class="replay-step-desc">Đặt thế bi trước cú đánh và xác định điều bạn muốn thực hiện.</div></div></div>
-              <div class="replay-keypoints"><div class="replay-key"><b>🕳️ Lỗ mục tiêu</b><span>Chọn chính xác lỗ bạn định đưa bi mục tiêu vào.</span></div><div class="replay-key"><b>🎯 Vị trí bi cái mong muốn</b><span>Đặt vùng bi cái cần dừng sau cú đánh.</span></div></div>
+              <div class="replay-step-head"><div class="replay-step-num">1</div><div><div class="replay-step-title">Original intention</div><div class="replay-step-desc">Set the position before the shot and define what you intended to achieve.</div></div></div>
+              <div class="replay-keypoints"><div class="replay-key"><b>🕳️ Target pocket</b><span>Select the exact pocket intended for the object ball.</span></div><div class="replay-key"><b>🎯 Desired cue-ball position</b><span>Set the area where the cue ball should stop after the shot.</span></div></div>
               <div class="table-tool" id="errTable"></div>
-              <label style="margin-top:12px">Điểm đầu cơ đã dùng</label>
+              <label style="margin-top:12px">Cue-tip contact used</label>
               <div id="errTip" style="margin-top:8px"></div>
             </div>
             <div class="replay-step">
-              <div class="replay-step-head"><div class="replay-step-num">2</div><div><div class="replay-step-title">Kết quả thực tế</div><div class="replay-step-desc">Ghi vị trí bi cái cuối cùng và đường sai của bi mục tiêu.</div></div></div>
-              <div class="outcome-toggle" id="actualPotSeg"><button type="button" data-v="in" class="on">✓ Vào đúng lỗ mục tiêu</button><button type="button" data-v="miss">✕ Trượt lỗ mục tiêu</button></div>
+              <div class="replay-step-head"><div class="replay-step-num">2</div><div><div class="replay-step-title">Actual outcome</div><div class="replay-step-desc">Record the cue ball’s final position and the object ball’s miss path.</div></div></div>
+              <div class="outcome-toggle" id="actualPotSeg"><button type="button" data-v="in" class="on">✓ Potted in the target pocket</button><button type="button" data-v="miss">✕ Missed the target pocket</button></div>
               <div class="table-tool" id="errOutcomeTable"></div>
-              <div class="outcome-guide" id="outcomeGuide"><b>Thao tác:</b> kéo bi cái nét đứt tới vị trí dừng thực tế. <span class="miss-only">Sau đó chạm lên thành băng tại điểm bi mục tiêu chạm đầu tiên; chạm lại để sửa.</span><div id="railContactStatus" style="margin-top:5px"></div></div>
+              <div class="outcome-guide" id="outcomeGuide"><b>Action:</b> drag the dashed cue ball to its actual final position. <span class="miss-only">Then tap the rail where the object ball first made contact; tap again to correct it.</span><div id="railContactStatus" style="margin-top:5px"></div></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="replay-log-bar"><button class="btn btn-primary btn-block" id="logErr">＋ Ghi lỗi này</button></div>
+      <div class="replay-log-bar"><button class="btn btn-primary btn-block" id="logErr">＋ Record this error</button></div>
     </div>
     <div class="card" id="errList"></div>`;
 
@@ -1647,7 +1689,7 @@ function renderMatchGame(sec){
     else if(v==='op+') m.oppScore++; else m.oppScore=Math.max(0,m.oppScore-1);
     save(); renderMatchGame(sec);
   }));
-  const fin=sec.querySelector('#finishM'); if(fin) fin.addEventListener('click',()=>{ m.status='completed'; m.completedAt=new Date().toISOString(); save(); renderMatchGame(sec); toast('Đã kết thúc trận.'); });
+  const fin=sec.querySelector('#finishM'); if(fin) fin.addEventListener('click',()=>{ m.status='completed'; m.completedAt=new Date().toISOString(); save(); renderMatchGame(sec); toast('Match finished.'); });
   const reo=sec.querySelector('#reopenM'); if(reo) reo.addEventListener('click',()=>{ m.status='active'; m.completedAt=null; save(); renderMatchGame(sec); });
 
   let kind='pot_miss', sev='turn', keyMoment=false;
@@ -1662,9 +1704,9 @@ function renderMatchGame(sec){
     const guide=sec.querySelector('#outcomeGuide'), status=sec.querySelector('#railContactStatus'); if(!guide||!status||!live) return;
     guide.classList.toggle('is-miss',!live.potted);
     sec.querySelectorAll('#actualPotSeg button').forEach(x=>x.classList.toggle('on',(x.dataset.v==='in')===live.potted));
-    status.innerHTML=live.potted?'<span class="chip chip-ok">✓ Không cần ghi điểm chạm băng</span>'
-      :live.targetRailContact?'<span class="chip chip-mental">✓ Đã ghi điểm chạm băng đầu tiên</span>'
-      :'<span class="chip chip-danger">Chưa ghi điểm chạm băng đầu tiên</span>';
+    status.innerHTML=live.potted?'<span class="chip chip-ok">✓ No rail-contact point needed</span>'
+      :live.targetRailContact?'<span class="chip chip-mental">✓ First rail-contact point recorded</span>'
+      :'<span class="chip chip-danger">First rail-contact point not recorded</span>';
   }
   function buildSetup(){
     const base={ setup:{balls:[{id:uid(),type:'cue',x:0.5,y:0.80},{id:uid(),type:'1',x:0.5,y:0.48}],aim:true}, goalPocket:null, cueGoal:null, cueTolerance:1.5 };
@@ -1679,7 +1721,7 @@ function renderMatchGame(sec){
   sec.querySelector('#toggleSetup').addEventListener('click',()=>{
     matchSetupOn=!matchSetupOn;
     const w=sec.querySelector('#errSetupWrap'); w.style.display=matchSetupOn?'':'none';
-    sec.querySelector('#toggleSetup').textContent=matchSetupOn?'Ẩn bàn':'＋ Mở tái hiện';
+    sec.querySelector('#toggleSetup').textContent=matchSetupOn?'Hide table':'＋ Open replay';
     if(matchSetupOn&&!matchTable) buildSetup();
   });
 
@@ -1689,10 +1731,10 @@ function renderMatchGame(sec){
     if(matchSetupOn&&matchTable&&matchOutcome){
       const t=matchTable.get(), outcome=matchOutcome.get();
       const cue=t.balls.find(b=>b.type==='cue'), tgt=t.balls.find(b=>b.type!=='cue');
-      if(!cue||!tgt){ toast('Bước 1 cần ít nhất bi cái và 1 bi mục tiêu.'); return; }
-      if(!t.goalPocket){ toast('Bước 1: chọn lỗ mục tiêu ban đầu.'); return; }
-      if(!t.cueGoal){ toast('Bước 1: đặt vị trí bi cái mong muốn.'); return; }
-      if(!outcome.potted&&!outcome.targetRailContact){ toast('Bước 2: chạm lên thành băng tại điểm bi mục tiêu chạm đầu tiên.'); return; }
+      if(!cue||!tgt){ toast('Step 1 requires at least the cue ball and one object ball.'); return; }
+      if(!t.goalPocket){ toast('Step 1: select the intended target pocket.'); return; }
+      if(!t.cueGoal){ toast('Step 1: set the desired cue-ball position.'); return; }
+      if(!outcome.potted&&!outcome.targetRailContact){ toast('Step 2: tap the rail at the object ball’s first contact point.'); return; }
       e.setup={ balls:t.balls, goalPocket:t.goalPocket, cueGoal:t.cueGoal, cueTol:t.cueTol };
       e.outcome=outcome;
       e.tip=matchTip?matchTip.get():null;
@@ -1701,7 +1743,7 @@ function renderMatchGame(sec){
     m.errors.push(e); save();
     sec.querySelector('#errNote').value='';
     renderMatchGame(sec);
-    toast(hadReplay?'Đã ghi lỗi cùng ý định và kết quả thực tế.':'Đã ghi lỗi. Dữ liệu đã vào tab Pattern lỗi.');
+    toast(hadReplay?'Error recorded with both intention and actual outcome.':'Error recorded. The data is now available in Error Patterns.');
   });
   renderMatchErrors(m);
 }
@@ -1716,104 +1758,153 @@ function matchErrorReplayTable(e){
     railContacts:(!e.outcome.potted&&e.outcome.targetRailContact)?[{id:'mini-rail-'+e.id,...e.outcome.targetRailContact,color:'#E8A33D',tag:''}]:[]
   });
 }
+function matchErrorIntentTable(e){
+  if(!e||!e.setup) return '';
+  return composeTable({balls:e.setup.balls,aim:true,goalPocket:e.setup.goalPocket,cueGoal:e.setup.cueGoal,cueTol:e.setup.cueTol||1.5});
+}
+function matchErrorActualTable(e){
+  if(!e||!e.setup||!e.outcome) return '';
+  const target=(e.setup.balls||[]).find(b=>b.type!=='cue');
+  return composeTable({
+    ghosts:e.setup.balls,goalPocket:e.setup.goalPocket,
+    markers:e.outcome.cueFinal?[{id:'view-cue-'+e.id,type:'cue',x:e.outcome.cueFinal.x,y:e.outcome.cueFinal.y,tag:'actual cue ball',strokeColor:'#5FA0E6',tagColor:'#5FA0E6'}]:[],
+    paths:(!e.outcome.potted&&e.outcome.targetRailContact&&target)?[{from:target,to:e.outcome.targetRailContact,color:'#E8A33D',width:2.5}]:[],
+    railContacts:(!e.outcome.potted&&e.outcome.targetRailContact)?[{id:'view-rail-'+e.id,...e.outcome.targetRailContact,color:'#E8A33D',tag:'first rail contact'}]:[]
+  });
+}
+function openMatchErrorViewer(match,e){
+  if(!e) return;
+  const hasSetup=!!(e.setup&&Array.isArray(e.setup.balls)&&e.setup.balls.length);
+  const hasOutcome=!!(hasSetup&&e.outcome);
+  const time=(e.at||'').slice(11,16);
+  const intentTable=hasSetup?matchErrorIntentTable(e):'';
+  const actualTable=hasOutcome?matchErrorActualTable(e):'';
+  const resultText=!hasOutcome?'Not recorded':e.outcome.potted?'Potted in the intended pocket':'Missed the target pocket';
+  const railText=hasOutcome&&!e.outcome.potted?(e.outcome.targetRailContact?'Rail-contact point recorded':'Rail-contact point not recorded'):'Not applicable';
+  const tipText=e.tip?tipLabel(e.tip):'Not recorded';
+  openModal(`<div class="modal-head"><div><div class="eyebrow">Match error situation</div><h2>${kindIcon(e.kind)} ${esc(kindLabel(e.kind))}</h2></div><button class="close" data-close aria-label="Close">✕</button></div>
+    <div class="error-view-meta"><span class="chip ${e.severity==='game'?'chip-danger':''}">${sevLabel(e.severity)}</span>${e.keyMoment?'<span class="chip chip-mental">🔥 Key shot</span>':''}<span class="chip">${esc(match&&match.opponent?'vs '+match.opponent:'In match')}</span>${time?`<span class="chip">${time}</span>`:''}</div>
+    <div class="error-view-tabs" role="tablist" aria-label="View error situation"><button type="button" class="error-view-tab on" data-error-tab="intent" role="tab" aria-selected="true">🎯 Intention</button><button type="button" class="error-view-tab" data-error-tab="actual" role="tab" aria-selected="false">📍 Actual</button></div>
+    <div class="error-view-body">
+      <div class="error-view-pane on" data-error-pane="intent" role="tabpanel">
+        <div class="error-view-pane-head"><div class="error-view-pane-title">What were you trying to do?</div><div class="error-view-pane-desc">The position before the shot, the target pocket, and the desired cue-ball stopping area.</div></div>
+        ${hasSetup?`<div class="error-view-summary"><div class="error-view-summary-item"><b>Target pocket</b><span>${esc(pocketLabel(e.setup.goalPocket))}</span></div><div class="error-view-summary-item"><b>Desired cue ball</b><span>${e.setup.cueGoal?'Green area on the table':'Not recorded'}</span></div><div class="error-view-summary-item"><b>Cue-tip contact</b><span>${esc(tipText)}</span></div></div><div class="error-view-table">${intentTable}</div><div class="error-view-legend"><span><i class="error-view-dot" style="background:#18B877"></i>Desired cue-ball area</span><span><i class="error-view-dot" style="background:#F4C430"></i>Planned shot line</span></div>`:'<div class="error-view-empty">No position replay was saved for this error.</div>'}
+      </div>
+      <div class="error-view-pane" data-error-pane="actual" role="tabpanel">
+        <div class="error-view-pane-head"><div class="error-view-pane-title">What actually happened?</div><div class="error-view-pane-desc">The cue ball’s final position and the object ball’s first rail contact if the shot missed.</div></div>
+        ${hasOutcome?`<div class="error-view-summary"><div class="error-view-summary-item"><b>Object-ball result</b><span>${esc(resultText)}</span></div><div class="error-view-summary-item"><b>Actual cue ball</b><span>Blue-outlined position on the table</span></div><div class="error-view-summary-item"><b>First rail contact</b><span>${esc(railText)}</span></div></div><div class="error-view-table">${actualTable}</div><div class="error-view-legend"><span><i class="error-view-dot" style="background:#5FA0E6"></i>Actual cue ball</span>${!e.outcome.potted?'<span><i class="error-view-dot" style="background:#E8A33D"></i>Miss path and rail-contact point</span>':''}</div>`:'<div class="error-view-empty">This error has an initial position but no actual outcome. It may have been created in an older app version.</div>'}
+      </div>
+      ${e.note?`<div class="error-view-note"><b>Notes:</b> ${esc(e.note)}</div>`:''}
+    </div>
+    <div class="modal-foot"><button class="btn btn-primary" data-close>Close</button></div>`);
+  const box=document.getElementById('modalBox');
+  box.classList.add('error-viewer-modal');
+  const tabs=[...box.querySelectorAll('[data-error-tab]')], panes=[...box.querySelectorAll('[data-error-pane]')];
+  tabs.forEach(btn=>btn.addEventListener('click',()=>{
+    const key=btn.dataset.errorTab;
+    tabs.forEach(x=>{ const on=x.dataset.errorTab===key; x.classList.toggle('on',on); x.setAttribute('aria-selected',on?'true':'false'); });
+    panes.forEach(x=>x.classList.toggle('on',x.dataset.errorPane===key));
+    const body=box.querySelector('.error-view-body'); if(body) body.scrollTop=0;
+  }));
+}
 function renderMatchErrors(m){
   const el=document.getElementById('errList'); if(!el) return;
   const E=[...(m.errors||[])].reverse();
-  if(!E.length){ el.innerHTML=`<div class="section-title" style="margin-bottom:6px">Lỗi trong trận</div><div class="empty">Chưa ghi lỗi nào trong trận này.</div>`; return; }
-  el.innerHTML=`<div class="spread" style="margin-bottom:10px"><div class="section-title">Lỗi trong trận (${E.length})</div><span class="chip chip-danger">Trọng số ${matchErrWeight(m)}</span></div>`
+  if(!E.length){ el.innerHTML=`<div class="section-title" style="margin-bottom:6px">Errors in this match</div><div class="empty">No errors recorded in this match.</div>`; return; }
+  el.innerHTML=`<div class="spread" style="margin-bottom:10px"><div class="section-title">Errors in this match (${E.length})</div><span class="chip chip-danger">Weighted score ${matchErrWeight(m)}</span></div>`
     + E.map(e=>{
       const pos=e.positionId?state.positions.find(p=>p.id===e.positionId):null;
       return `<div class="err-item">
         <div class="err-ico">${kindIcon(e.kind)}</div>
         <div>
           <div class="err-name">${esc(kindLabel(e.kind))}</div>
-          <div class="err-meta"><span class="chip ${e.severity==='game'?'chip-danger':''}">${sevLabel(e.severity)}</span>${e.keyMoment?'<span class="chip chip-mental">🔥 Cú then chốt</span>':''}${e.tip?`<span class="chip">Đầu cơ: ${esc(tipLabel(e.tip))}</span>`:''}${e.setup?'<span class="chip chip-found">Có thế bi</span>':''}${e.outcome?`<span class="chip ${e.outcome.potted?'chip-ok':'chip-danger'}">${e.outcome.potted?'✓ Vào lỗ':'✕ Trượt lỗ'}</span>`:''}${e.outcome&&!e.outcome.potted&&e.outcome.targetRailContact?'<span class="chip chip-mental">Có điểm chạm băng</span>':''}</div>
+          <div class="err-meta"><span class="chip ${e.severity==='game'?'chip-danger':''}">${sevLabel(e.severity)}</span>${e.keyMoment?'<span class="chip chip-mental">🔥 Key shot</span>':''}${e.tip?`<span class="chip">Cue tip: ${esc(tipLabel(e.tip))}</span>`:''}${e.setup?'<span class="chip chip-found">Position saved</span>':''}${e.outcome?`<span class="chip ${e.outcome.potted?'chip-ok':'chip-danger'}">${e.outcome.potted?'✓ Potted':'✕ Missed'}</span>`:''}${e.outcome&&!e.outcome.potted&&e.outcome.targetRailContact?'<span class="chip chip-mental">Rail contact saved</span>':''}</div>
           ${e.note?`<div class="err-note">${esc(e.note)}</div>`:''}
           ${e.setup?`<div class="err-mini">${matchErrorReplayTable(e)}</div>`:''}
         </div>
         <div class="err-actions">
-          ${pos?`<button class="btn btn-soft btn-sm" data-openpos="${pos.id}">🎯 Mở thế bi</button>`
-               :e.setup?`<button class="btn btn-primary btn-sm" data-mkpos="${e.id}">🎯 Tạo thế bi tập</button>`:''}
+          ${e.setup?`<button class="btn btn-ghost btn-sm" data-viewerr="${e.id}">👁 View error</button>`:''}
+          ${pos?`<button class="btn btn-soft btn-sm" data-openpos="${pos.id}">🎯 Open position</button>`
+               :e.setup?`<button class="btn btn-primary btn-sm" data-mkpos="${e.id}">🎯 Create practice position</button>`:''}
           <button class="btn btn-danger btn-sm" data-delerr="${e.id}">✕</button>
         </div>
       </div>`; }).join('');
+  el.querySelectorAll('[data-viewerr]').forEach(b=>b.addEventListener('click',()=>{
+    const e=m.errors.find(x=>x.id===b.dataset.viewerr); if(e) openMatchErrorViewer(m,e); }));
   el.querySelectorAll('[data-delerr]').forEach(b=>b.addEventListener('click',()=>{
-    m.errors=m.errors.filter(x=>x.id!==b.dataset.delerr); save(); renderMatchErrors(m); toast('Đã xoá lỗi.'); }));
+    m.errors=m.errors.filter(x=>x.id!==b.dataset.delerr); save(); renderMatchErrors(m); toast('Error deleted.'); }));
   el.querySelectorAll('[data-mkpos]').forEach(b=>b.addEventListener('click',()=>{
     const e=m.errors.find(x=>x.id===b.dataset.mkpos); const p=createPositionFromError(m,e);
-    if(p){ toast('Đã tạo thế bi luyện tập từ lỗi này.'); go('practice'); startSetup(p.id); } }));
+    if(p){ toast('Practice position created from this error.'); go('practice'); startSetup(p.id); } }));
   el.querySelectorAll('[data-openpos]').forEach(b=>b.addEventListener('click',()=>{ go('practice'); startSetup(b.dataset.openpos); }));
 }
 
-/* ============================================================
-   PATTERN LỖI — tổng hợp dữ liệu cú đánh và phân tích theo luật
-   ============================================================ */
+
 let patternRange='all', patternSource='all';
 const ERROR_DEFS={
-  pot_miss:{label:'Trượt bi mục tiêu',category:'Độ chính xác',analysis:'Đường bi mục tiêu chưa ổn định; cần tách lỗi ngắm khỏi lỗi nhịp ra ngọn.',fix:'Dùng gate drill, giữ đầu và thân người yên sau khi chạm bi.'},
-  cue_position:{label:'Sai vị trí bi cái',category:'Kiểm soát bi cái',analysis:'Bi cái thường rời vùng đích; nguyên nhân hay gặp là sai tốc độ, điểm chạm hoặc không lặp lại được stroke.',fix:'Giữ cùng một điểm chạm, thay đổi độ dài stroke thay vì giật hoặc ghìm cơ.'},
-  cue_long:{label:'Bi cái đi quá đích',category:'Kiểm soát lực',analysis:'Bi cái thường chạy dài hơn kế hoạch; cần kiểm tra tốc độ thực tế và độ xuyên cơ.',fix:'Rút ngắn stroke một mức nhưng vẫn tăng tốc mượt, không cố giảm tốc sát bi.'},
-  cue_short:{label:'Bi cái thiếu lực / ngắn',category:'Kiểm soát lực',analysis:'Bi cái thường dừng trước đích; có thể do stroke quá ngắn hoặc giảm tốc trước va chạm.',fix:'Tăng độ dài stroke từng nấc nhỏ và giữ chuyển động đi xuyên qua bi cái.'},
-  cue_left:{label:'Bi cái lệch trái',category:'Đường cơ',analysis:'Sai số ngang lặp lại về bên trái gợi ý đường cơ, alignment hoặc grip không trung tính.',fix:'Tập stroke qua cổng hai vật chuẩn, giữ khuỷu và cán cơ đi trên một đường.'},
-  cue_right:{label:'Bi cái lệch phải',category:'Đường cơ',analysis:'Sai số ngang lặp lại về bên phải gợi ý đường cơ, alignment hoặc grip không trung tính.',fix:'Tập stroke qua cổng hai vật chuẩn, kiểm tra đầu có dịch chuyển khi ra ngọn hay không.'},
-  miss_left:{label:'Bi mục tiêu trượt trái',category:'Điểm chạm',analysis:'Bi mục tiêu thường rời đường vào lỗ về bên trái; có thể do ngắm dày/mỏng lệch một phía hoặc cơ quẹt ngang.',fix:'Đặt lại line of aim từ tư thế đứng, vào bàn theo đúng đường và giữ mắt ở bi mục tiêu khi ra ngọn.'},
-  miss_right:{label:'Bi mục tiêu trượt phải',category:'Điểm chạm',analysis:'Bi mục tiêu thường rời đường vào lỗ về bên phải; có thể do ngắm dày/mỏng lệch một phía hoặc cơ quẹt ngang.',fix:'Đặt lại line of aim từ tư thế đứng, vào bàn theo đúng đường và giữ thân người đứng yên.'},
-  speed_fast:{label:'Ra ngọn nhanh hơn mục tiêu',category:'Tốc độ',analysis:'Tốc độ thực tế thường cao hơn kế hoạch, dễ làm bi cái chạy dài và làm nhỏ vùng sai số.',fix:'Rút ngắn backstroke; vẫn đưa cơ tới trước mượt thay vì ghìm hoặc bóp cán cơ.'},
-  speed_slow:{label:'Ra ngọn chậm hơn mục tiêu',category:'Tốc độ',analysis:'Tốc độ thực tế thường thấp hơn kế hoạch, dễ khiến bi cái thiếu quãng đường hoặc mất tác dụng stun/draw.',fix:'Tăng độ dài backstroke một nấc và cam kết đưa cơ xuyên qua bi cái.'},
-  rhythm_rushed:{label:'Nhịp ra ngọn gấp',category:'Mechanics',analysis:'Chuyển từ backstroke sang forward stroke quá nhanh làm timing và đường cơ khó lặp lại.',fix:'Kéo cơ về sau chậm hơn, tạo một nhịp chuyển hướng rõ ràng rồi mới tăng tốc.'},
-  rhythm_decelerated:{label:'Giảm tốc trước va chạm',category:'Mechanics',analysis:'Cơ bị chững trước lúc chạm bi khiến tốc độ và điểm chạm khó ổn định.',fix:'Chọn lực bằng độ dài stroke; sau khi đã chọn, đưa cơ tới trước liên tục và mượt.'},
-  rhythm_jerky:{label:'Ra ngọn bị giật',category:'Mechanics',analysis:'Lực được tạo bằng một cú giật ngắn thay vì gia tốc mượt, thường kéo theo sai đường cơ.',fix:'Thả lỏng grip, giảm lực một nấc và tập stroke chậm không bi trước khi bắn.'},
-  tip_wrong:{label:'Sai điểm đầu cơ so với kế hoạch',category:'Điểm chạm',analysis:'Đầu cơ chạm bi cái lệch khỏi điểm đã chọn, khiến bi cái phản ứng khác dự tính dù ngắm và lực đều đúng.',fix:'Trước khi bắn, đặt đầu cơ đúng điểm rồi làm vài stroke thử sát bi cái để kiểm tra; giữ chiều cao cầu tay ổn định.'},
-  tip_side_drift:{label:'Vô tình thêm xoáy ngang',category:'Điểm chạm',analysis:'Kế hoạch không dùng xoáy ngang nhưng đầu cơ lại chạm lệch trái/phải — dấu hiệu đường cơ hoặc cầu tay không thẳng.',fix:'Tập stroke qua cổng hai vật chuẩn; kiểm tra tâm ngắm và vị trí cằm trên đường cơ trước khi ra ngọn.'},
-  m_foul:{label:'Phạm lỗi (foul)',category:'Thi đấu',analysis:'Bi cái xuống lỗ, không chạm bi hợp lệ hoặc không chạm băng — mỗi foul tặng đối thủ một lượt ball-in-hand.',fix:'Trước mỗi cú, xác định rõ đường đi của bi cái sau va chạm. Ưu tiên cú an toàn có biên độ sai số lớn thay vì cú đẹp nhưng rủi ro.'},
-  m_safety:{label:'Safety hỏng',category:'Thi đấu',analysis:'Cú che bi không đạt: bi cái hoặc bi mục tiêu dừng sai chỗ, để lại bàn dễ cho đối thủ.',fix:'Tập safety có mục tiêu vị trí bi cái rõ ràng (dùng chế độ “Chỉ vị trí bi cái”), ưu tiên lực nhẹ và khoảng cách bi cái–bi mục tiêu.'},
-  m_bank:{label:'Trượt cú băng / kick',category:'Thi đấu',analysis:'Tính điểm phản băng sai hoặc lực làm đổi góc phản. Xoáy ngang ngoài ý muốn cũng làm lệch điểm ra băng.',fix:'Tập hệ thống băng (diamond system) với lực cố định, đánh tâm bi để loại biến số xoáy.'},
-  m_break:{label:'Phá bi hỏng',category:'Thi đấu',analysis:'Phá bi không vào bi, bi cái mất kiểm soát hoặc chùm bi không tách — mất quyền chủ động ngay từ đầu ván.',fix:'Ưu tiên phá bi kiểm soát: giảm lực, đánh tâm bi, giữ bi cái ở giữa bàn thay vì cố phá thật mạnh.'},
-  m_choice:{label:'Chọn sai phương án',category:'Thi đấu',analysis:'Lỗi ở khâu đọc bàn/ra quyết định chứ không phải kỹ thuật: sai thứ tự bi, chọn cú khó khi đáng lẽ nên safety.',fix:'Trước mỗi cú, đứng dậy khỏi bàn và đọc trước 2–3 bi kế tiếp. Đặt luật riêng: nếu tỉ lệ vào dưới ~50% thì chọn safety.'},
-  m_pressure:{label:'Áp lực / mất tập trung',category:'Tâm lý',analysis:'Lỗi xuất hiện đúng thời điểm then chốt — dấu hiệu pre-shot routine bị bỏ qua khi căng thẳng.',fix:'Cố định pre-shot routine (số lần vung thử, nhịp thở) và tập với áp lực giả lập: chuỗi bắt buộc, phạt làm lại từ đầu nếu trượt.'}
+  pot_miss:{label:'Missed object ball',category:'Accuracy',analysis:'The object-ball line is inconsistent; separate aiming errors from stroke-timing errors.',fix:'Use a gate drill and keep your head and body still through contact.'},
+  cue_position:{label:'Cue-ball position error',category:'Cue-ball control',analysis:'The cue ball often leaves the target area; common causes include incorrect speed, contact point, or an inconsistent stroke.',fix:'Keep the same contact point and change stroke length instead of jerking or steering the cue.'},
+  cue_long:{label:'Cue ball traveled too far',category:'Speed control',analysis:'The cue ball often runs longer than planned; check actual speed and follow-through.',fix:'Shorten the stroke by one level while still accelerating smoothly through the cue ball.'},
+  cue_short:{label:'Cue ball came up short',category:'Speed control',analysis:'The cue ball often stops before the target; the stroke may be too short or decelerating before contact.',fix:'Increase stroke length in small steps and keep the cue moving through the cue ball.'},
+  cue_left:{label:'Cue ball drifted left',category:'Cue delivery',analysis:'Repeated leftward error suggests an issue with cue delivery, alignment, or a non-neutral grip.',fix:'Practice through a two-object gate and keep the elbow and cue moving on one line.'},
+  cue_right:{label:'Cue ball drifted right',category:'Cue delivery',analysis:'Repeated rightward error suggests an issue with cue delivery, alignment, or a non-neutral grip.',fix:'Practice through a two-object gate and check whether your head moves during delivery.'},
+  miss_left:{label:'Object ball missed left',category:'Contact point',analysis:'The object ball repeatedly leaves the pocket line to the left, which may come from consistently overcutting/undercutting or a sideways stroke.',fix:'Re-establish the line of aim while standing, enter the stance on that line, and keep your body still.'},
+  miss_right:{label:'Object ball missed right',category:'Contact point',analysis:'The object ball repeatedly leaves the pocket line to the right, which may come from consistently overcutting/undercutting or a sideways stroke.',fix:'Re-establish the line of aim while standing, enter the stance on that line, and keep your body still.'},
+  speed_fast:{label:'Stroke faster than target',category:'Speed',analysis:'Actual speed is often higher than planned, making the cue ball run long and shrinking the margin for error.',fix:'Shorten the backstroke while maintaining a smooth forward delivery instead of steering the cue.'},
+  speed_slow:{label:'Stroke slower than target',category:'Speed',analysis:'Actual speed is often lower than planned, causing the cue ball to come up short or lose stun/draw action.',fix:'Lengthen the backstroke by one level and commit to following through.'},
+  rhythm_rushed:{label:'Rushed stroke rhythm',category:'Mechanics',analysis:'The transition from backstroke to forward stroke is too quick, making timing and cue delivery hard to repeat.',fix:'Take the cue back more slowly, create a clear transition, and then accelerate.'},
+  rhythm_decelerated:{label:'Decelerated before contact',category:'Mechanics',analysis:'The cue slows before contact, making speed and contact point inconsistent.',fix:'Choose speed through stroke length, then deliver continuously and smoothly.'},
+  rhythm_jerky:{label:'Jerky cue delivery',category:'Mechanics',analysis:'Power is created by a short jab rather than smooth acceleration, often pulling the cue off line.',fix:'Relax the grip, reduce speed by one level, and rehearse slow air strokes before shooting.'},
+  tip_wrong:{label:'Cue-tip contact missed the plan',category:'Contact point',analysis:'The cue tip struck away from the selected point, changing cue-ball behavior even when aim and speed were correct.',fix:'Set the tip precisely and use warm-up strokes close to the cue ball; keep bridge height stable.'},
+  tip_side_drift:{label:'Unintended side spin',category:'Contact point',analysis:'The plan used no side spin, but contact drifted left or right, suggesting a crooked stroke or unstable bridge.',fix:'Practice through a two-object gate and check vision center and chin position over the cue.'},
+  m_foul:{label:'Foul',category:'Match play',analysis:'A scratch, illegal first contact, or failure to reach a rail gives the opponent ball in hand.',fix:'Before every shot, identify the cue-ball path after contact and favor high-margin safety options.'},
+  m_safety:{label:'Failed safety',category:'Match play',analysis:'The cue ball or object ball stopped in the wrong area and left an easy table for the opponent.',fix:'Practice safety shots with a clear cue-ball target, light speed, and controlled separation.'},
+  m_bank:{label:'Missed bank / kick',category:'Match play',analysis:'The rail-contact point was misread, speed changed the rebound angle, or unintended side spin altered the path.',fix:'Practice a diamond system with fixed speed and center-ball contact.'},
+  m_break:{label:'Poor break',category:'Match play',analysis:'The break missed the head ball, lost cue-ball control, or failed to spread the rack.',fix:'Prioritize a controlled break: reduce power, hit center ball, and keep the cue ball near center table.'},
+  m_choice:{label:'Wrong shot choice',category:'Match play',analysis:'The error came from table reading or decision-making rather than execution.',fix:'Before every shot, stand up and plan the next two or three balls. Choose safety when potting odds are below roughly 50%.'},
+  m_pressure:{label:'Pressure / loss of focus',category:'Mental game',analysis:'The error appeared on a key shot, suggesting the pre-shot routine broke down under pressure.',fix:'Standardize the pre-shot routine and practice with simulated pressure and restart penalties.'}
 };
 
-/* ---------- THI ĐẤU: loại lỗi ghi trong trận ---------- */
+
 const MATCH_KINDS=[
-  {key:'pot_miss',    icon:'🎯', label:'Trượt bi mục tiêu', hint:'Ngắm hoặc ra ngọn lệch, bi không vào lỗ.'},
-  {key:'cue_position',icon:'⚪', label:'Bi cái sai vị trí',  hint:'Bi vào nhưng mất thế cho cú tiếp theo.'},
-  {key:'m_foul',      icon:'🚩', label:'Phạm lỗi (foul)',    hint:'Bi cái xuống lỗ, không chạm bi hoặc không chạm băng.'},
-  {key:'m_safety',    icon:'🛡️', label:'Safety hỏng',        hint:'Che bi không thành, để bàn đẹp cho đối thủ.'},
-  {key:'m_bank',      icon:'📐', label:'Trượt băng / kick',  hint:'Tính điểm phản băng sai.'},
-  {key:'m_break',     icon:'💥', label:'Phá bi hỏng',        hint:'Không vào bi hoặc bi cái mất kiểm soát.'},
-  {key:'m_choice',    icon:'🧭', label:'Chọn sai phương án', hint:'Đọc bàn sai, sai thứ tự bi, đáng lẽ nên safety.'},
-  {key:'m_pressure',  icon:'😰', label:'Áp lực / mất tập trung', hint:'Vội, rung tay, bỏ pre-shot routine.'}
+  {key:'pot_miss',    icon:'🎯', label:'Missed object ball', hint:'Aim or cue delivery was off and the ball missed the pocket.'},
+  {key:'cue_position',icon:'⚪', label:'Cue-ball position error', hint:'The ball was potted, but shape for the next shot was lost.'},
+  {key:'m_foul',      icon:'🚩', label:'Foul', hint:'Scratch, illegal first contact, or no rail after contact.'},
+  {key:'m_safety',    icon:'🛡️', label:'Failed safety', hint:'The safety failed and left an easy table.'},
+  {key:'m_bank',      icon:'📐', label:'Missed bank / kick', hint:'The rebound point or rail calculation was wrong.'},
+  {key:'m_break',     icon:'💥', label:'Poor break', hint:'Missed the head ball or lost cue-ball control.'},
+  {key:'m_choice',    icon:'🧭', label:'Wrong shot choice', hint:'Misread the table, chose the wrong pattern, or should have played safe.'},
+  {key:'m_pressure',  icon:'😰', label:'Pressure / loss of focus', hint:'Rushed, tightened up, or skipped the pre-shot routine.'}
 ];
 function kindOf(k){ return MATCH_KINDS.find(x=>x.key===k)||null; }
-function kindLabel(k){ const x=kindOf(k); return x?x.label:(ERROR_DEFS[k]?ERROR_DEFS[k].label:'Lỗi'); }
+function kindLabel(k){ const x=kindOf(k); return x?x.label:(ERROR_DEFS[k]?ERROR_DEFS[k].label:'Error'); }
 function kindIcon(k){ const x=kindOf(k); return x?x.icon:'⚠️'; }
-const SEVERITY={game:{label:'Mất ván',w:3},turn:{label:'Mất lượt',w:2},minor:{label:'Nhẹ',w:1}};
-function sevLabel(s){ return SEVERITY[s]?SEVERITY[s].label:'Mất lượt'; }
-const GAME_TYPES={'9ball':'9-ball','8ball':'8-ball','10ball':'10-ball','carom':'Carom / Libre','other':'Khác'};
+const SEVERITY={game:{label:'Lost rack',w:3},turn:{label:'Lost turn',w:2},minor:{label:'Minor',w:1}};
+function sevLabel(s){ return SEVERITY[s]?SEVERITY[s].label:'Lost turn'; }
+const GAME_TYPES={'9ball':'9-ball','8ball':'8-ball','10ball':'10-ball','carom':'Carom / Free game','other':'Other'};
 
-/* ---------- BÀI TẬP ĐỀ XUẤT theo pattern lỗi ----------
-   build() trả về khung thế bi (toạ độ theo tỉ lệ 0..1 của vùng chơi). */
+
 const DRILL_DEFS={
-  straight:{ name:'Bi thẳng + gate drill', desc:'Bi cái – bi mục tiêu – lỗ nằm trên một đường thẳng, bi cái phải đứng ngay điểm chạm. Đây là bài kiểm tra đường cơ sạch nhất: nếu bi cái nhảy sang trái/phải sau va chạm nghĩa là stroke chưa thẳng chứ không phải lỗi ngắm.',
+  straight:{ name:'Straight-in + gate drill', desc:'Align the cue ball, object ball, and pocket on one straight line. The cue ball must stop at contact. This exposes cue-delivery errors: sideways cue-ball movement means the stroke was not straight.',
     build:()=>({ balls:[{type:'cue',x:0.55,y:0.43},{type:'1',x:0.20,y:0.16}], goalPocket:'tl', cueGoal:{x:0.20,y:0.16}, scoreMode:'both', tol:1, tip:{x:0,y:0}, speed:3,
-      note:'Đánh tâm bi, lực vừa. Bi cái phải đứng ngay điểm chạm và không lệch ngang.' }) },
-  position:{ name:'Kiểm soát bi cái 3 vùng', desc:'Cùng một cú vào lỗ nhưng bi cái phải dừng đúng vùng đích. Tập lần lượt với đích gần – vừa – xa, chỉ thay đổi độ dài stroke chứ không đổi điểm đầu cơ.',
+      note:'Hit center ball at medium speed. The cue ball must stop at contact without drifting sideways.' }) },
+  position:{ name:'Three-zone cue-ball control', desc:'Use the same pot while making the cue ball stop in near, medium, and far target zones. Change stroke length only; keep the contact point unchanged.',
     build:()=>({ balls:[{type:'cue',x:0.50,y:0.78},{type:'1',x:0.34,y:0.46}], goalPocket:'tl', cueGoal:{x:0.62,y:0.30}, scoreMode:'both', tol:1.5, tip:{x:0,y:2}, speed:3,
-      note:'Đánh cao (follow) để bi cái đi tới vùng đích. Đổi lực bằng độ dài stroke, giữ nguyên điểm đầu cơ.' }) },
-  draw:{ name:'Lùi bi có kiểm soát', desc:'Cú vào lỗ kèm draw đưa bi cái về đúng vùng đích phía sau. Bài này lộ ngay lỗi giảm tốc trước va chạm — draw sẽ hụt quãng đường.',
+      note:'Use high follow to send the cue ball into the target zone. Adjust speed with stroke length while keeping the same contact point.' }) },
+  draw:{ name:'Controlled draw', desc:'Pot the object ball and draw the cue ball into the target zone behind its starting line. This drill exposes deceleration because draw will fall short.',
     build:()=>({ balls:[{type:'cue',x:0.50,y:0.80},{type:'1',x:0.50,y:0.55}], goalPocket:'tr', cueGoal:{x:0.50,y:0.88}, scoreMode:'both', tol:1.5, tip:{x:0,y:-2}, speed:3,
-      note:'Đầu cơ thấp, cầu tay thấp, ra ngọn xuyên qua bi cái. Không cần lực lớn, cần stroke mượt.' }) },
-  center:{ name:'Tâm bi tuyệt đối', desc:'Bài loại bỏ xoáy ngang ngoài ý muốn: chỉ dùng tâm bi, kiểm tra điểm đầu cơ trước từng cú. Nếu bi cái vẫn lệch ngang thì lỗi nằm ở đường cơ, không phải ở cách ngắm.',
+      note:'Use a low tip and low bridge, then follow through. Smooth delivery matters more than raw power.' }) },
+  center:{ name:'Pure center-ball drill', desc:'Remove unintended side spin by using center ball only and checking tip placement before every shot. If the cue ball still moves sideways, the issue is cue delivery rather than aim.',
     build:()=>({ balls:[{type:'cue',x:0.50,y:0.72},{type:'1',x:0.50,y:0.40}], goalPocket:'tr', cueGoal:{x:0.50,y:0.40}, scoreMode:'both', tol:1, tip:{x:0,y:0}, speed:2,
-      note:'Chỉ đánh tâm bi. Kiểm tra điểm đầu cơ bằng vài stroke thử trước mỗi cú.' }) },
-  safety:{ name:'Safety & kiểm soát lực', desc:'Không tính vào lỗ — chỉ tính bi cái có dừng đúng vùng an toàn hay không. Bài trực tiếp giảm foul và safety hỏng trong trận.',
+      note:'Use center ball only. Verify tip placement with several warm-up strokes before every shot.' }) },
+  safety:{ name:'Safety and speed control', desc:'Do not score the pot. Score only whether the cue ball stops in the intended safety zone. This directly targets fouls and failed safeties.',
     build:()=>({ balls:[{type:'cue',x:0.50,y:0.30},{type:'1',x:0.50,y:0.52}], goalPocket:null, cueGoal:{x:0.14,y:0.90}, scoreMode:'position', tol:2, tip:{x:0,y:-1}, speed:2,
-      note:'Chạm bi mục tiêu rất mỏng, đưa bi cái về sát băng cuối. Ưu tiên lực nhẹ và độ chính xác của điểm chạm.' }) },
-  bank:{ name:'Băng 1 nhịp (kick/bank)', desc:'Đánh bi cái vào băng rồi mới chạm bi mục tiêu, dùng tâm bi và một mức lực cố định để đọc góc phản băng ổn định.',
+      note:'Hit the object ball very thin and send the cue ball near the end rail. Prioritize soft speed and precise contact.' }) },
+  bank:{ name:'One-rail kick / bank', desc:'Send the cue ball to a rail before contacting the object ball. Use center ball and a fixed speed to learn a repeatable rebound angle.',
     build:()=>({ balls:[{type:'cue',x:0.30,y:0.80},{type:'1',x:0.78,y:0.32}], goalPocket:'tr', cueGoal:{x:0.55,y:0.50}, scoreMode:'pot', tol:2, tip:{x:0,y:0}, speed:3,
-      note:'Kick 1 băng. Giữ nguyên một mức lực trong cả loạt để hiệu chỉnh hệ thống điểm băng.' }) },
-  mental:{ name:'Chuỗi có áp lực', desc:'Không cần thế bi mới: chọn một thế bi sẵn có và đặt luật — phải vào N cú liên tiếp, trượt một cú là đếm lại từ đầu. Bắt buộc lặp lại pre-shot routine y hệt mỗi lần.', build:null },
-  reading:{ name:'Ghost game & đọc bàn', desc:'Không cần thế bi mới: chơi ghost game (rải bi ngẫu nhiên, tự chơi một mình, thua nếu trượt một cú). Trước mỗi cú, bắt buộc gọi ra trước 2–3 bi kế tiếp và lý do chọn cú đó.', build:null }
+      note:'One-rail kick. Keep the same speed throughout the set while calibrating the diamond system.' }) },
+  mental:{ name:'Pressure streak', desc:'Use an existing position and require N consecutive successes. One miss resets the count. Repeat the exact same pre-shot routine every time.', build:null },
+  reading:{ name:'Ghost game and table reading', desc:'Play the ghost with a random layout. Before each shot, call the next two or three balls and explain the chosen pattern.', build:null }
 };
 const DRILL_FOR={
   pot_miss:'straight', miss_left:'straight', miss_right:'straight',
@@ -1825,29 +1916,27 @@ const DRILL_FOR={
   m_choice:'reading', m_pressure:'mental'
 };
 function drillFor(key){ const k=DRILL_FOR[key]; return k?{key:k,def:DRILL_DEFS[k]}:null; }
-// Tạo thế bi luyện tập từ một bài drill đề xuất
 function createDrillPosition(drillKey,forKey){
   const def=DRILL_DEFS[drillKey]; if(!def||!def.build) return null;
   const b=def.build();
-  const p={ id:uid(), name:def.name+(forKey?' — sửa “'+(ERROR_DEFS[forKey]?ERROR_DEFS[forKey].label:forKey)+'”':''), createdAt:todayStr(),
+  const p={ id:uid(), name:def.name+(forKey?' — fix “'+(ERROR_DEFS[forKey]?ERROR_DEFS[forKey].label:forKey)+'”':''), createdAt:todayStr(),
     setup:{balls:b.balls.map(x=>({id:uid(),type:x.type,x:x.x,y:x.y})),aim:true},
     targetBallType:(b.balls.find(x=>x.type!=='cue')||{type:'1'}).type,
     goalPocket:b.goalPocket, cueGoal:b.cueGoal, scoreMode:b.scoreMode, cueTolerance:b.tol,
     targetStrokeSpeed:b.speed, tip:tipSafe(b.tip), note:b.note, attempts:[] };
   state.positions.push(p); save(); return p;
 }
-// Tạo thế bi luyện tập từ chính thế bi bị lỗi trong trận
 function createPositionFromError(match,err){
   const s=err.setup;
-  if(!s||!Array.isArray(s.balls)||!s.balls.length){ toast('Lỗi này chưa có thế bi tái hiện.'); return null; }
+  if(!s||!Array.isArray(s.balls)||!s.balls.length){ toast('This error does not have a recreated position.'); return null; }
   const cue=s.balls.find(b=>b.type==='cue'), tgt=s.balls.find(b=>b.type!=='cue');
-  if(!cue||!tgt){ toast('Thế bi cần ít nhất bi cái và 1 bi mục tiêu.'); return null; }
+  if(!cue||!tgt){ toast('The position requires at least the cue ball and one object ball.'); return null; }
   const mode = s.goalPocket&&s.cueGoal?'both' : s.goalPocket?'pot' : s.cueGoal?'position' : 'pot';
-  const p={ id:uid(), name:kindLabel(err.kind)+' — trận '+(match.opponent||'không tên'), createdAt:todayStr(),
+  const p={ id:uid(), name:kindLabel(err.kind)+' — match '+(match.opponent||'untitled'), createdAt:todayStr(),
     setup:{balls:s.balls.map(b=>({id:uid(),type:b.type,x:b.x,y:b.y})),aim:true},
     targetBallType:tgt.type, goalPocket:s.goalPocket||null, cueGoal:s.cueGoal||null,
     scoreMode:mode, cueTolerance:s.cueTol||1.5, targetStrokeSpeed:err.strokeSpeed||3, tip:tipSafe(err.tip),
-    note:'Tái hiện từ trận ngày '+fmtDate(match.date)+(err.note?' · '+err.note:''),
+    note:'Recreated from match on '+fmtDate(match.date)+(err.note?' · '+err.note:''),
     attempts:[], fromMatch:{matchId:match.id,errorId:err.id} };
   state.positions.push(p); err.positionId=p.id; save(); return p;
 }
@@ -1878,68 +1967,71 @@ function getPatternData(range,source){
     if(!a.potted&&a.targetFinal) push(classifyMissSide(pos,a));
     attemptRows.push({pos,a,keys,src:'practice'});
   }));
-  // Lỗi thực chiến từ các trận đấu — mỗi lỗi là một "row" ngang hàng với một cú tập
   const matchRows=[];
   if(source!=='practice') (state.matches||[]).forEach(m=>(m.errors||[]).forEach(e=>{ const d=(e.at||m.date||'').slice(0,10); if(cut&&d<cut) return;
-    const src={id:'m:'+m.id,name:'Trận '+ (m.opponent||'không tên')}, keys=[];
+    const src={id:'m:'+m.id,name:'Match '+ (m.opponent||'untitled')}, keys=[];
     const push=k=>{ if(k&&ERROR_DEFS[k]&&!keys.includes(k)){ keys.push(k); addPattern(map,k,src,e); } };
     push(e.kind);
-    if(e.keyMoment&&e.kind!=='m_pressure') push('m_pressure');   // lỗi ở cú then chốt cũng tính vào nhóm áp lực
+    if(e.keyMoment&&e.kind!=='m_pressure') push('m_pressure');
     const row={pos:src,a:e,keys,src:'match',match:m,err:e};
     attemptRows.push(row); matchRows.push(row);
   }));
   const total=attemptRows.length,patterns=Object.values(map).map(x=>({...x,rate:total?x.count/total*100:0,def:ERROR_DEFS[x.key]})).sort((a,b)=>b.count-a.count||b.rate-a.rate);
   const practiceRows=attemptRows.filter(r=>r.src==='practice');
-  const byPosition=state.positions.map(pos=>{ const rows=practiceRows.filter(r=>r.pos.id===pos.id),bad=rows.filter(r=>r.keys.length).length,local={}; rows.forEach(r=>r.keys.forEach(k=>local[k]=(local[k]||0)+1)); const top=Object.entries(local).sort((a,b)=>b[1]-a[1])[0]; return {pos,total:rows.length,bad,rate:rows.length?bad/rows.length*100:0,top:top?ERROR_DEFS[top[0]].label:'Chưa có lỗi'}; }).filter(x=>x.total).sort((a,b)=>b.rate-a.rate);
+  const byPosition=state.positions.map(pos=>{ const rows=practiceRows.filter(r=>r.pos.id===pos.id),bad=rows.filter(r=>r.keys.length).length,local={}; rows.forEach(r=>r.keys.forEach(k=>local[k]=(local[k]||0)+1)); const top=Object.entries(local).sort((a,b)=>b[1]-a[1])[0]; return {pos,total:rows.length,bad,rate:rows.length?bad/rows.length*100:0,top:top?ERROR_DEFS[top[0]].label:'No errors'}; }).filter(x=>x.total).sort((a,b)=>b.rate-a.rate);
   return {total,patterns,attemptRows,byPosition,matchRows,practiceN:practiceRows.length,matchN:matchRows.length};
 }
 function coCount(rows,a,b){ return rows.filter(r=>r.keys.includes(a)&&r.keys.includes(b)).length; }
 function buildPatternInsight(data){
-  const pairs=[['speed_fast','cue_long','Tốc độ nhanh hơn mục tiêu đang đi cùng pattern bi cái chạy quá đích. Hãy rút ngắn stroke một nấc nhưng vẫn ra ngọn mượt.'],['speed_slow','cue_short','Tốc độ chậm hơn mục tiêu đang đi cùng pattern bi cái thiếu lực. Hãy tăng độ dài stroke thay vì giật tay.'],['rhythm_rushed','pot_miss','Nhịp ra ngọn gấp thường xuất hiện cùng các cú trượt. Ưu tiên backstroke chậm và chuyển hướng mượt trước khi chỉnh hệ thống ngắm.'],['rhythm_decelerated','cue_short','Giảm tốc trước va chạm thường đi cùng bi cái dừng ngắn. Hãy chọn lực từ trước và cam kết đưa cơ xuyên qua bi cái.'],['tip_wrong','cue_position','Sai điểm đầu cơ đang đi cùng pattern bi cái sai vị trí. Trước khi sửa lực, hãy kiểm tra lại đầu cơ có chạm đúng điểm đã chọn hay không.'],['tip_side_drift','pot_miss','Xoáy ngang ngoài kế hoạch đang đi cùng các cú trượt — squirt/throw làm bi mục tiêu lệch đường. Hãy kiểm tra đường cơ và tâm ngắm thay vì chỉnh cách ngắm dày/mỏng.']];
+  const pairs=[
+    ['speed_fast','cue_long','Faster-than-target strokes are occurring with cue-ball overruns. Shorten the stroke by one level while keeping delivery smooth.'],
+    ['speed_slow','cue_short','Slower-than-target strokes are occurring with the cue ball coming up short. Increase stroke length instead of jabbing.'],
+    ['rhythm_rushed','pot_miss','Rushed rhythm often appears with misses. Slow the backstroke and smooth the transition before changing the aiming system.'],
+    ['rhythm_decelerated','cue_short','Deceleration often appears with the cue ball coming up short. Choose speed beforehand and commit to the follow-through.'],
+    ['tip_wrong','cue_position','Incorrect tip contact is occurring with cue-ball position errors. Verify the selected contact point before adjusting speed.'],
+    ['tip_side_drift','pot_miss','Unplanned side spin is occurring with misses; squirt and throw alter the object-ball line. Check cue delivery and center alignment before changing cut aim.']
+  ];
   let best=null; pairs.forEach(p=>{ const n=coCount(data.attemptRows,p[0],p[1]); if(n>=2&&(!best||n>best.n)) best={n,text:p[2]}; });
-  if(best) return best.text+' Pattern này xuất hiện '+best.n+' lần trong phạm vi đang xem.';
-  // So sánh thực chiến vs luyện tập: lỗi chỉ xuất hiện trong trận là dấu hiệu vấn đề ra quyết định/tâm lý, không phải kỹ thuật
+  if(best) return best.text+' This pattern appeared '+best.n+' times in the selected range.';
   if(data.matchN&&data.practiceN){
     const mk={},pk={};
     data.attemptRows.forEach(r=>r.keys.forEach(k=>{ if(r.src==='match') mk[k]=(mk[k]||0)+1; else pk[k]=(pk[k]||0)+1; }));
     const onlyMatch=Object.keys(mk).filter(k=>mk[k]>=2&&!pk[k]&&ERROR_DEFS[k]);
     if(onlyMatch.length){ const k=onlyMatch.sort((a,b)=>mk[b]-mk[a])[0];
-      return `“${ERROR_DEFS[k].label}” chỉ xuất hiện khi thi đấu (${mk[k]} lần) mà không thấy trong lúc tập — dấu hiệu vấn đề nằm ở ra quyết định, chọn cú hoặc tâm lý chứ không phải kỹ thuật. ${ERROR_DEFS[k].fix}`; }
+      return `“${ERROR_DEFS[k].label}” appears only in matches (${mk[k]} times) and not in practice, suggesting decision-making, shot selection, or pressure rather than pure technique. ${ERROR_DEFS[k].fix}`; }
   }
-  const top=data.patterns[0]; return top?`Lỗi nổi bật nhất là “${top.def.label}” (${top.count}/${data.total} lượt). ${top.def.fix}`:'Chưa đủ dữ liệu để kết luận pattern. Hãy ghi thêm kết quả và tốc độ ra ngọn sau mỗi lượt.';
+  const top=data.patterns[0]; return top?`The leading error is “${top.def.label}” (${top.count}/${data.total} records). ${top.def.fix}`:'There is not enough data to identify a reliable pattern. Record more outcomes and stroke speeds.';
 }
 function renderPatterns(){
   const sec=document.querySelector('section[data-view="patterns"]'),data=getPatternData(patternRange,patternSource),top=data.patterns[0],recurring=data.patterns.filter(x=>x.count>=2).slice(0,3),cards=(recurring.length?recurring:data.patterns.slice(0,3));
   const drills=[]; data.patterns.slice(0,4).forEach(x=>{ const d=drillFor(x.key); if(d&&!drills.some(y=>y.key===d.key)) drills.push({key:d.key,def:d.def,forKey:x.key,forLabel:x.def.label,count:x.count}); });
   const matchErrs=data.matchRows;
   const fixable=matchErrs.filter(r=>r.err.setup&&!r.err.positionId).slice(0,4);
-  sec.innerHTML=`<div class="page-head"><h1>Pattern lỗi</h1><p class="sub">Gộp dữ liệu từ phiên luyện tập và lỗi thực chiến trong các trận đấu, rồi đề xuất hướng luyện tập.</p></div>
-    <div class="pattern-filter"><button data-range="7" class="${patternRange==='7'?'on':''}">7 ngày</button><button data-range="30" class="${patternRange==='30'?'on':''}">30 ngày</button><button data-range="all" class="${patternRange==='all'?'on':''}">Toàn bộ</button></div>
-    <div class="pattern-filter" style="margin-top:-6px"><button data-src="all" class="${patternSource==='all'?'on':''}">Tất cả nguồn</button><button data-src="practice" class="${patternSource==='practice'?'on':''}">🎯 Luyện tập</button><button data-src="match" class="${patternSource==='match'?'on':''}">🏆 Thi đấu</button></div>
-    ${!data.total?'<div class="empty"><div class="big">🔎</div>Chưa có dữ liệu trong phạm vi này. Ghi các lượt tập hoặc ghi lỗi trong tab Thi đấu để ứng dụng bắt đầu nhận diện pattern.</div>':`
-    <div class="card pattern-hero"><div class="pattern-hero-main"><div><span class="eyebrow">Lỗi nổi bật</span><div class="section-title" style="font-size:20px;margin-top:4px">${top?top.def.label:'Chưa có lỗi rõ ràng'}</div><p class="hint">${top?top.def.analysis:'Các kết quả hiện tại chưa tạo thành một xu hướng đủ rõ.'}</p><div class="err-meta" style="margin-top:9px"><span class="src-tag practice">🎯 ${data.practiceN} lượt tập</span><span class="src-tag match">🏆 ${data.matchN} lỗi thực chiến</span></div></div><div class="ph-count">${top?top.count:0}<small>trên ${data.total} lượt/lỗi</small></div></div><div class="pattern-insight"><span>🧠</span><div><b>Phân tích:</b> ${esc(buildPatternInsight(data))}</div></div></div>
-    ${drills.length?`<div class="card"><div class="section-title" style="margin-bottom:4px">Đề xuất luyện tập</div><p class="hint" style="margin-bottom:12px">Bài tập được chọn theo đúng lỗi đang lặp lại nhiều nhất. Bấm tạo là app dựng sẵn thế bi, mục tiêu bi cái, điểm đầu cơ và tốc độ ra ngọn.</p>
-      ${drills.map(d=>`<div class="drill-card"><div class="dc-top"><div><div class="dc-for">Sửa lỗi: ${esc(d.forLabel)} (${d.count} lần)</div><div class="dc-name">${esc(d.def.name)}</div></div>${d.def.build?`<button class="btn btn-primary btn-sm" data-drill="${d.key}" data-for="${d.forKey}">＋ Tạo thế bi tập</button>`:'<span class="chip">Bài tập không cần thế bi</span>'}</div><div class="dc-desc">${esc(d.def.desc)}</div></div>`).join('')}
+  sec.innerHTML=`<div class="page-head"><h1>Error Patterns</h1><p class="sub">Combine practice-session data with match errors and recommend focused training.</p></div>
+    <div class="pattern-filter"><button data-range="7" class="${patternRange==='7'?'on':''}">7 days</button><button data-range="30" class="${patternRange==='30'?'on':''}">30 days</button><button data-range="all" class="${patternRange==='all'?'on':''}">All time</button></div>
+    <div class="pattern-filter" style="margin-top:-6px"><button data-src="all" class="${patternSource==='all'?'on':''}">All sources</button><button data-src="practice" class="${patternSource==='practice'?'on':''}">🎯 Practice</button><button data-src="match" class="${patternSource==='match'?'on':''}">🏆 Matches</button></div>
+    ${!data.total?'<div class="empty"><div class="big">🔎</div>No data in this range. Record practice shots or match errors so the app can identify patterns.</div>':`
+    <div class="card pattern-hero"><div class="pattern-hero-main"><div><span class="eyebrow">Leading error</span><div class="section-title" style="font-size:20px;margin-top:4px">${top?top.def.label:'No clear error yet'}</div><p class="hint">${top?top.def.analysis:'The current results do not form a clear trend yet.'}</p><div class="err-meta" style="margin-top:9px"><span class="src-tag practice">🎯 ${data.practiceN} practice shots</span><span class="src-tag match">🏆 ${data.matchN} match errors</span></div></div><div class="ph-count">${top?top.count:0}<small>out of ${data.total} shots/errors</small></div></div><div class="pattern-insight"><span>🧠</span><div><b>Analysis:</b> ${esc(buildPatternInsight(data))}</div></div></div>
+    ${drills.length?`<div class="card"><div class="section-title" style="margin-bottom:4px">Practice recommendations</div><p class="hint" style="margin-bottom:12px">Drills are selected from the most repeated errors. Creating one prebuilds the position, cue-ball target, tip contact, and stroke speed.</p>
+      ${drills.map(d=>`<div class="drill-card"><div class="dc-top"><div><div class="dc-for">Targets: ${esc(d.forLabel)} (${d.count} times)</div><div class="dc-name">${esc(d.def.name)}</div></div>${d.def.build?`<button class="btn btn-primary btn-sm" data-drill="${d.key}" data-for="${d.forKey}">＋ Create practice position</button>`:'<span class="chip">No fixed position required</span>'}</div><div class="dc-desc">${esc(d.def.desc)}</div></div>`).join('')}
     </div>`:''}
-    ${fixable.length?`<div class="card"><div class="section-title" style="margin-bottom:4px">Thế bi bắn lỗi trong trận</div><p class="hint" style="margin-bottom:10px">Tái hiện chính xác tình huống bạn đã hỏng — biến nó thành thế bi luyện tập để tập cho đến khi tự tin.</p>
-      ${fixable.map(r=>`<div class="err-item"><div class="err-ico">${kindIcon(r.err.kind)}</div><div><div class="err-name">${esc(kindLabel(r.err.kind))}</div><div class="err-meta"><span class="chip">${esc(r.match.opponent||'Đối thủ')}</span><span class="chip">${fmtDate(r.err.at.slice(0,10))}</span><span class="chip ${r.err.severity==='game'?'chip-danger':''}">${sevLabel(r.err.severity)}</span></div>${r.err.note?`<div class="err-note">${esc(r.err.note)}</div>`:''}<div class="err-mini">${matchErrorReplayTable(r.err)}</div></div><div class="err-actions"><button class="btn btn-primary btn-sm" data-fixerr="${r.err.id}" data-fixmatch="${r.match.id}">🎯 Tạo thế bi tập</button></div></div>`).join('')}
+    ${fixable.length?`<div class="card"><div class="section-title" style="margin-bottom:4px">Missed match positions</div><p class="hint" style="margin-bottom:10px">Recreate the exact failed situation and turn it into a practice position until it becomes reliable.</p>
+      ${fixable.map(r=>`<div class="err-item"><div class="err-ico">${kindIcon(r.err.kind)}</div><div><div class="err-name">${esc(kindLabel(r.err.kind))}</div><div class="err-meta"><span class="chip">${esc(r.match.opponent||'Opponent')}</span><span class="chip">${fmtDate(r.err.at.slice(0,10))}</span><span class="chip ${r.err.severity==='game'?'chip-danger':''}">${sevLabel(r.err.severity)}</span></div>${r.err.note?`<div class="err-note">${esc(r.err.note)}</div>`:''}<div class="err-mini">${matchErrorReplayTable(r.err)}</div></div><div class="err-actions"><button class="btn btn-primary btn-sm" data-fixerr="${r.err.id}" data-fixmatch="${r.match.id}">🎯 Create practice position</button></div></div>`).join('')}
     </div>`:''}
-    <div class="pattern-grid">${cards.map(x=>{ const sev=x.count>=3&&x.rate>=35?'high':x.count>=2||x.rate>=25?'mid':'low',sevTxt=sev==='high'?'Ưu tiên cao':sev==='mid'?'Cần theo dõi':'Mới xuất hiện'; return `<div class="pattern-card"><div class="pc-top"><div><span class="pattern-severity ${sev}">${sevTxt}</span><div class="pc-name" style="margin-top:8px">${x.def.label}</div><div class="hint">${x.def.category}</div></div><div><div class="pc-num">${x.count}</div><div class="pc-rate">${Math.round(x.rate)}% số lượt</div></div></div><div class="pc-analysis">${x.def.analysis}</div><div class="pc-fix"><b>Hướng sửa:</b> ${x.def.fix}</div></div>`; }).join('')}</div>
-    <div class="card"><div class="section-title" style="margin-bottom:10px">Tần suất tất cả lỗi</div>${data.patterns.length?`<div class="bars">${data.patterns.map(x=>`<div class="bar-row"><div class="bar-label" title="${x.def.label}">${x.def.label}</div><div class="bar-track"><div class="bar-fill ${x.def.category==='Mechanics'||x.def.category==='Tốc độ'?'mental':''}" style="width:${Math.min(100,x.rate)}%"></div></div><div class="bar-val">${x.count}</div></div>`).join('')}</div>`:'<div class="empty">Không phát hiện lỗi trong phạm vi này.</div>'}</div>
-    <div class="card"><div class="section-title">Thế bi cần ưu tiên</div><p class="hint" style="margin-bottom:8px">Tỉ lệ lượt tập có ít nhất một lỗi được ghi nhận.</p>${data.byPosition.map(x=>`<div class="pattern-position"><div><div class="pp-name">${esc(x.pos.name)}</div><div class="pp-sub">${x.bad}/${x.total} lượt có lỗi · thường gặp: ${x.top}</div></div><div class="pp-rate">${Math.round(x.rate)}%</div></div>`).join('')||'<div class="empty">Chưa có dữ liệu theo thế bi.</div>'}<div class="pattern-method">Phân tích rule-based từ dữ liệu bạn nhập, không thay thế đánh giá trực tiếp của HLV. Mẫu số ${data.total} = ${data.practiceN} lượt tập + ${data.matchN} lỗi thực chiến; lỗi trong trận chỉ được ghi khi bạn bắn hỏng nên tỉ lệ của nhóm này luôn cao hơn — hãy so sánh theo xu hướng thay vì con số tuyệt đối. Một lượt có thể đồng thời thuộc nhiều pattern.</div></div>`}`;
+    <div class="pattern-grid">${cards.map(x=>{ const sev=x.count>=3&&x.rate>=35?'high':x.count>=2||x.rate>=25?'mid':'low',sevTxt=sev==='high'?'High priority':sev==='mid'?'Monitor':'New pattern'; return `<div class="pattern-card"><div class="pc-top"><div><span class="pattern-severity ${sev}">${sevTxt}</span><div class="pc-name" style="margin-top:8px">${x.def.label}</div><div class="hint">${x.def.category}</div></div><div><div class="pc-num">${x.count}</div><div class="pc-rate">${Math.round(x.rate)}% of records</div></div></div><div class="pc-analysis">${x.def.analysis}</div><div class="pc-fix"><b>Correction:</b> ${x.def.fix}</div></div>`; }).join('')}</div>
+    <div class="card"><div class="section-title" style="margin-bottom:10px">All error frequencies</div>${data.patterns.length?`<div class="bars">${data.patterns.map(x=>`<div class="bar-row"><div class="bar-label" title="${x.def.label}">${x.def.label}</div><div class="bar-track"><div class="bar-fill ${x.def.category==='Mechanics'||x.def.category==='Speed'?'mental':''}" style="width:${Math.min(100,x.rate)}%"></div></div><div class="bar-val">${x.count}</div></div>`).join('')}</div>`:'<div class="empty">No errors detected in this range.</div>'}</div>
+    <div class="card"><div class="section-title">Positions to prioritize</div><p class="hint" style="margin-bottom:8px">Percentage of practice shots with at least one detected error.</p>${data.byPosition.map(x=>`<div class="pattern-position"><div><div class="pp-name">${esc(x.pos.name)}</div><div class="pp-sub">${x.bad}/${x.total} error shots · most common: ${x.top}</div></div><div class="pp-rate">${Math.round(x.rate)}%</div></div>`).join('')||'<div class="empty">No position-level data yet.</div>'}<div class="pattern-method">Rule-based analysis from your entries; it does not replace direct coaching. Sample size ${data.total} = ${data.practiceN} practice shots + ${data.matchN} match errors. Match errors are only logged after a failed shot, so their rate is naturally higher; compare trends rather than absolute percentages. One record may belong to multiple patterns.</div></div>`}`;
   sec.querySelectorAll('[data-range]').forEach(b=>b.addEventListener('click',()=>{ patternRange=b.dataset.range; renderPatterns(); }));
   sec.querySelectorAll('[data-src]').forEach(b=>b.addEventListener('click',()=>{ patternSource=b.dataset.src; renderPatterns(); }));
   sec.querySelectorAll('[data-drill]').forEach(b=>b.addEventListener('click',()=>{
     const p=createDrillPosition(b.dataset.drill,b.dataset.for);
-    if(p){ toast('Đã tạo thế bi luyện tập. Kiểm tra và lưu lại.'); go('practice'); startSetup(p.id); } }));
+    if(p){ toast('Practice position created. Review and save it.'); go('practice'); startSetup(p.id); } }));
   sec.querySelectorAll('[data-fixerr]').forEach(b=>b.addEventListener('click',()=>{
     const m=getMatch(b.dataset.fixmatch); const e=m&&m.errors.find(x=>x.id===b.dataset.fixerr);
-    if(m&&e){ const p=createPositionFromError(m,e); if(p){ toast('Đã tạo thế bi luyện tập từ tình huống thật.'); go('practice'); startSetup(p.id); } } }));
+    if(m&&e){ const p=createPositionFromError(m,e); if(p){ toast('Practice position created from the real match situation.'); go('practice'); startSetup(p.id); } } }));
 }
 
-/* ============================================================
-   TIẾN BỘ
-   ============================================================ */
+
 function renderProgress(){
   const sec=document.querySelector('section[data-view="progress"]');
   const positions=state.positions;
@@ -1949,84 +2041,79 @@ function renderProgress(){
   const speedKnown=allAtt.filter(a=>Number.isFinite(a.strokeSpeed)), speedMatch=speedKnown.filter(a=>a.speedOk).length;
   const rhythmKnown=allAtt.filter(a=>a.strokeRhythm), rhythmSmooth=rhythmKnown.filter(a=>a.strokeRhythm==='smooth').length;
   const avgStrokeSpeed=speedKnown.length?speedKnown.reduce((sum,a)=>sum+a.strokeSpeed,0)/speedKnown.length:0;
-  // theo ngày (7 ngày)
   const days=[]; for(let i=6;i>=0;i--){ const d=addDays(todayStr(),-i); const dayAtt=allAtt.filter(a=>(a.at||'').slice(0,10)===d);
     days.push({d, n:dayAtt.length, avg:dayAtt.length?dayAtt.reduce((s,a)=>s+a.score,0)/dayAtt.length:0}); }
   const maxN=Math.max(1,...days.map(x=>x.n));
-  // xếp hạng thế bi theo điểm TB
   const ranked=positions.map(p=>({p,st:positionStats(p)})).filter(x=>x.st.N>0).sort((a,b)=>a.st.avg-b.st.avg);
-  // thực chiến
   const mAll=state.matches||[], mDone=mAll.filter(m=>m.status==='completed'), mWin=mDone.filter(m=>matchResult(m)==='win').length;
   const mErr=mAll.flatMap(m=>m.errors||[]), mErrN=mErr.length, mKey=mErr.filter(e=>e.keyMoment).length;
   const mKC={}; mErr.forEach(e=>mKC[e.kind]=(mKC[e.kind]||0)+1);
   const mTop=Object.entries(mKC).sort((a,b)=>b[1]-a[1])[0];
   sec.innerHTML=`
-    <div class="page-head"><h1>Tiến bộ</h1><p class="sub">Tổng hợp toàn bộ cú đánh đã ghi trên mọi thế bi.</p></div>
+    <div class="page-head"><h1>Progress</h1><p class="sub">Summary of all recorded shots across every position.</p></div>
     <div class="grid-3" style="margin-bottom:16px">
-      <div class="metric"><div class="mv">${sessionN}</div><div class="ml">Tổng số phiên</div></div>
-      <div class="metric"><div class="mv">${N}</div><div class="ml">Tổng số cú</div></div>
-      <div class="metric"><div class="mv">${N?fmtScore(total/N):'—'}</div><div class="ml">Điểm TB/cú</div></div>
-      <div class="metric"><div class="mv">${N?Math.round(potted/N*100):0}%</div><div class="ml">Tỉ lệ vào lỗ</div></div>
-      <div class="metric"><div class="mv">${N?Math.round(cueOk/N*100):0}%</div><div class="ml">Kiểm soát bi cái</div></div>
-      <div class="metric"><div class="mv">${positions.length}</div><div class="ml">Thế bi đang tập</div></div>
-      <div class="metric"><div class="mv">${speedKnown.length?Math.round(speedMatch/speedKnown.length*100):0}%</div><div class="ml">Đúng tốc độ mục tiêu</div></div>
-      <div class="metric"><div class="mv">${speedKnown.length?fmtScore(avgStrokeSpeed):'—'}</div><div class="ml">Tốc độ TB / 5</div></div>
-      <div class="metric"><div class="mv">${rhythmKnown.length?Math.round(rhythmSmooth/rhythmKnown.length*100):0}%</div><div class="ml">Nhịp ra ngọn mượt</div></div>
+      <div class="metric"><div class="mv">${sessionN}</div><div class="ml">Total sessions</div></div>
+      <div class="metric"><div class="mv">${N}</div><div class="ml">Total shots</div></div>
+      <div class="metric"><div class="mv">${N?fmtScore(total/N):'—'}</div><div class="ml">Average points/shot</div></div>
+      <div class="metric"><div class="mv">${N?Math.round(potted/N*100):0}%</div><div class="ml">Pot rate</div></div>
+      <div class="metric"><div class="mv">${N?Math.round(cueOk/N*100):0}%</div><div class="ml">Cue-ball control</div></div>
+      <div class="metric"><div class="mv">${positions.length}</div><div class="ml">Active positions</div></div>
+      <div class="metric"><div class="mv">${speedKnown.length?Math.round(speedMatch/speedKnown.length*100):0}%</div><div class="ml">Target speed matched</div></div>
+      <div class="metric"><div class="mv">${speedKnown.length?fmtScore(avgStrokeSpeed):'—'}</div><div class="ml">Average speed / 5</div></div>
+      <div class="metric"><div class="mv">${rhythmKnown.length?Math.round(rhythmSmooth/rhythmKnown.length*100):0}%</div><div class="ml">Smooth stroke rhythm</div></div>
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:6px">Số cú tập 7 ngày qua</div>
-      <div class="days-chart">${days.map(x=>`<div class="day-col"><div class="day-bar" style="height:${x.n/maxN*90}px" title="${x.n} cú"></div><div class="day-lab">${fmtDate(x.d)}</div></div>`).join('')}</div>
+      <div class="section-title" style="margin-bottom:6px">Practice shots in the last 7 days</div>
+      <div class="days-chart">${days.map(x=>`<div class="day-col"><div class="day-bar" style="height:${x.n/maxN*90}px" title="${x.n} shots"></div><div class="day-lab">${fmtDate(x.d)}</div></div>`).join('')}</div>
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:6px">Thực chiến</div>
-      <p class="hint" style="margin-bottom:12px">Kỹ năng chỉ có giá trị khi giữ được lúc thi đấu. Nếu lỗi/trận không giảm dù điểm luyện tập tăng, vấn đề nằm ở ra quyết định hoặc tâm lý.</p>
+      <div class="section-title" style="margin-bottom:6px">Match play</div>
+      <p class="hint" style="margin-bottom:12px">Skill matters only when it holds up in competition. If errors per match do not fall while practice scores rise, the issue may be decision-making or pressure.</p>
       <div class="stats" style="margin-bottom:0">
-        <div class="stat"><div class="num">${mAll.length}</div><div class="lbl">Trận đã ghi</div></div>
-        <div class="stat"><div class="num c">${mDone.length?Math.round(mWin/mDone.length*100):0}%</div><div class="lbl">Tỉ lệ thắng</div></div>
-        <div class="stat"><div class="num a">${mAll.length?fmtScore(mErrN/mAll.length):'—'}</div><div class="lbl">Lỗi / trận</div></div>
-        <div class="stat"><div class="num">${mKey}</div><div class="lbl">Lỗi ở cú then chốt</div></div>
+        <div class="stat"><div class="num">${mAll.length}</div><div class="lbl">Matches recorded</div></div>
+        <div class="stat"><div class="num c">${mDone.length?Math.round(mWin/mDone.length*100):0}%</div><div class="lbl">Win rate</div></div>
+        <div class="stat"><div class="num a">${mAll.length?fmtScore(mErrN/mAll.length):'—'}</div><div class="lbl">Errors / match</div></div>
+        <div class="stat"><div class="num">${mKey}</div><div class="lbl">Errors on key shots</div></div>
       </div>
-      ${mTop?`<div class="stroke-summary"><span class="chip chip-danger">${kindIcon(mTop[0])} Hay hỏng nhất: ${kindLabel(mTop[0])} (${mTop[1]} lần)</span><span class="chip">${ERROR_DEFS[mTop[0]]?esc(ERROR_DEFS[mTop[0]].category):''}</span></div>`:''}
+      ${mTop?`<div class="stroke-summary"><span class="chip chip-danger">${kindIcon(mTop[0])} Most common: ${kindLabel(mTop[0])} (${mTop[1]} times)</span><span class="chip">${ERROR_DEFS[mTop[0]]?esc(ERROR_DEFS[mTop[0]].category):''}</span></div>`:''}
     </div>
     <div class="card">
-      <div class="section-title" style="margin-bottom:10px">Thế bi theo điểm trung bình</div>
+      <div class="section-title" style="margin-bottom:10px">Positions by average score</div>
       ${ranked.length?`<div class="bars">${ranked.map(x=>{const w=x.st.avg*100;return `<div class="bar-row"><div class="bar-label" title="${esc(x.p.name)}">${esc(x.p.name)}</div><div class="bar-track"><div class="bar-fill" style="width:${w}%"></div></div><div class="bar-val">${fmtScore(x.st.avg)}</div></div>`;}).join('')}</div>
-      <p class="hint" style="margin-top:10px">Thế bi ở trên cùng có điểm TB thấp nhất — nên ưu tiên luyện thêm.</p>`:'<div class="empty">Chưa có cú đánh nào. Vào “Luyện tập” để bắt đầu.</div>'}
+      <p class="hint" style="margin-top:10px">The positions at the top have the lowest average scores and should receive more practice.</p>`:'<div class="empty">No shots recorded yet. Open Practice to begin.</div>'}
     </div>`;
 }
 
-/* ============================================================
-   DỮ LIỆU
-   ============================================================ */
+
 function renderDataView(){
   const el=document.getElementById('dataSummary'); if(!el) return;
   const N=state.positions.reduce((s,p)=>s+p.attempts.length,0);
   const M=(state.matches||[]).length, ME=(state.matches||[]).reduce((s,m)=>s+(m.errors||[]).length,0);
-  el.innerHTML=`<div class="card"><div class="section-title" style="margin-bottom:10px">Tổng quan</div>
+  el.innerHTML=`<div class="card"><div class="section-title" style="margin-bottom:10px">Overview</div>
     <div class="stats" style="margin-bottom:0">
-      <div class="stat"><div class="num">${state.positions.length}</div><div class="lbl">Thế bi</div></div>
-      <div class="stat"><div class="num c">${(state.sessions||[]).length}</div><div class="lbl">Phiên tập</div></div>
-      <div class="stat"><div class="num a">${N}</div><div class="lbl">Cú đã ghi</div></div>
-      <div class="stat"><div class="num">${M}</div><div class="lbl">Trận đấu</div></div>
-      <div class="stat"><div class="num">${ME}</div><div class="lbl">Lỗi thực chiến</div></div>
+      <div class="stat"><div class="num">${state.positions.length}</div><div class="lbl">Positions</div></div>
+      <div class="stat"><div class="num c">${(state.sessions||[]).length}</div><div class="lbl">Practice sessions</div></div>
+      <div class="stat"><div class="num a">${N}</div><div class="lbl">Recorded shots</div></div>
+      <div class="stat"><div class="num">${M}</div><div class="lbl">Matches</div></div>
+      <div class="stat"><div class="num">${ME}</div><div class="lbl">Match errors</div></div>
     </div></div>`;
 }
 function bindDataButtons(){
   document.getElementById('exportBtn').addEventListener('click',()=>{
     const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
     const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`1percent-billiard-${todayStr()}.json`; a.click(); URL.revokeObjectURL(a.href);
-    toast('Đã export dữ liệu.'); });
+    toast('Data exported.'); });
   document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
   document.getElementById('importFile').addEventListener('change',e=>{ const f=e.target.files[0]; if(!f) return;
     const rd=new FileReader(); rd.onload=ev=>{ try{ const d=JSON.parse(ev.target.result);
       if(!d||!Array.isArray(d.positions)) throw new Error('bad');
-      if(confirm('Import sẽ thay thế toàn bộ dữ liệu hiện tại. Tiếp tục?')){ state=Object.assign(defaultState(),d); state.seeded=true; normalizeState(); save(); toast('Đã import.'); go('practice'); }
-    }catch(err){ toast('File không hợp lệ.'); } e.target.value=''; }; rd.readAsText(f); });
-  document.getElementById('clearDemoBtn').addEventListener('click',()=>{ if(confirm('Xoá toàn bộ thế bi, phiên tập và trận đấu hiện có?')){ state.positions=[]; state.sessions=[]; state.matches=[]; save(); toast('Đã xoá.'); renderDataView(); } });
-  document.getElementById('resetBtn').addEventListener('click',()=>{ if(confirm('Xoá TOÀN BỘ dữ liệu?')){ if(confirm('Chắc chắn? Không thể hoàn tác. Nên export trước.')){ state=defaultState(); state.seeded=true; save(); toast('Đã reset.'); go('practice'); } } });
+      if(confirm('Importing will replace all current data. Continue?')){ state=Object.assign(defaultState(),d); state.seeded=true; normalizeState(); save(); toast('Import completed.'); go('practice'); }
+    }catch(err){ toast('Invalid file.'); } e.target.value=''; }; rd.readAsText(f); });
+  document.getElementById('clearDemoBtn').addEventListener('click',()=>{ if(confirm('Delete all current positions, practice sessions, and matches?')){ state.positions=[]; state.sessions=[]; state.matches=[]; save(); toast('Deleted.'); renderDataView(); } });
+  document.getElementById('resetBtn').addEventListener('click',()=>{ if(confirm('Delete ALL data?')){ if(confirm('Are you sure? This cannot be undone. Export first if needed.')){ state=defaultState(); state.seeded=true; save(); toast('Reset completed.'); go('practice'); } } });
 }
 
-/* ---------- INIT ---------- */
+
 function init(){
   applyTheme(localStorage.getItem(THEME_KEY)||'dark');
   load();
